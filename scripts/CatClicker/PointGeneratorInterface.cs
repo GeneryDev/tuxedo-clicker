@@ -1,6 +1,7 @@
 ﻿using GDF.Data;
 using GDF.Util;
 using Godot;
+using System.Numerics;
 
 namespace CatClicker;
 
@@ -94,12 +95,32 @@ public partial class PointGeneratorInterface : Node, IDataContext
         return false;
     }
 
-    public decimal GetSinglePurchaseCost()
+    public bool GetContextString(string key, string input, ref string replacement, IDataQueryOptions options)
+    {
+        switch (key)
+        {
+            case "purchase_cost":
+            case "bulk_purchase_cost":
+            {
+                replacement = GameInterfaceManager.Instance.FormatNumber(GetBulkPurchaseCost());
+                return true;
+            }
+            case "single_purchase_cost":
+            {
+                replacement = GameInterfaceManager.Instance.FormatNumber(GetSinglePurchaseCost());
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public BigInteger GetSinglePurchaseCost()
     {
         return Definition.GetPointCostForLevel(GetCurrentState().Count);
     }
 
-    public decimal GetBulkPurchaseCost()
+    public BigInteger GetBulkPurchaseCost()
     {
         int currentCount = GetCurrentState().Count;
         Definition.TestMultiLevelCostFunction(currentCount, currentCount + GameInterfaceManager.Instance.GetBulkPurchaseAmount());
@@ -121,7 +142,7 @@ public partial class PointGeneratorInterface : Node, IDataContext
         if (!CanAffordSinglePurchase()) return;
         int countToPurchase = CanAffordBulkPurchase() ? GameInterfaceManager.Instance.GetBulkPurchaseAmount() : GetAffordableBulkCount();
         int currentCount = GetCurrentState().Count;
-        decimal totalCost = Definition.GetPointCostForLevels(currentCount, currentCount + countToPurchase);
+        BigInteger totalCost = Definition.GetPointCostForLevels(currentCount, currentCount + countToPurchase);
         Definition.TestMultiLevelCostFunction(currentCount, currentCount + countToPurchase);
         GameStateManager.Instance.AddGenerator(GeneratorId, countToPurchase);
         GameStateManager.Instance.WithdrawPoints(totalCost);
@@ -129,7 +150,7 @@ public partial class PointGeneratorInterface : Node, IDataContext
 
     private int GetAffordableBulkCount()
     {
-        decimal currentPoints = GameStateManager.Instance.GetCurrentState().Points;
+        BigInteger currentPoints = GameStateManager.Instance.GetCurrentState().Points;
         int currentCount = GetCurrentState().Count;
         int purchaseCount = GameInterfaceManager.Instance.GetBulkPurchaseAmount();
         while (purchaseCount > 0 && currentPoints < Definition.GetPointCostForLevels(currentCount, currentCount + purchaseCount))

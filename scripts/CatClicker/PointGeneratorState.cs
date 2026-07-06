@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using System.Numerics;
+using Godot;
 
 namespace CatClicker;
 
@@ -8,7 +9,7 @@ public struct PointGeneratorState
     public decimal SingleTickRate;
     public int Count;
     public double Phase;
-    public decimal PointsPerTick;
+    public BigInteger PointsPerTick;
 
     public decimal TotalTickRate => SingleTickRate * Count;
 }

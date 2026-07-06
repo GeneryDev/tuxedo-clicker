@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using Godot;
 
 namespace CatClicker;
@@ -6,7 +7,7 @@ namespace CatClicker;
 public struct GameState
 {
     public double UnixTimestampSec;
-    public decimal Points;
+    public BigInteger Points;
 
     public PointGeneratorState[] GeneratorStates;
 
@@ -14,7 +15,7 @@ public struct GameState
     {
         double delta = now - UnixTimestampSec;
 
-        decimal generatedPoints = 0;
+        BigInteger generatedPoints = 0;
         generatedPoints += AdvanceGenerators(GeneratorStates, delta, out var newGeneratorStates);
 
         return this with
@@ -25,7 +26,7 @@ public struct GameState
         };
     }
 
-    private static decimal AdvanceGenerators(PointGeneratorState[] generatorStates, double delta, out PointGeneratorState[] newGeneratorStates)
+    private static BigInteger AdvanceGenerators(PointGeneratorState[] generatorStates, double delta, out PointGeneratorState[] newGeneratorStates)
     {
         if (generatorStates == null)
         {
@@ -38,7 +39,7 @@ public struct GameState
             return 0;
         }
 
-        var generatedPoints = 0M;
+        var generatedPoints = BigInteger.Zero;
         newGeneratorStates = new PointGeneratorState[generatorStates.Length];
         
         for (var i = 0; i < generatorStates.Length; i++)
@@ -49,7 +50,7 @@ public struct GameState
         return generatedPoints;
     }
 
-    private static decimal AdvanceGenerator(PointGeneratorState generatorState, double delta, out PointGeneratorState newGeneratorState)
+    private static BigInteger AdvanceGenerator(PointGeneratorState generatorState, double delta, out PointGeneratorState newGeneratorState)
     {
         if (generatorState.TotalTickRate == 0)
         {
@@ -58,15 +59,15 @@ public struct GameState
         }
         decimal generationInterval = 1 / generatorState.TotalTickRate;
 
-        decimal totalTicks = (decimal)(delta + generatorState.Phase) / generationInterval;
-        var newPhase = (double)((totalTicks % 1) * generationInterval);
-        totalTicks = Math.Floor(totalTicks);
+        decimal totalTicksFractional = (decimal)(delta + generatorState.Phase) / generationInterval;
+        var newPhase = (double)((totalTicksFractional % 1) * generationInterval);
+        BigInteger totalTicksInt = new(Math.Floor(totalTicksFractional));
 
         newGeneratorState = generatorState with
         {
             Phase = newPhase
         };
-        return totalTicks * generatorState.PointsPerTick;
+        return totalTicksInt * generatorState.PointsPerTick;
     }
 
     private static T[] CopyArray<T>(T[] arr)

@@ -42,7 +42,7 @@ public partial class GameStateInterface : Node, IDataContext
         {
             case "points":
             {
-                output = (double)GetCurrentState().Points;
+                output = (long)GetCurrentState().Points;
                 return true;
             }
         }
@@ -56,7 +56,7 @@ public partial class GameStateInterface : Node, IDataContext
         {
             case "points":
             {
-                replacement = $"{GetCurrentState().Points} pets";
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points)} pets";
                 return true;
             }
         }

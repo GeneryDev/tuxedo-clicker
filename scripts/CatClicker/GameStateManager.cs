@@ -2,6 +2,7 @@
 using GDF.Data;
 using GDF.Util;
 using Godot;
+using System.Numerics;
 
 namespace CatClicker;
 
@@ -31,7 +32,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         State = new GameState()
         {
             UnixTimestampSec = Now,
-            Points = 0
+            Points = new System.Numerics.BigInteger(205008967533512230M)
         };
         var generatorStates = new List<PointGeneratorState>();
         foreach (var generator in PointGenerators.CollectAll(new()))
@@ -71,7 +72,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         }
     }
 
-    public bool WithdrawPoints(decimal amount)
+    public bool WithdrawPoints(BigInteger amount)
     {
         Step();
         if (State.Points >= amount)

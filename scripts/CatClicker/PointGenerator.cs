@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using GDF.Data;
 using Godot;
 
@@ -15,7 +16,7 @@ public partial class PointGenerator : Resource, IDataContext
     [Export] public double PointsPerTick = 1;
 
     [ExportGroup("Cost")]
-    [Export] public double BaseCost = 1;
+    [Export] public long BaseCost = 1;
     [Export] public double CostScalingPerLevel = 1.4f;
     
 
@@ -54,39 +55,40 @@ public partial class PointGenerator : Resource, IDataContext
             GeneratorId = Descriptor.Id,
             Count = 0,
             Phase = 0,
-            PointsPerTick = (decimal)PointsPerTick,
+            PointsPerTick = new BigInteger(PointsPerTick),
             SingleTickRate = (decimal)TickRate
         };
     }
 
-    public decimal GetPointCostForLevel(int level)
+    public BigInteger GetPointCostForLevel(int level)
     {
-        return Math.Floor(GetPrecisePointCostForLevel(level));
+        return new BigInteger(Math.Floor(GetPrecisePointCostForLevel(level)));
     }
 
     public decimal GetPrecisePointCostForLevel(int level)
     {
-        return (decimal)BaseCost * (decimal)Mathf.Pow(CostScalingPerLevel, level);
+        return BaseCost * (decimal)Mathf.Pow(CostScalingPerLevel, level);
     }
 
-    public decimal GetPointCostForLevels(int fromLevel, int toLevel) // inclusive, exclusive
+    public BigInteger GetPointCostForLevels(int fromLevel, int toLevel) // inclusive, exclusive
     {
         return GetCumulativePointCostToLevel(toLevel - 1) - GetCumulativePointCostToLevel(fromLevel-1);
     }
 
-    public decimal GetCumulativePointCostToLevel(int level)
+    public BigInteger GetCumulativePointCostToLevel(int level)
     {
-        return Math.Floor((decimal)BaseCost * ((decimal)(Mathf.Pow(CostScalingPerLevel, level+1) - 1)) / (decimal)(CostScalingPerLevel - 1));
+        return new BigInteger(Math.Floor(BaseCost *
+            (Mathf.Pow(CostScalingPerLevel, level + 1) - 1) / (CostScalingPerLevel - 1)));
     }
 
     public void TestMultiLevelCostFunction(int fromLevel, int toLevel) // inclusive, exclusive
     {
-        // var bruteForceSolution = 0M;
-        // for (var i = fromLevel; i < toLevel; i++) bruteForceSolution += GetPrecisePointCostForLevel(i);
-        // bruteForceSolution = Math.Round(bruteForceSolution);
+        // var bruteForceSum = 0M;
+        // for (int i = fromLevel; i < toLevel; i++) bruteForceSum += GetPrecisePointCostForLevel(i);
+        // var bruteForceSolution = new BigInteger(Math.Round(bruteForceSum));
         //
-        // decimal fastSolution = GetPointCostForLevels(fromLevel, toLevel);
-        // if (Math.Abs(bruteForceSolution - fastSolution) > 1)
+        // BigInteger fastSolution = GetPointCostForLevels(fromLevel, toLevel);
+        // if (BigInteger.Abs(bruteForceSolution - fastSolution) > 1)
         // {
         //     GD.PrintErr($"Multi level cost function failed for inputs {fromLevel}, {toLevel}. Expected: {bruteForceSolution}; Actual: {fastSolution}");
         // }
