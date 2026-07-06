@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://b7dsy0phykxa2"]
+
+[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_nvyts"]
+[ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_v4b7u"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_ngerl"]
+
+[node name="MainScreen" type="Control" unique_id=1599050281 node_paths=PackedStringArray("UserInterface")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_nvyts")
+Mode = 1
+AutomaticLayering = false
+UserInterface = NodePath("UserInterface")
+metadata/_custom_type_script = "uid://bko61fppga1kx"
+
+[node name="UserInterface" type="Node" parent="." unique_id=1626339571]
+script = ExtResource("2_v4b7u")
+metadata/_custom_type_script = "uid://c671jqyj6hfvr"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2121992238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=534946788]
+layout_mode = 2
+
+[node name="MainPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1278070459]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sidebar" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=937194687]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Sidebar" unique_id=264950905]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer" unique_id=1516239829]
+layout_mode = 2
+
+[node name="Upgrade List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer" unique_id=664724473]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List" unique_id=1487550330]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List/Button" unique_id=509537773]
+script = ExtResource("3_ngerl")
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Button2" type="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List" unique_id=269440552]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List/Button2" unique_id=1099683708]
+script = ExtResource("3_ngerl")
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List" unique_id=2018018462]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List/Button3" unique_id=1942031969]
+script = ExtResource("3_ngerl")
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List" unique_id=2003917136]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List/Button4" unique_id=1552333803]
+script = ExtResource("3_ngerl")
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Button5" type="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List" unique_id=847781795]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Upgrade List/Button5" unique_id=1859991974]
+script = ExtResource("3_ngerl")
+metadata/_custom_type_script = "uid://bfppi36isqkgt"

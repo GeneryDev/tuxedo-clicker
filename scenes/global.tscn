@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://datgcvoxs8dv1"]
+
+[ext_resource type="Script" uid="uid://cqtokr6spdybx" path="res://addons/gdf-godot/GDF/Debug/DebugCommandSystem.cs" id="1_nmxvb"]
+[ext_resource type="Script" uid="uid://b4ofd058miqfc" path="res://scripts/CatClicker/SinglePlayerRoom.cs" id="2_mmyj5"]
+[ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
+[ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
+[ext_resource type="Script" uid="uid://6n3qkca1aw3h" path="res://addons/gdf-godot/GDF/Networking/GdfRpcSystem.cs" id="3_6rlim"]
+[ext_resource type="Script" uid="uid://5krjgh5qqo37" path="res://addons/gdf-godot/GDF/PropertyStacks/GlobalPropertyStack.cs" id="3_m3l3d"]
+[ext_resource type="Script" uid="uid://dchytqeoyxkj" path="res://addons/gdf-godot/GDF/UI/ScreenStack.cs" id="4_nelfd"]
+[ext_resource type="Script" uid="uid://cjjjip5vkuwkj" path="res://addons/gdf-godot/GDF/PropertyStacks/Definitions/Specialized/MouseModeProperty.cs" id="5_bv183"]
+[ext_resource type="Resource" uid="uid://d161k2ge6g0g4" path="res://addons/gdf-godot/resources/property_registries/input_group_properties.tres" id="5_x8cda"]
+[ext_resource type="Script" uid="uid://c0catxx0gwuor" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyRegistry.cs" id="6_bv183"]
+[ext_resource type="Script" uid="uid://t37ys1o2wvx4" path="res://addons/gdf-godot/GDF/PropertyStacks/Definitions/BoolProperty.cs" id="6_wokaa"]
+[ext_resource type="Script" uid="uid://bituwxio8sdy4" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyStackWatcher.cs" id="8_5rvs8"]
+
+[sub_resource type="Resource" id="Resource_wokaa"]
+resource_name = "mouse_mode [MouseModeProperty]"
+script = ExtResource("5_bv183")
+PropertyId = "mouse_mode"
+metadata/_custom_type_script = "uid://cjjjip5vkuwkj"
+
+[sub_resource type="Resource" id="Resource_2se67"]
+resource_name = "paused [BoolProperty]"
+script = ExtResource("6_wokaa")
+DefaultOperator = 4
+PropertyId = "paused"
+metadata/_custom_type_script = "uid://t37ys1o2wvx4"
+
+[sub_resource type="Resource" id="Resource_5rvs8"]
+script = ExtResource("6_bv183")
+Definitions = Array[Object]([SubResource("Resource_wokaa"), SubResource("Resource_2se67")])
+OtherRegistries = Array[Object]([ExtResource("5_x8cda")])
+metadata/_custom_type_script = "uid://c0catxx0gwuor"
+
+[node name="Global" type="Node" unique_id=1844731706]
+
+[node name="Room" type="Node" parent="." unique_id=865892212]
+script = ExtResource("2_mmyj5")
+metadata/_custom_type_script = "uid://b4ofd058miqfc"
+
+[node name="GdfInputSystem" type="Node" parent="." unique_id=1585912903]
+script = ExtResource("2_nelfd")
+metadata/_custom_type_script = "uid://crj48tyk0nmvf"
+
+[node name="GdfRpcSystem" type="Node" parent="." unique_id=518300301]
+script = ExtResource("3_6rlim")
+metadata/_custom_type_script = "uid://6n3qkca1aw3h"
+
+[node name="GlobalPropertyStack" type="Node" parent="." unique_id=41227692]
+script = ExtResource("3_m3l3d")
+PropertyRegistry = SubResource("Resource_5rvs8")
+OverrideDefaultValues = Dictionary[String, Variant]({})
+metadata/_custom_type_script = "uid://5krjgh5qqo37"
+
+[node name="PropertyStackWatcher [Idle]" type="Node" parent="." unique_id=1423293860 node_paths=PackedStringArray("Stack")]
+script = ExtResource("8_5rvs8")
+Stack = NodePath("../GlobalPropertyStack")
+PausedPropertyId = "paused"
+MouseModePropertyId = "mouse_mode"
+metadata/_custom_type_script = "uid://bituwxio8sdy4"
+
+[node name="GlobalAudioPlayerPool" type="Node" parent="." unique_id=665342547]
+script = ExtResource("2_opebo")
+metadata/_custom_type_script = "uid://b4vyis3udrf41"
+
+[node name="ScreenStack" type="Control" parent="." unique_id=245332514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_nelfd")
+metadata/_custom_type_script = "uid://dchytqeoyxkj"
+
+[node name="DebugCommandSystem" type="Node" parent="." unique_id=709519784]
+script = ExtResource("1_nmxvb")
+metadata/_custom_type_script = "uid://cqtokr6spdybx"
