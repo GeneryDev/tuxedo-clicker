@@ -23,6 +23,10 @@ Global="*uid://datgcvoxs8dv1"
 
 project/assembly_name="Cat Clicker"
 
+[editor]
+
+naming/default_signal_callback_name="Trigger"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/advanced_scene_tabs/plugin.cfg", "res://addons/gdf-godot/plugin.cfg")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://datgcvoxs8dv1"]
 
 [ext_resource type="Script" uid="uid://cqtokr6spdybx" path="res://addons/gdf-godot/GDF/Debug/DebugCommandSystem.cs" id="1_nmxvb"]
+[ext_resource type="Script" uid="uid://cjdn80g66fgj5" path="res://scripts/CatClicker/PointGenerators.cs" id="2_2se67"]
 [ext_resource type="Script" uid="uid://b4ofd058miqfc" path="res://scripts/CatClicker/SinglePlayerRoom.cs" id="2_mmyj5"]
 [ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
 [ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c0catxx0gwuor" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyRegistry.cs" id="6_bv183"]
 [ext_resource type="Script" uid="uid://t37ys1o2wvx4" path="res://addons/gdf-godot/GDF/PropertyStacks/Definitions/BoolProperty.cs" id="6_wokaa"]
 [ext_resource type="Script" uid="uid://bituwxio8sdy4" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyStackWatcher.cs" id="8_5rvs8"]
+[ext_resource type="Script" uid="uid://3u6er6in4p4a" path="res://scripts/CatClicker/GameStateManager.cs" id="14_7upwp"]
 
 [sub_resource type="Resource" id="Resource_wokaa"]
 resource_name = "mouse_mode [MouseModeProperty]"
@@ -33,6 +35,11 @@ OtherRegistries = Array[Object]([ExtResource("5_x8cda")])
 metadata/_custom_type_script = "uid://c0catxx0gwuor"
 
 [node name="Global" type="Node" unique_id=1844731706]
+
+[node name="Resource Libraries" type="Node" parent="." unique_id=2020226740]
+
+[node name="Point Generators" type="Node" parent="Resource Libraries" unique_id=946283905]
+script = ExtResource("2_2se67")
 
 [node name="Room" type="Node" parent="." unique_id=865892212]
 script = ExtResource("2_mmyj5")
@@ -77,3 +84,6 @@ metadata/_custom_type_script = "uid://dchytqeoyxkj"
 [node name="DebugCommandSystem" type="Node" parent="." unique_id=709519784]
 script = ExtResource("1_nmxvb")
 metadata/_custom_type_script = "uid://cqtokr6spdybx"
+
+[node name="Game State Manager" type="Node" parent="." unique_id=1789383041]
+script = ExtResource("14_7upwp")
