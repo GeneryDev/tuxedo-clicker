@@ -68,4 +68,16 @@ public partial class GameStateInterface : Node, IDataContext
     {
         GameStateManager.Instance.Click();
     }
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        GameStateManager.Instance.Updated += EmitSignalUpdated;
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        GameStateManager.Instance.Updated -= EmitSignalUpdated;
+    }
 }

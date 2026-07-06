@@ -10,9 +10,8 @@ public struct GameState
 
     public PointGeneratorState[] GeneratorStates;
 
-    public GameState Advance()
+    public GameState AdvanceTo(double now)
     {
-        double now = Time.GetUnixTimeFromSystem();
         double delta = now - UnixTimestampSec;
 
         decimal generatedPoints = 0;

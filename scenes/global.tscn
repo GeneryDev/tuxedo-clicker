@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://t37ys1o2wvx4" path="res://addons/gdf-godot/GDF/PropertyStacks/Definitions/BoolProperty.cs" id="6_wokaa"]
 [ext_resource type="Script" uid="uid://bituwxio8sdy4" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyStackWatcher.cs" id="8_5rvs8"]
 [ext_resource type="Script" uid="uid://3u6er6in4p4a" path="res://scripts/CatClicker/GameStateManager.cs" id="14_7upwp"]
+[ext_resource type="Script" uid="uid://bguagy6f8anx0" path="res://scripts/CatClicker/GameInterfaceManager.cs" id="15_e7lx3"]
 
 [sub_resource type="Resource" id="Resource_wokaa"]
 resource_name = "mouse_mode [MouseModeProperty]"
@@ -87,3 +88,6 @@ metadata/_custom_type_script = "uid://cqtokr6spdybx"
 
 [node name="Game State Manager" type="Node" parent="." unique_id=1789383041]
 script = ExtResource("14_7upwp")
+
+[node name="Game Interface Manager" type="Node" parent="." unique_id=1300401878]
+script = ExtResource("15_e7lx3")

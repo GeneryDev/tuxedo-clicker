@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_8q6em")
 DisplayName = "Shelter"
+BaseCost = 50.0
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

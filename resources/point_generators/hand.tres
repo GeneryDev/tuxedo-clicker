@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_3lre2")
 DisplayName = "Hand"
+BaseCost = 10.0
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

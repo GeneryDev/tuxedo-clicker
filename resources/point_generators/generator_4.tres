@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_ox3jh")
 DisplayName = "Generator 4"
+BaseCost = 100.0
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

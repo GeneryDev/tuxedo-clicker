@@ -17,8 +17,180 @@ metadata/_custom_type_script = "uid://ol1wwcdce7t2"
 [sub_resource type="Resource" id="Resource_owvq4"]
 script = ExtResource("4_8xxn1")
 BaseFontSize = 32
-ContentWidthThresholdToShrinkSubsequentLines = 100
+ContentWidthThresholdToShrink = 80
+ContentWidthThresholdToShrinkSubsequentLines = 80
 metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="Resource" id="Resource_qugwo"]
+script = ExtResource("4_8xxn1")
+BaseFontSize = 32
+ContentWidthThresholdToShrink = 50
+ContentWidthThresholdToShrinkSubsequentLines = 50
+metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="Animation" id="Animation_xic20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qugwo"]
+resource_name = "can_afford_bulk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.21599999, 0.8, 0.2841334, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_tmovg"]
+resource_name = "can_afford_single"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.32999998, 0.41933322, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+
+[sub_resource type="Animation" id="Animation_ux4xf"]
+resource_name = "cannot_afford"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.32999998, 0.41933322, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuxqo"]
+_data = {
+&"RESET": SubResource("Animation_xic20"),
+&"can_afford_bulk": SubResource("Animation_qugwo"),
+&"can_afford_single": SubResource("Animation_tmovg"),
+&"cannot_afford": SubResource("Animation_ux4xf")
+}
 
 [node name="Button" type="Button" unique_id=784526635]
 custom_minimum_size = Vector2(0, 80)
@@ -62,9 +234,11 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1482321458]
+custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 texture = ExtResource("3_abl8f")
-expand_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Texture Binding" type="Node" parent="MarginContainer/HBoxContainer/Icon" unique_id=50298939 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("3_owvq4")
@@ -75,28 +249,73 @@ TargetNode = NodePath("..")
 TargetPropertyName = "texture"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=274512255 node_paths=PackedStringArray("DataContext")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1041497491]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Name Label" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=274512255 node_paths=PackedStringArray("DataContext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
+theme_override_constants/line_separation = -4
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+fit_content = true
 vertical_alignment = 1
 script = ExtResource("4_di5gf")
 TextFormat = "{name}"
-DataContext = NodePath("../../../Generator Data")
+DataContext = NodePath("../../../../Generator Data")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_owvq4")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=764924538 node_paths=PackedStringArray("DataContext")]
+layout_mode = 2
+mouse_filter = 2
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_di5gf")
+TextFormat = "{bulk_purchase_cost}"
+DataContext = NodePath("../../../../Generator Interface")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Count Label" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1066493297 node_paths=PackedStringArray("DataContext")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_di5gf")
+TextFormat = "{count}"
+DataContext = NodePath("../../../Generator Interface")
+UsePostProcessing = true
+PostProcessors = [SubResource("Resource_qugwo")]
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Visibility Binding" type="Node" parent="MarginContainer/HBoxContainer/Count Label" unique_id=1748907202 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_owvq4")
+DataContext = NodePath("../../../../Generator Interface")
+Query = "{count} > 0"
+TargetNode = NodePath("..")
+TargetPropertyName = "visible"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="UserInterfaceComponent" type="Node" parent="." unique_id=2134190632]
 script = ExtResource("1_fe2ks")
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2022449405]
+visible = false
 custom_minimum_size = Vector2(0, 6)
 layout_mode = 1
 anchors_preset = -1
@@ -114,3 +333,25 @@ Query = "{progress} * 100"
 TargetNode = NodePath("..")
 TargetPropertyName = "value"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Purchaseability" type="AnimationPlayer" parent="." unique_id=1966369647]
+libraries/ = SubResource("AnimationLibrary_xuxqo")
+
+[node name="Current Animation Binding" type="Node" parent="Purchaseability" unique_id=1349826524 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_owvq4")
+DataContext = NodePath("../../Generator Interface")
+Query = "1*int({can_afford_single}) + 2*int({can_afford_bulk})"
+ValueMappingEnabled = true
+ValueMappings = {
+0: "cannot_afford",
+1: "can_afford_single",
+2: "impossible",
+3: "can_afford_bulk"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[connection signal="Submitted" from="UserInterfaceComponent" to="Generator Interface" method="Purchase" flags=3]

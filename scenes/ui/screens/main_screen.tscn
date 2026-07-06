@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_pq4e1"]
 [ext_resource type="PackedScene" uid="uid://bdunyve28ljd6" path="res://scenes/ui/elements/generator_button.tscn" id="4_bvx0v"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="5_sw3t3"]
+[ext_resource type="PackedScene" uid="uid://ckxkjnnn77uqi" path="res://scenes/ui/elements/bulk_store_button.tscn" id="8_d74qc"]
 
 [sub_resource type="Resource" id="Resource_41dup"]
 script = ExtResource("5_sw3t3")
@@ -107,22 +108,50 @@ script = ExtResource("3_l6q0j")
 LibraryTypeString = "PointGenerator"
 metadata/_custom_type_script = "uid://bwjl50hav4euk"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer" unique_id=1516239829]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer" unique_id=1422461659]
 layout_mode = 2
 
-[node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer" unique_id=1852111951 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer" unique_id=1578150477]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel" unique_id=1339578291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1958264304 instance=ExtResource("8_d74qc")]
+layout_mode = 2
+
+[node name="Button2" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel/HBoxContainer" unique_id=285488611 instance=ExtResource("8_d74qc")]
+layout_mode = 2
+Amount = 10
+
+[node name="Button3" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel/HBoxContainer" unique_id=1857390433 instance=ExtResource("8_d74qc")]
+layout_mode = 2
+Amount = 100
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer" unique_id=1516239829]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1852111951 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
 script = ExtResource("3_bvx0v")
-DataContext = NodePath("../../Point Generators")
-CollectionQuery = "{all}"
+DataContext = NodePath("../../../Point Generators")
+CollectionQuery = "{all} {_collection:sort_stable:{base_cost}}"
 DefaultTemplate = NodePath("../Generator List/NodeTemplate")
 metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
 
-[node name="Generator List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer" unique_id=664724473]
+[node name="Generator List" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/ScrollContainer" unique_id=664724473]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/ScrollContainer/Generator List" unique_id=409247956]
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/ScrollContainer/Generator List" unique_id=409247956]
 script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("4_bvx0v")
 PreviewCount = 8

@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_fkfgs")
 DisplayName = "Generator 5"
+BaseCost = 100.0
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

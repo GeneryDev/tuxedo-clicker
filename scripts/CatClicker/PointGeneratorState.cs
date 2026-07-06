@@ -1,8 +1,10 @@
-﻿namespace CatClicker;
+﻿using Godot;
+
+namespace CatClicker;
 
 public struct PointGeneratorState
 {
-    public string GeneratorId;
+    public StringName GeneratorId;
     public decimal SingleTickRate;
     public int Count;
     public double Phase;
