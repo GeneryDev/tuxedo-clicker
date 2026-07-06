@@ -1,3 +1,6 @@
 [submodule "addons/gdf-godot"]
 	path = addons/gdf-godot
 	url = https://github.com/GeneryDev/gdf-godot.git
+[submodule "addons/advanced_scene_tabs"]
+	path = addons/advanced_scene_tabs
+	url = https://github.com/GeneryDev/advanced-scene-tabs
