@@ -1,0 +1,3 @@
+[submodule "addons/gdf-godot"]
+	path = addons/gdf-godot
+	url = https://github.com/GeneryDev/gdf-godot.git
