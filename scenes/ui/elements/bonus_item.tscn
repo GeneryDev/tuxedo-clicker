@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="1_njqcl"]
 [ext_resource type="Script" uid="uid://bxmjqnvan2trq" path="res://addons/gdf-godot/GDF/Logical/CallableChain.cs" id="2_dyt62"]
 [ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="2_j0fgn"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateInterface.cs" id="3_aeqjx"]
 [ext_resource type="Script" uid="uid://b2pa2urnvprft" path="res://addons/gdf-godot/GDF/Logical/Values/ObjectCallable.cs" id="3_rteb1"]
 [ext_resource type="Script" uid="uid://mx32dultovew" path="res://addons/gdf-godot/GDF/Logical/Values/ValueFromNodePath.cs" id="4_hfqk4"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="5_rteb1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yght"]
 content_margin_left = 0.0
@@ -21,13 +21,13 @@ corner_detail = 5
 
 [sub_resource type="Resource" id="Resource_u82cf"]
 script = ExtResource("4_hfqk4")
-NodePath = NodePath("../../Game State Interface/Apply Frenzy")
+NodePath = NodePath("../../Game State Functions/Apply Frenzy")
 
 [sub_resource type="Resource" id="Resource_11smm"]
 script = ExtResource("3_rteb1")
 Target = SubResource("Resource_u82cf")
 Method = &"Trigger"
-Args = null
+Args = []
 metadata/_custom_type_script = "uid://b2pa2urnvprft"
 
 [sub_resource type="Resource" id="Resource_ll165"]
@@ -38,7 +38,7 @@ NodePath = NodePath("../../AnimationPlayer/Play Collect")
 script = ExtResource("3_rteb1")
 Target = SubResource("Resource_ll165")
 Method = &"Trigger"
-Args = null
+Args = []
 metadata/_custom_type_script = "uid://b2pa2urnvprft"
 
 [sub_resource type="Animation" id="Animation_j0fgn"]
@@ -370,11 +370,10 @@ script = ExtResource("2_dyt62")
 Callables = Array[ExtResource("3_rteb1")]([SubResource("Resource_11smm"), SubResource("Resource_6jsnr")])
 metadata/_custom_type_script = "uid://bxmjqnvan2trq"
 
-[node name="Game State Interface" type="Node" parent="." unique_id=1709666833]
-script = ExtResource("3_aeqjx")
-RefreshInterval = 1.0
+[node name="Game State Functions" type="Node" parent="." unique_id=1709666833]
+script = ExtResource("5_rteb1")
 
-[node name="Apply Frenzy" type="Node" parent="Game State Interface" unique_id=1480888120 node_paths=PackedStringArray("Target")]
+[node name="Apply Frenzy" type="Node" parent="Game State Functions" unique_id=1480888120 node_paths=PackedStringArray("Target")]
 script = ExtResource("2_j0fgn")
 Target = NodePath("..")
 Method = &"GainEffect"

@@ -26,7 +26,7 @@ public partial struct GameState
     public GameState AdvanceBy(double delta)
     {
         var newState = this;
-        while (delta > 0 && GetRequiredIntermediateStep(delta) is var stepDelta)
+        while (delta > 0 && newState.GetRequiredIntermediateStep(delta) is var stepDelta)
         {
             newState = newState.AdvanceOnce(stepDelta);
             delta -= stepDelta;
@@ -118,11 +118,6 @@ public partial struct GameState
         if (effectStates == null)
         {
             newEffectStates = null;
-            return;
-        }
-        if (delta == 0)
-        {
-            newEffectStates = CopyArray(effectStates);
             return;
         }
 

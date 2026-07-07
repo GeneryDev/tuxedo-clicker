@@ -1,43 +1,26 @@
 ﻿using GDF.Data;
-using GDF.Util;
+using GDF.Data.Static;
 using Godot;
 using System.Numerics;
+using GDF.Util;
 
 namespace CatClicker;
 
-public partial class PointGeneratorInterface : Node, IDataContext
+[StaticDataContext("point_generator_state")]
+public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<PointGeneratorStateContext>
 {
-    [Signal]
-    public delegate void UpdatedEventHandler();
+    public StringName GeneratorId;
 
-    public StringName UpdatedSignalName => SignalName.Updated;
-    
-    [Export] public StringName GeneratorId = "";
-    
-    [Export] public float RefreshInterval = 0.1f;
-    private Accumulator _refreshTimer;
-
-    public override void _Process(double delta)
+    public PointGeneratorStateContext(StringName generatorId)
     {
-        base._Process(delta);
-        _refreshTimer.Add((float)delta);
-        var shouldRefresh = false;
-        while (_refreshTimer.Consume(RefreshInterval))
-        {
-            shouldRefresh = true;
-        }
-        if(shouldRefresh) Refresh();
+        GeneratorId = generatorId;
     }
 
     public PointGenerator Definition => PointGenerators.FromId(GeneratorId).Resource;
-
-    private void Refresh()
-    {
-        EmitSignalUpdated();
-    }
     
-    private PointGeneratorState GetCurrentState()
+    public PointGeneratorState GetCurrentState()
     {
+        if (!GameStateManager.InstanceExists) return default;
         var gameState = GameStateManager.Instance.GetCurrentState();
         foreach (var state in gameState.GeneratorStates)
         {
@@ -56,6 +39,7 @@ public partial class PointGeneratorInterface : Node, IDataContext
 
     public bool GetContextVariable(string key, string input, ref Variant output, IDataQueryOptions options)
     {
+        if (!GameStateManager.InstanceExists) return false;
         switch (key)
         {
             case "progress":
@@ -97,6 +81,7 @@ public partial class PointGeneratorInterface : Node, IDataContext
 
     public bool GetContextString(string key, string input, ref string replacement, IDataQueryOptions options)
     {
+        if (!GameStateManager.InstanceExists) return false;
         switch (key)
         {
             case "purchase_cost":
@@ -114,6 +99,11 @@ public partial class PointGeneratorInterface : Node, IDataContext
 
         return false;
     }
+    
+    public int GetCount()
+    {
+        return GetCurrentState().Count;
+    }
 
     public BigInteger GetSinglePurchaseCost()
     {
@@ -129,31 +119,23 @@ public partial class PointGeneratorInterface : Node, IDataContext
 
     public bool CanAffordSinglePurchase()
     {
+        if (!GameStateManager.InstanceExists) return false;
         return GameStateManager.Instance.GetCurrentState().Points >= GetSinglePurchaseCost();
     }
 
     public bool CanAffordBulkPurchase()
     {
+        if (!GameStateManager.InstanceExists) return false;
         return GameStateManager.Instance.GetCurrentState().Points >= GetBulkPurchaseCost();
     }
 
-    public void Purchase()
+    public int GetAffordableBulkCount()
     {
-        if (!CanAffordSinglePurchase()) return;
-        int countToPurchase = CanAffordBulkPurchase() ? GameInterfaceManager.Instance.GetBulkPurchaseAmount() : GetAffordableBulkCount();
-        int currentCount = GetCurrentState().Count;
-        BigInteger totalCost = Definition.GetPointCostForLevels(currentCount, currentCount + countToPurchase);
-        Definition.TestMultiLevelCostFunction(currentCount, currentCount + countToPurchase);
-        GameStateManager.Instance.AddGenerator(GeneratorId, countToPurchase);
-        GameStateManager.Instance.WithdrawPoints(totalCost);
-    }
-
-    private int GetAffordableBulkCount()
-    {
+        var state = new PointGeneratorStateContext(GeneratorId);
         BigInteger currentPoints = GameStateManager.Instance.GetCurrentState().Points;
-        int currentCount = GetCurrentState().Count;
+        int currentCount = state.GetCount();
         int purchaseCount = GameInterfaceManager.Instance.GetBulkPurchaseAmount();
-        while (purchaseCount > 0 && currentPoints < Definition.GetPointCostForLevels(currentCount, currentCount + purchaseCount))
+        while (purchaseCount > 0 && currentPoints < state.Definition.GetPointCostForLevels(currentCount, currentCount + purchaseCount))
         {
             purchaseCount--;
         }
@@ -161,15 +143,22 @@ public partial class PointGeneratorInterface : Node, IDataContext
         return purchaseCount;
     }
 
-    public override void _EnterTree()
+    public void ConnectUpdateSignal(Callable callable)
     {
-        base._EnterTree();
-        GameStateManager.Instance.Updated += EmitSignalUpdated;
+        if (!GameStateManager.InstanceExists) return;
+        GameStateManager.Instance.TryConnect(GameStateManager.SignalName.Updated, callable);
     }
 
-    public override void _ExitTree()
+    public void DisconnectUpdateSignal(Callable callable)
     {
-        base._ExitTree();
-        GameStateManager.Instance.Updated -= EmitSignalUpdated;
+        if (!GameStateManager.InstanceExists) return;
+        GameStateManager.Instance.TryDisconnect(GameStateManager.SignalName.Updated, callable);
     }
+
+    public bool EqualsContext(PointGeneratorStateContext otherCtx)
+    {
+        return this.GeneratorId == otherCtx.GeneratorId;
+    }
+
+    public bool CanCache() => true;
 }

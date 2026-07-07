@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="1_fe2ks"]
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_kw2wh"]
-[ext_resource type="Script" uid="uid://b6r30cwtmb8sk" path="res://scripts/CatClicker/PointGeneratorInterface.cs" id="2_xic20"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_qugwo"]
 [ext_resource type="Texture2D" uid="uid://c8nopga08yl73" path="res://icon.svg" id="3_abl8f"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_owvq4"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="4_8xxn1"]
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="4_di5gf"]
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="4_oatpg"]
+[ext_resource type="Script" uid="uid://b6r30cwtmb8sk" path="res://scripts/CatClicker/PointGeneratorFunctions.cs" id="4_qugwo"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_tmovg"]
 
 [sub_resource type="Resource" id="Resource_xic20"]
 script = ExtResource("4_oatpg")
@@ -33,7 +35,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost:theme_override_colors/default_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +74,7 @@ resource_name = "can_afford_bulk"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost:theme_override_colors/default_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +113,7 @@ resource_name = "can_afford_single"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost:theme_override_colors/default_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,7 +152,7 @@ resource_name = "cannot_afford"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/FormattedLabel:theme_override_colors/default_color")
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost:theme_override_colors/default_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -204,11 +206,28 @@ DefaultCollections = {}
 EditorPreviewVariables = {}
 metadata/_custom_type_script = "uid://k8suh3w0dagg"
 
-[node name="Generator Interface" type="Node" parent="." unique_id=934624344]
-script = ExtResource("2_xic20")
-RefreshInterval = 0.01
+[node name="Generator State" type="Node" parent="." unique_id=1203345154 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("4_tmovg")
+ParentDataContext = NodePath("Context")
 
-[node name="Generator Id Binding" type="Node" parent="Generator Interface" unique_id=1209026023 node_paths=PackedStringArray("DataContext", "TargetNode")]
+[node name="Context" type="Node" parent="Generator State" unique_id=1740028795]
+script = ExtResource("2_qugwo")
+TypeId = "point_generator_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Params_generator Id Binding" type="Node" parent="Generator State/Context" unique_id=2026542741 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_owvq4")
+DataContext = NodePath("../../../Generator Data")
+Query = "{id}"
+TargetNode = NodePath("..")
+TargetPropertyName = "params/generator_id"
+ThrottleUpdate = false
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Generator Functions" type="Node" parent="." unique_id=934624344]
+script = ExtResource("4_qugwo")
+
+[node name="Generator Id Binding" type="Node" parent="Generator Functions" unique_id=1209026023 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("3_owvq4")
 DataContext = NodePath("../../Generator Data")
 Query = "{id}"
@@ -216,6 +235,11 @@ TargetNode = NodePath("..")
 TargetPropertyName = "GeneratorId"
 ThrottleUpdate = false
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Game Interface" type="Node" parent="." unique_id=993219319]
+script = ExtResource("2_qugwo")
+TypeId = "game_interface"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1232738306]
 layout_mode = 1
@@ -273,14 +297,37 @@ UsePostProcessing = true
 PostProcessors = [SubResource("Resource_owvq4")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=764924538 node_paths=PackedStringArray("DataContext")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1376826778]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Bulk Purchase Amount" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1165015562 node_paths=PackedStringArray("DataContext")]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_di5gf")
+TextFormat = "x{bulk_purchase_amount}"
+DataContext = NodePath("../../../../../Game Interface")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Visibility Binding" type="Node" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Bulk Purchase Amount" unique_id=1579237893 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_owvq4")
+DataContext = NodePath("../../../../../../Game Interface")
+Query = "{bulk_purchase_amount} > 1"
+TargetNode = NodePath("..")
+TargetPropertyName = "visible"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Purchase Cost" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=764924538 node_paths=PackedStringArray("DataContext")]
 layout_mode = 2
 mouse_filter = 2
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("4_di5gf")
 TextFormat = "{bulk_purchase_cost}"
-DataContext = NodePath("../../../../Generator Interface")
+DataContext = NodePath("../../../../../Generator State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Count Label" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1066493297 node_paths=PackedStringArray("DataContext")]
@@ -297,14 +344,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_di5gf")
 TextFormat = "{count}"
-DataContext = NodePath("../../../Generator Interface")
+DataContext = NodePath("../../../Generator State")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_qugwo")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Visibility Binding" type="Node" parent="MarginContainer/HBoxContainer/Count Label" unique_id=1748907202 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("3_owvq4")
-DataContext = NodePath("../../../../Generator Interface")
+DataContext = NodePath("../../../../Generator State")
 Query = "{count} > 0"
 TargetNode = NodePath("..")
 TargetPropertyName = "visible"
@@ -328,7 +375,7 @@ show_percentage = false
 
 [node name="Value Binding" type="Node" parent="ProgressBar" unique_id=1941638298 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("3_owvq4")
-DataContext = NodePath("../../Generator Interface")
+DataContext = NodePath("../../Generator State")
 Query = "{progress} * 100"
 TargetNode = NodePath("..")
 TargetPropertyName = "value"
@@ -339,7 +386,7 @@ libraries/ = SubResource("AnimationLibrary_xuxqo")
 
 [node name="Current Animation Binding" type="Node" parent="Purchaseability" unique_id=1349826524 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("3_owvq4")
-DataContext = NodePath("../../Generator Interface")
+DataContext = NodePath("../../Generator State")
 Query = "1*int({can_afford_single}) + 2*int({can_afford_bulk})"
 ValueMappingEnabled = true
 ValueMappings = {
@@ -354,4 +401,5 @@ FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
-[connection signal="Submitted" from="UserInterfaceComponent" to="Generator Interface" method="Purchase" flags=3]
+[connection signal="Updated" from="Game Interface" to="Generator State" method="Refresh"]
+[connection signal="Submitted" from="UserInterfaceComponent" to="Generator Functions" method="Purchase" flags=3]

@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_nvyts"]
 [ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_v4b7u"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateInterface.cs" id="3_41dup"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="3_b2vja"]
 [ext_resource type="Script" uid="uid://cipgbcqmkinta" path="res://addons/gdf-godot/GDF/Data/NodeTemplate.cs" id="3_b5fur"]
 [ext_resource type="Script" uid="uid://l7wbvi5jgr0h" path="res://addons/gdf-godot/GDF/Data/NodeFactory.cs" id="3_bvx0v"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="3_copf3"]
 [ext_resource type="Script" uid="uid://bwjl50hav4euk" path="res://addons/gdf-godot/GDF/Resources/ResourceLibraryLookupContext.cs" id="3_l6q0j"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_ngerl"]
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_pq4e1"]
 [ext_resource type="PackedScene" uid="uid://bdunyve28ljd6" path="res://scenes/ui/elements/generator_button.tscn" id="4_bvx0v"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="4_copf3"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="5_sw3t3"]
 [ext_resource type="PackedScene" uid="uid://ckxkjnnn77uqi" path="res://scenes/ui/elements/bulk_store_button.tscn" id="8_d74qc"]
 [ext_resource type="Script" uid="uid://c8d5lnapgn7jw" path="res://scripts/CatClicker/BonusSpawner.cs" id="12_6yght"]
@@ -47,8 +49,17 @@ metadata/_custom_type_script = "uid://bko61fppga1kx"
 script = ExtResource("2_v4b7u")
 metadata/_custom_type_script = "uid://c671jqyj6hfvr"
 
-[node name="Game State Interface" type="Node" parent="." unique_id=1760889561]
-script = ExtResource("3_41dup")
+[node name="Game State" type="Node" parent="." unique_id=1219472216 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("3_copf3")
+ParentDataContext = NodePath("Context")
+
+[node name="Context" type="Node" parent="Game State" unique_id=1718629104]
+script = ExtResource("3_b2vja")
+TypeId = "game_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Game State Functions" type="Node" parent="." unique_id=1519584734]
+script = ExtResource("4_copf3")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2121992238]
 layout_mode = 1
@@ -102,7 +113,7 @@ fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
 TextFormat = "{points}"
-DataContext = NodePath("../../../../../Game State Interface")
+DataContext = NodePath("../../../../../Game State")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_41dup")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
@@ -207,10 +218,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d74qc")
 
 [node name="Visibility Binding" type="Node" parent="Frenzy Overlay" unique_id=2076433341 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("12_xd75i")
-DataContext = NodePath("../../Game State Interface")
+DataContext = NodePath("../../Game State")
 Query = "{has_effect:frenzy}"
 TargetNode = NodePath("..")
 TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
-[connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Interface" method="Click" flags=3]
+[connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
