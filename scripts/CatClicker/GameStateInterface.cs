@@ -45,6 +45,11 @@ public partial class GameStateInterface : Node, IDataContext
                 output = (long)GetCurrentState().Points;
                 return true;
             }
+            case "has_effect":
+            {
+                output = GetCurrentState().HasEffect(input);
+                return true;
+            }
         }
 
         return false;
@@ -67,6 +72,11 @@ public partial class GameStateInterface : Node, IDataContext
     public void Click()
     {
         GameStateManager.Instance.Click();
+    }
+
+    public void GainEffect(StringName effectId, double duration)
+    {
+        GameStateManager.Instance.GainEffect(effectId, duration);
     }
 
     public override void _EnterTree()

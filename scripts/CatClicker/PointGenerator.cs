@@ -19,7 +19,6 @@ public partial class PointGenerator : Resource, IDataContext
     [Export] public long BaseCost = 1;
     [Export] public double CostScalingPerLevel = 1.4f;
     
-
     public decimal PointsPerSecond => (decimal)(PointsPerTick * TickRate);
 
     public PointGenerators.Descriptor Descriptor => PointGenerators.From(this);

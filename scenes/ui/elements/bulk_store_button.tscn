@@ -355,6 +355,7 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 [node name="UserInterfaceComponent" type="Node" parent="." unique_id=542877871]
 script = ExtResource("3_r2l0p")
 NavigableTo = false
+ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [connection signal="Submitted" from="UserInterfaceComponent" to="." method="Select" flags=3]

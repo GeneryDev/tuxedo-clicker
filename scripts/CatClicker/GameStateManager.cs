@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GDF.Data;
 using GDF.Util;
 using Godot;
@@ -32,7 +33,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         State = new GameState()
         {
             UnixTimestampSec = Now,
-            Points = new System.Numerics.BigInteger(205008967533512230M)
+            // Points = new System.Numerics.BigInteger(205008967533512230M)
         };
         var generatorStates = new List<PointGeneratorState>();
         foreach (var generator in PointGenerators.CollectAll(new()))
@@ -82,5 +83,19 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         }
 
         return false;
+    }
+
+    public void GainEffect(StringName effectId, double duration)
+    {
+        Step();
+        var newEffects = new ActiveEffectState[(State.ActiveEffectStates?.Length ?? 0) + 1];
+        if (State.ActiveEffectStates != null)
+            Array.Copy(State.ActiveEffectStates, newEffects, State.ActiveEffectStates.Length);
+        newEffects[^1] = new()
+        {
+            EffectId = effectId,
+            RemainingSec = duration
+        };
+        State.ActiveEffectStates = newEffects;
     }
 }

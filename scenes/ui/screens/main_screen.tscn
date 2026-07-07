@@ -11,11 +11,23 @@
 [ext_resource type="PackedScene" uid="uid://bdunyve28ljd6" path="res://scenes/ui/elements/generator_button.tscn" id="4_bvx0v"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="5_sw3t3"]
 [ext_resource type="PackedScene" uid="uid://ckxkjnnn77uqi" path="res://scenes/ui/elements/bulk_store_button.tscn" id="8_d74qc"]
+[ext_resource type="Script" uid="uid://c8d5lnapgn7jw" path="res://scripts/CatClicker/BonusSpawner.cs" id="12_6yght"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="12_xd75i"]
+[ext_resource type="PackedScene" uid="uid://cfm8xg05rcfkb" path="res://scenes/ui/elements/bonus_item.tscn" id="13_gx115"]
 
 [sub_resource type="Resource" id="Resource_41dup"]
 script = ExtResource("5_sw3t3")
 BaseFontSize = 36
 metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d74qc"]
+draw_center = false
+border_width_left = 24
+border_width_top = 24
+border_width_right = 24
+border_width_bottom = 24
+border_color = Color(0.94, 0.6736667, 0, 0.5372549)
+border_blend = true
 
 [node name="MainScreen" type="Control" unique_id=1599050281 node_paths=PackedStringArray("UserInterface")]
 layout_mode = 3
@@ -63,6 +75,8 @@ grow_vertical = 2
 
 [node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Point Button" unique_id=1613411602]
 script = ExtResource("3_ngerl")
+NavigableTo = false
+ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Top Info" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1818834133]
@@ -74,6 +88,7 @@ offset_left = -310.0
 offset_top = 43.0
 offset_right = 310.0
 offset_bottom = 117.0
+mouse_filter = 2
 
 [node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info" unique_id=2040517205 node_paths=PackedStringArray("DataContext")]
 layout_mode = 2
@@ -156,5 +171,46 @@ script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("4_bvx0v")
 PreviewCount = 8
 metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Bonus Overlay" type="Control" parent="." unique_id=1390077012]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Spawner" type="Node" parent="Bonus Overlay" unique_id=1014041059 node_paths=PackedStringArray("Template")]
+script = ExtResource("12_6yght")
+Template = NodePath("../NodeTemplate")
+BaseChancePerSecond = 0.1
+
+[node name="NodeTemplate" type="Node" parent="Bonus Overlay" unique_id=1924571301]
+script = ExtResource("3_b5fur")
+TemplateScene = ExtResource("13_gx115")
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Frenzy Overlay" type="Panel" parent="." unique_id=1203514077]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d74qc")
+
+[node name="Visibility Binding" type="Node" parent="Frenzy Overlay" unique_id=2076433341 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("12_xd75i")
+DataContext = NodePath("../../Game State Interface")
+Query = "{has_effect:frenzy}"
+TargetNode = NodePath("..")
+TargetPropertyName = "visible"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Interface" method="Click" flags=3]

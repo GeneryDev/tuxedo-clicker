@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqtokr6spdybx" path="res://addons/gdf-godot/GDF/Debug/DebugCommandSystem.cs" id="1_nmxvb"]
 [ext_resource type="Script" uid="uid://cjdn80g66fgj5" path="res://scripts/CatClicker/PointGenerators.cs" id="2_2se67"]
+[ext_resource type="Script" uid="uid://8cgxqfxv5pps" path="res://scripts/CatClicker/Effects.cs" id="2_3q7h5"]
 [ext_resource type="Script" uid="uid://b4ofd058miqfc" path="res://scripts/CatClicker/SinglePlayerRoom.cs" id="2_mmyj5"]
 [ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
 [ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
@@ -41,6 +42,9 @@ metadata/_custom_type_script = "uid://c0catxx0gwuor"
 
 [node name="Point Generators" type="Node" parent="Resource Libraries" unique_id=946283905]
 script = ExtResource("2_2se67")
+
+[node name="Effects" type="Node" parent="Resource Libraries" unique_id=395748941]
+script = ExtResource("2_3q7h5")
 
 [node name="Room" type="Node" parent="." unique_id=865892212]
 script = ExtResource("2_mmyj5")

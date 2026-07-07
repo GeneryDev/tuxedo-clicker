@@ -1,0 +1,473 @@
+[gd_scene format=3 uid="uid://cfm8xg05rcfkb"]
+
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="1_njqcl"]
+[ext_resource type="Script" uid="uid://bxmjqnvan2trq" path="res://addons/gdf-godot/GDF/Logical/CallableChain.cs" id="2_dyt62"]
+[ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="2_j0fgn"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateInterface.cs" id="3_aeqjx"]
+[ext_resource type="Script" uid="uid://b2pa2urnvprft" path="res://addons/gdf-godot/GDF/Logical/Values/ObjectCallable.cs" id="3_rteb1"]
+[ext_resource type="Script" uid="uid://mx32dultovew" path="res://addons/gdf-godot/GDF/Logical/Values/ValueFromNodePath.cs" id="4_hfqk4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yght"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.9402123, 0.6684591, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_u82cf"]
+script = ExtResource("4_hfqk4")
+NodePath = NodePath("../../Game State Interface/Apply Frenzy")
+
+[sub_resource type="Resource" id="Resource_11smm"]
+script = ExtResource("3_rteb1")
+Target = SubResource("Resource_u82cf")
+Method = &"Trigger"
+Args = null
+metadata/_custom_type_script = "uid://b2pa2urnvprft"
+
+[sub_resource type="Resource" id="Resource_ll165"]
+script = ExtResource("4_hfqk4")
+NodePath = NodePath("../../AnimationPlayer/Play Collect")
+
+[sub_resource type="Resource" id="Resource_6jsnr"]
+script = ExtResource("3_rteb1")
+Target = SubResource("Resource_ll165")
+Method = &"Trigger"
+Args = null
+metadata/_custom_type_script = "uid://b2pa2urnvprft"
+
+[sub_resource type="Animation" id="Animation_j0fgn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hq0da"]
+resource_name = "collect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2052632, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 1),
+"transitions": PackedFloat32Array(0.4061264, 2.297397, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.40119624, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793, 6.283185307179586]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_njqcl"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73, 1),
+"transitions": PackedFloat32Array(1.8660663, 0.2588163, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dyt62"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 1),
+"transitions": PackedFloat32Array(0.4061264, 2.297397, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aeqjx"]
+resource_name = "stay"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0fgn"]
+_data = {
+&"RESET": SubResource("Animation_j0fgn"),
+&"collect": SubResource("Animation_hq0da"),
+&"fade_in": SubResource("Animation_njqcl"),
+&"fade_out": SubResource("Animation_dyt62"),
+&"stay": SubResource("Animation_aeqjx")
+}
+
+[node name="Bonus Item" type="Control" unique_id=754175439]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 532.0
+offset_top = 302.0
+offset_right = 532.0
+offset_bottom = 302.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1733229606]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yght")
+
+[node name="UserInterfaceComponent" type="Node" parent="Panel" unique_id=1900808946]
+script = ExtResource("1_njqcl")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Triggered" type="Node" parent="Panel" unique_id=1025008160]
+script = ExtResource("2_dyt62")
+Callables = Array[ExtResource("3_rteb1")]([SubResource("Resource_11smm"), SubResource("Resource_6jsnr")])
+metadata/_custom_type_script = "uid://bxmjqnvan2trq"
+
+[node name="Game State Interface" type="Node" parent="." unique_id=1709666833]
+script = ExtResource("3_aeqjx")
+RefreshInterval = 1.0
+
+[node name="Apply Frenzy" type="Node" parent="Game State Interface" unique_id=1480888120 node_paths=PackedStringArray("Target")]
+script = ExtResource("2_j0fgn")
+Target = NodePath("..")
+Method = &"GainEffect"
+Args = [&"frenzy", 10.0]
+ArgInputTypes = Array[int]([0, 0])
+ArgReplicate = Array[bool]([false, false])
+TargetMethodInfo = {
+"args": Array[Dictionary]([{
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "effectId",
+"type": 21,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "duration",
+"type": 3,
+"usage": 6
+}]),
+"default_args": [],
+"flags": 1,
+"id": 0,
+"name": "GainEffect",
+"return": {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 6
+}
+}
+metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1082071460]
+libraries/ = SubResource("AnimationLibrary_j0fgn")
+autoplay = &"fade_in"
+next/fade_in = &"stay"
+next/stay = &"fade_out"
+
+[node name="Play Collect" type="Node" parent="AnimationPlayer" unique_id=441190594 node_paths=PackedStringArray("Target")]
+script = ExtResource("2_j0fgn")
+Target = NodePath("..")
+Method = &"play"
+Args = [&"collect", -1, 1.0, false]
+ArgInputTypes = Array[int]([0, 0, 0, 0])
+ArgReplicate = Array[bool]([false, false, false, false])
+TargetMethodInfo = {
+"args": Array[Dictionary]([{
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "name",
+"type": 21,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "custom_blend",
+"type": 3,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "custom_speed",
+"type": 3,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "from_end",
+"type": 1,
+"usage": 6
+}]),
+"default_args": [&"", -1, 1.0, false],
+"flags": 1,
+"id": 7285,
+"name": "play",
+"return": {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 6
+}
+}
+metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+
+[connection signal="Submitted" from="Panel/UserInterfaceComponent" to="Panel/Triggered" method="Trigger" flags=7]
