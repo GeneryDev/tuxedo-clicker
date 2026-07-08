@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bituwxio8sdy4" path="res://addons/gdf-godot/GDF/PropertyStacks/PropertyStackWatcher.cs" id="8_5rvs8"]
 [ext_resource type="Script" uid="uid://3u6er6in4p4a" path="res://scripts/CatClicker/GameStateManager.cs" id="14_7upwp"]
 [ext_resource type="Script" uid="uid://bguagy6f8anx0" path="res://scripts/CatClicker/GameInterfaceManager.cs" id="15_e7lx3"]
+[ext_resource type="Script" uid="uid://bue2dh8nq45gq" path="res://addons/gdf-godot/GDF/Debug/DebugCommandMacro.cs" id="15_korfd"]
 [ext_resource type="Script" uid="uid://b2o084tr0gib5" path="res://scripts/CatClicker/AutoGC.cs" id="17_b18l6"]
 
 [sub_resource type="Resource" id="Resource_wokaa"]
@@ -36,6 +37,17 @@ script = ExtResource("6_bv183")
 Definitions = Array[Object]([SubResource("Resource_wokaa"), SubResource("Resource_2se67")])
 OtherRegistries = Array[Object]([ExtResource("5_x8cda")])
 metadata/_custom_type_script = "uid://c0catxx0gwuor"
+
+[sub_resource type="InputEventKey" id="InputEventKey_dxqtg"]
+device = -1
+keycode = 96
+unicode = 96
+
+[sub_resource type="Resource" id="Resource_wafyw"]
+script = ExtResource("15_korfd")
+Shortcut = SubResource("InputEventKey_dxqtg")
+Command = "console"
+metadata/_custom_type_script = "uid://bue2dh8nq45gq"
 
 [node name="Global" type="Node" unique_id=1844731706]
 
@@ -89,6 +101,7 @@ metadata/_custom_type_script = "uid://dchytqeoyxkj"
 
 [node name="DebugCommandSystem" type="Node" parent="." unique_id=709519784]
 script = ExtResource("1_nmxvb")
+Macros = Array[ExtResource("15_korfd")]([SubResource("Resource_wafyw")])
 metadata/_custom_type_script = "uid://cqtokr6spdybx"
 
 [node name="Game State Manager" type="Node" parent="." unique_id=1789383041]
