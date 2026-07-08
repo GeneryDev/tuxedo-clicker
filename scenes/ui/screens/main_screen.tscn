@@ -274,7 +274,7 @@ mouse_filter = 2
 [node name="Spawner" type="Node" parent="Bonus Overlay" unique_id=1014041059 node_paths=PackedStringArray("Template")]
 script = ExtResource("12_6yght")
 Template = NodePath("../NodeTemplate")
-BaseChancePerSecond = 0.1
+BaseChancePerSecond = 0.005
 
 [node name="NodeTemplate" type="Node" parent="Bonus Overlay" unique_id=1924571301]
 script = ExtResource("3_b5fur")
