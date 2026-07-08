@@ -71,6 +71,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             if (State.GeneratorStates[i].GeneratorId != generatorId) continue;
             State.GeneratorStates[i].Count += count;
         }
+        EmitSignalUpdated();
     }
 
     public bool WithdrawPoints(BigInteger amount)
@@ -81,6 +82,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             State.Points -= amount;
             return true;
         }
+        EmitSignalUpdated();
 
         return false;
     }
@@ -97,5 +99,6 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             RemainingSec = duration
         };
         State.ActiveEffectStates = newEffects;
+        EmitSignalUpdated();
     }
 }
