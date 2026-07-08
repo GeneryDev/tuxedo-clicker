@@ -1,0 +1,26 @@
+[gd_resource type="StyleBox" script_class="StyleBoxNPatch" format=3 uid="uid://q0vgqf677d0u"]
+
+[ext_resource type="Texture2D" uid="uid://bx4xf42yi078s" path="res://assets/textures/ui/rough_line_1_vertical.png" id="1_xohms"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_16gpj"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("2_16gpj")
+Texture = ExtResource("1_xohms")
+OverrideTextureSize = Vector2i(39, 512)
+PatchCountHorizontal = 5
+SlicesX = Array[int]([1, 10, -10, -1])
+PatchWeightsY = Array[float]([1.0])
+PatchAxisModesX = Array[int]([0, 0, 0, 0, 0])
+PatchAxisModesY = Array[int]([1])
+ResolutionScale = 3.0
+ExpandMarginLeft = 6.0
+ExpandMarginTop = 12.0
+ExpandMarginBottom = 12.0
+ModulateColor = Color(0.8666667, 0.68235296, 0.4117647, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"

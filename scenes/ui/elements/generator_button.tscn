@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="1_fe2ks"]
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_kw2wh"]
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_qugwo"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_y5wqn"]
 [ext_resource type="Texture2D" uid="uid://c8nopga08yl73" path="res://icon.svg" id="3_abl8f"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_owvq4"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="4_8xxn1"]
@@ -10,6 +11,8 @@
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="4_oatpg"]
 [ext_resource type="Script" uid="uid://b6r30cwtmb8sk" path="res://scripts/CatClicker/PointGeneratorFunctions.cs" id="4_qugwo"]
 [ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_tmovg"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="10_y5wqn"]
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="13_vqf3t"]
 
 [sub_resource type="Resource" id="Resource_xic20"]
 script = ExtResource("4_oatpg")
@@ -22,6 +25,32 @@ BaseFontSize = 32
 ContentWidthThresholdToShrink = 80
 ContentWidthThresholdToShrinkSubsequentLines = 80
 metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="StyleBox" id="StyleBox_36bd3"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("2_y5wqn")
+Texture = ExtResource("13_vqf3t")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 10.0
+ExpandMarginTop = 6.0
+ExpandMarginRight = 10.0
+ExpandMarginBottom = 6.0
+ModulateColor = Color(1, 0.9254902, 0.7647059, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
 
 [sub_resource type="Resource" id="Resource_qugwo"]
 script = ExtResource("4_8xxn1")
@@ -68,6 +97,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost/Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_qugwo"]
 resource_name = "can_afford_bulk"
@@ -106,6 +147,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost/Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_tmovg"]
@@ -146,6 +199,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.7]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost/Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ux4xf"]
 resource_name = "cannot_afford"
@@ -185,6 +250,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.7]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost/Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.67481464, 0.67481464, 0.6748146, 0.5176471)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xuxqo"]
 _data = {
@@ -198,6 +275,7 @@ _data = {
 custom_minimum_size = Vector2(0, 80)
 offset_right = 386.0
 offset_bottom = 80.0
+theme_type_variation = &"generator_button"
 
 [node name="Generator Data" type="Node" parent="." unique_id=925632081]
 script = ExtResource("2_kw2wh")
@@ -283,6 +361,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("10_y5wqn")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -321,6 +400,7 @@ TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Purchase Cost" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=764924538 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
 layout_mode = 2
 mouse_filter = 2
 fit_content = true
@@ -329,6 +409,21 @@ script = ExtResource("4_di5gf")
 TextFormat = "{bulk_purchase_cost}"
 DataContext = NodePath("../../../../../Generator State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Purchase Cost" unique_id=1407807318]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBox_36bd3")
+
+[node name="Padding" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1891453847]
+layout_mode = 2
+mouse_filter = 2
 
 [node name="Count Label" type="RichTextLabel" parent="MarginContainer/HBoxContainer" unique_id=1066493297 node_paths=PackedStringArray("DataContext")]
 layout_mode = 2

@@ -1,0 +1,153 @@
+[gd_resource type="Theme" format=3 uid="uid://8vdcmitrfkmp"]
+
+[ext_resource type="StyleBox" uid="uid://t4o42k6q8a8x" path="res://resources/styleboxes/beige_box_1.tres" id="1_x2ak3"]
+[ext_resource type="FontFile" uid="uid://b316jn2vgnx2o" path="res://assets/fonts/ComicNeue-Bold.ttf" id="2_i4ejt"]
+[ext_resource type="Texture2D" uid="uid://dv1nb4q8k6wow" path="res://assets/textures/ui/rough_box_1.png" id="3_0wthw"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="4_dagba"]
+
+[sub_resource type="StyleBox" id="StyleBox_0wthw"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_0wthw")
+OverrideTextureSize = Vector2i(512, 512)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([20, -20])
+SlicesY = Array[int]([20, -20])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 1, 0])
+PatchAxisModesY = Array[int]([0, 1, 0])
+ResolutionScale = 2.0
+ExpandMarginLeft = 4.0
+ExpandMarginTop = 4.0
+ExpandMarginRight = 4.0
+ExpandMarginBottom = 4.0
+ModulateColor = Color(0.42, 0.378, 0.31919998, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_dagba"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_0wthw")
+OverrideTextureSize = Vector2i(512, 512)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([20, -20])
+SlicesY = Array[int]([20, -20])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 1, 0])
+PatchAxisModesY = Array[int]([0, 1, 0])
+ResolutionScale = 2.0
+ExpandMarginLeft = 4.0
+ExpandMarginTop = 4.0
+ExpandMarginRight = 4.0
+ExpandMarginBottom = 4.0
+ModulateColor = Color(0.86714464, 0.6806533, 0.41359913, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_vqf3t"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_0wthw")
+OverrideTextureSize = Vector2i(512, 512)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([20, -20])
+SlicesY = Array[int]([20, -20])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 1, 0])
+PatchAxisModesY = Array[int]([0, 1, 0])
+ResolutionScale = 2.0
+ExpandMarginLeft = 4.0
+ExpandMarginTop = 4.0
+ExpandMarginRight = 4.0
+ExpandMarginBottom = 4.0
+ModulateColor = Color(0.94509804, 0.8156863, 0.6392157, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_xtbu8"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_0wthw")
+OverrideTextureSize = Vector2i(512, 512)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([20, -20])
+SlicesY = Array[int]([20, -20])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 1, 0])
+PatchAxisModesY = Array[int]([0, 1, 0])
+ResolutionScale = 2.0
+ExpandMarginLeft = 4.0
+ExpandMarginTop = 4.0
+ExpandMarginRight = 4.0
+ExpandMarginBottom = 4.0
+ModulateColor = Color(0.9875012, 0.9560819, 0.9132794, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[resource]
+default_font = ExtResource("2_i4ejt")
+RichTextLabel/colors/default_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/font_outline_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/font_selected_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/selection_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/table_border = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/table_even_row_bg = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/colors/table_odd_row_bg = Color(0.34117648, 0.2901961, 0.21960784, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/paragraph_separation = 0
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
+RichTextLabel/constants/strikethrough_alpha = 0
+RichTextLabel/constants/table_h_separation = 0
+RichTextLabel/constants/table_v_separation = 0
+RichTextLabel/constants/text_highlight_h_padding = 0
+RichTextLabel/constants/text_highlight_v_padding = 0
+RichTextLabel/constants/underline_alpha = 0
+RichTextLabel/font_sizes/bold_font_size = 16
+RichTextLabel/font_sizes/bold_italics_font_size = 16
+RichTextLabel/font_sizes/italics_font_size = 16
+RichTextLabel/font_sizes/mono_font_size = 16
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/bold_font = ExtResource("2_i4ejt")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_i4ejt")
+RichTextLabel/fonts/italics_font = ExtResource("2_i4ejt")
+RichTextLabel/fonts/mono_font = ExtResource("2_i4ejt")
+RichTextLabel/fonts/normal_font = ExtResource("2_i4ejt")
+RichTextLabel/icons/horizontal_rule = null
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+beige_box/base_type = &"PanelContainer"
+beige_box/styles/panel = ExtResource("1_x2ak3")
+generator_button/base_type = &"Button"
+generator_button/styles/disabled = SubResource("StyleBox_0wthw")
+generator_button/styles/hover = SubResource("StyleBox_dagba")
+generator_button/styles/normal = SubResource("StyleBox_vqf3t")
+generator_button/styles/pressed = SubResource("StyleBox_xtbu8")

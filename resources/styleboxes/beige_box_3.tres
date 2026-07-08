@@ -1,0 +1,30 @@
+[gd_resource type="StyleBox" script_class="StyleBoxNPatch" format=3 uid="uid://2dsdfd3ar52"]
+
+[ext_resource type="Texture2D" uid="uid://dv1nb4q8k6wow" path="res://assets/textures/ui/rough_box_1.png" id="1_0od45"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_2ofyq"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+script = ExtResource("2_2ofyq")
+Texture = ExtResource("1_0od45")
+OverrideTextureSize = Vector2i(512, 512)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([20, -20])
+SlicesY = Array[int]([20, -20])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 2, 0])
+PatchAxisModesY = Array[int]([0, 2, 0])
+ResolutionScale = 2.0
+ExpandMarginLeft = 10.0
+ExpandMarginTop = 10.0
+ExpandMarginRight = 10.0
+ExpandMarginBottom = 10.0
+ModulateColor = Color(0.8666667, 0.68235296, 0.4117647, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
