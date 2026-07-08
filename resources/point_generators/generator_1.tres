@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://bi2q83t1mpuqn"]
 
-[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_3lre2"]
+[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_dx2ik"]
 
 [resource]
-script = ExtResource("1_3lre2")
+script = ExtResource("1_dx2ik")
 DisplayName = "Hand"
-BaseCost = 10.0
+TickRate = 0.5
+BaseCost = 10
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"
