@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dycnko8fc6fys"]
+
+[ext_resource type="Script" uid="uid://dfiffjeio4e8s" path="res://scripts/CatClicker/GameEntryPoint.cs" id="1_0tit2"]
+[ext_resource type="PackedScene" uid="uid://b2nakpqxk2yft" path="res://scenes/main.tscn" id="2_5go5w"]
+
+[node name="Entry" type="Node" unique_id=1779510090]
+script = ExtResource("1_0tit2")
+MainScene = ExtResource("2_5go5w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2034524050]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
