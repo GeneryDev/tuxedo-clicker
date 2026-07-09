@@ -49,9 +49,11 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
     public void Click()
     {
         Step();
-        State.Points++;
+        BigInteger increment = 1;
+        State.Points += increment;
         MarkDirty();
         EmitSignalUpdated();
+        MessageChannel.BroadcastMessage("cursor_msg", $"+{GameInterfaceManager.Instance.FormatNumber(increment)}");
     }
 
     public StringName UpdatedSignalName => SignalName.Updated;

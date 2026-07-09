@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://cfm8xg05rcfkb" path="res://scenes/ui/elements/bonus_item.tscn" id="13_gx115"]
 [ext_resource type="StyleBox" uid="uid://q0vgqf677d0u" path="res://resources/styleboxes/beige_line_1_vertical.tres" id="14_ewcn1"]
 [ext_resource type="PackedScene" uid="uid://dtb32g4wow0l6" path="res://scenes/ui/elements/game_actions_panel.tscn" id="15_ediq1"]
+[ext_resource type="Script" uid="uid://c7w751xhtlmd3" path="res://scripts/CatClicker/MessageChannel.cs" id="16_fwakm"]
+[ext_resource type="PackedScene" uid="uid://cul0p3e10in66" path="res://scenes/ui/elements/effect_message.tscn" id="17_sngan"]
+[ext_resource type="PackedScene" uid="uid://bc5m6pasui6au" path="res://scenes/ui/elements/cursor_message.tscn" id="19_adi41"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
 blend_mode = 4
@@ -188,10 +191,10 @@ custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -217,6 +220,51 @@ theme_override_styles/panel = SubResource("StyleBox_6niy1")
 layout_mode = 1
 offset_top = -43.0
 offset_right = 76.0
+
+[node name="Effect Messages Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=126707300]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Effect Messages Panel" unique_id=1831960986 node_paths=PackedStringArray("Template")]
+script = ExtResource("16_fwakm")
+Group = &"effect_msg"
+Template = NodePath("../NodeTemplate")
+
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Effect Messages Panel" unique_id=1260085358]
+script = ExtResource("3_b5fur")
+TemplateScene = ExtResource("17_sngan")
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Cursor Messages Panel" type="Control" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1017266866]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Cursor Messages Panel" unique_id=18310845 node_paths=PackedStringArray("Template")]
+script = ExtResource("16_fwakm")
+Group = &"cursor_msg"
+Template = NodePath("../NodeTemplate")
+SpawnAtMousePosition = true
+
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Cursor Messages Panel" unique_id=1621293438]
+script = ExtResource("3_b5fur")
+TemplateScene = ExtResource("19_adi41")
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
 
 [node name="Sidebar" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=937194687]
 custom_minimum_size = Vector2(400, 0)
@@ -393,6 +441,11 @@ Query = "{has_effect:frenzy}"
 TargetNode = NodePath("..")
 TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Control" type="Control" parent="." unique_id=1166250511]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
