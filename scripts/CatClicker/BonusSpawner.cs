@@ -1,11 +1,16 @@
 ﻿using GDF.Data;
+using GDF.Debug;
+using GDF.Multiplayer;
 using GDF.Util;
 using Godot;
 
 namespace CatClicker;
 
+[HasDebugCommands]
 public partial class BonusSpawner : Node
 {
+    public static readonly StringName Group = "bonus_spawner";
+    
     [Export]
     public NodeTemplate Template;
     [Export]
@@ -14,6 +19,12 @@ public partial class BonusSpawner : Node
     private RandomNumberGenerator _rng = new();
 
     private Accumulator _timer;
+
+    public override void _EnterTree()
+    {
+        base._EnterTree();
+        this.AddToGroup(Group);
+    }
 
     public void Spawn()
     {
@@ -44,6 +55,16 @@ public partial class BonusSpawner : Node
         if (_rng.Randf() < GetSpawnChance())
         {
             Spawn();
+        }
+    }
+
+    [DebugCommand("bonus")]
+    public static void DebugSpawn()
+    {
+        foreach (var node in GameStateManager.Instance.GetTree().GetNodesInGroup(Group))
+        {
+            if (node is not BonusSpawner spawner) continue;
+            spawner.Spawn();
         }
     }
 }

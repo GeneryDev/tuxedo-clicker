@@ -2,44 +2,199 @@
 
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="1_njqcl"]
 [ext_resource type="Script" uid="uid://bxmjqnvan2trq" path="res://addons/gdf-godot/GDF/Logical/CallableChain.cs" id="2_dyt62"]
-[ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="2_j0fgn"]
 [ext_resource type="Script" uid="uid://b2pa2urnvprft" path="res://addons/gdf-godot/GDF/Logical/Values/ObjectCallable.cs" id="3_rteb1"]
 [ext_resource type="Script" uid="uid://mx32dultovew" path="res://addons/gdf-godot/GDF/Logical/Values/ValueFromNodePath.cs" id="4_hfqk4"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="5_rteb1"]
+[ext_resource type="Texture2D" uid="uid://br5syjejmwikh" path="res://assets/textures/ui/bonus_box_closed.png" id="5_hfqk4"]
+[ext_resource type="Texture2D" uid="uid://dpuiariuc6caf" path="res://assets/textures/ui/bonus_box_open.png" id="6_ll165"]
+[ext_resource type="Script" uid="uid://csxjam05y7w8k" path="res://addons/gdf-godot/GDF/UI/ControlStateContext.cs" id="6_u82cf"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="7_11smm"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="11_6jsnr"]
+[ext_resource type="Script" uid="uid://gdx3hxj5wewd" path="res://scripts/CatClicker/BonusItemInstance.cs" id="11_xhp4x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yght"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.9402123, 0.6684591, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u82cf"]
 
-[sub_resource type="Resource" id="Resource_u82cf"]
+[sub_resource type="Resource" id="Resource_xhp4x"]
 script = ExtResource("4_hfqk4")
-NodePath = NodePath("../../Game State Functions/Apply Frenzy")
-
-[sub_resource type="Resource" id="Resource_11smm"]
-script = ExtResource("3_rteb1")
-Target = SubResource("Resource_u82cf")
-Method = &"Trigger"
-Args = []
-metadata/_custom_type_script = "uid://b2pa2urnvprft"
-
-[sub_resource type="Resource" id="Resource_ll165"]
-script = ExtResource("4_hfqk4")
-NodePath = NodePath("../../AnimationPlayer/Play Collect")
+NodePath = NodePath("../../Lifecycle Animation/Play collect")
 
 [sub_resource type="Resource" id="Resource_6jsnr"]
 script = ExtResource("3_rteb1")
-Target = SubResource("Resource_ll165")
+Target = SubResource("Resource_xhp4x")
 Method = &"Trigger"
 Args = []
 metadata/_custom_type_script = "uid://b2pa2urnvprft"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_11smm"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_11smm"]
+offsets = PackedFloat32Array(0.2, 0.5, 0.8)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ll165"]
+gradient = SubResource("Gradient_11smm")
+
+[sub_resource type="Animation" id="Animation_u82cf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Closed Box/Hover Overlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Closed Box/Scrolling Shine:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, -100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Closed Box/Scrolling Shine:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_11smm"]
+resource_name = "default"
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Closed Box/Hover Overlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Closed Box/Scrolling Shine:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Closed Box/Scrolling Shine:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_ll165"]
+resource_name = "hovered"
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.099999994),
+"transitions": PackedFloat32Array(2.2191396, 1),
+"update": 2,
+"values": [Vector2(1.1, 1.1), Vector2(1.05, 1.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Closed Box/Hover Overlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Closed Box/Scrolling Shine:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.18338498),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, -100), Vector2(100, 100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Closed Box/Scrolling Shine:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.028526554, 0.15078321, 0.1854226),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jsnr"]
+_data = {
+&"RESET": SubResource("Animation_u82cf"),
+&"default": SubResource("Animation_11smm"),
+&"hovered": SubResource("Animation_ll165")
+}
 
 [sub_resource type="Animation" id="Animation_j0fgn"]
 length = 0.001
@@ -101,10 +256,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2052632, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.43333334, 0.58695656, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -113,10 +268,10 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.19999999, 1),
-"transitions": PackedFloat32Array(0.4061264, 2.297397, 1),
+"times": PackedFloat32Array(0, 0.10000001, 0.35, 0.40829912, 1),
+"transitions": PackedFloat32Array(0.4061264, 3.363586, 0.4061264, 2.297397, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0, 0)]
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(0.8, 0.8), Vector2(1.5, 1.5), Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -125,10 +280,10 @@ tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.40119624, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.058333334, 0.10000001, 0.18333334, 0.28333333, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 3.141592653589793, 6.283185307179586]
+"values": [0.0, 0.0981438, -0.087976575, 0.092380404, -0.10979739, 0.0]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -155,6 +310,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("Outcome Animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("RESET", "empty"),
+"times": PackedFloat32Array(0, 0.34166667)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bonus Item Instance")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.34166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Decide"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_njqcl"]
@@ -334,6 +513,94 @@ _data = {
 &"stay": SubResource("Animation_aeqjx")
 }
 
+[sub_resource type="Animation" id="Animation_6jsnr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Closed Box:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Open Box:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_whe46"]
+resource_name = "empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Closed Box:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Open Box:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xhp4x"]
+resource_name = "unopened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Closed Box:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Open Box:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whe46"]
+_data = {
+&"RESET": SubResource("Animation_6jsnr"),
+&"empty": SubResource("Animation_whe46"),
+&"unopened": SubResource("Animation_xhp4x")
+}
+
 [node name="Bonus Item" type="Control" unique_id=754175439]
 layout_mode = 3
 anchors_preset = 0
@@ -344,7 +611,7 @@ offset_bottom = 302.0
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=1733229606]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -357,7 +624,8 @@ offset_right = 30.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6yght")
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u82cf")
 
 [node name="UserInterfaceComponent" type="Node" parent="Panel" unique_id=1900808946]
 script = ExtResource("1_njqcl")
@@ -367,106 +635,119 @@ metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Triggered" type="Node" parent="Panel" unique_id=1025008160]
 script = ExtResource("2_dyt62")
-Callables = Array[ExtResource("3_rteb1")]([SubResource("Resource_11smm"), SubResource("Resource_6jsnr")])
+Callables = Array[ExtResource("3_rteb1")]([SubResource("Resource_6jsnr")])
 metadata/_custom_type_script = "uid://bxmjqnvan2trq"
 
-[node name="Game State Functions" type="Node" parent="." unique_id=1709666833]
-script = ExtResource("5_rteb1")
+[node name="Closed Box" type="TextureRect" parent="Panel" unique_id=256488520]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_hfqk4")
+expand_mode = 1
+metadata/_edit_group_ = true
 
-[node name="Apply Frenzy" type="Node" parent="Game State Functions" unique_id=1480888120 node_paths=PackedStringArray("Target")]
-script = ExtResource("2_j0fgn")
-Target = NodePath("..")
-Method = &"GainEffect"
-Args = [&"frenzy", 10.0]
-ArgInputTypes = Array[int]([0, 0])
-ArgReplicate = Array[bool]([false, false])
-TargetMethodInfo = {
-"args": Array[Dictionary]([{
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "effectId",
-"type": 21,
-"usage": 6
-}, {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "duration",
-"type": 3,
-"usage": 6
-}]),
-"default_args": [],
-"flags": 1,
-"id": 0,
-"name": "GainEffect",
-"return": {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "",
-"type": 0,
-"usage": 6
-}
-}
-metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+[node name="Hover Overlay" type="ColorRect" parent="Panel/Closed Box" unique_id=1188427629]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_11smm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1082071460]
+[node name="Scrolling Shine" type="TextureRect" parent="Panel/Closed Box" unique_id=1593053118]
+visible = false
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.23921569)
+material = SubResource("CanvasItemMaterial_11smm")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.00003
+offset_bottom = 100.00003
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_ll165")
+expand_mode = 1
+
+[node name="Open Box" type="TextureRect" parent="Panel" unique_id=1928075941]
+visible = false
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_ll165")
+expand_mode = 1
+metadata/_edit_group_ = true
+
+[node name="ControlStateContext" type="Node" parent="Panel" unique_id=1661385277]
+script = ExtResource("6_u82cf")
+TrackedStates = 3
+metadata/_custom_type_script = "uid://csxjam05y7w8k"
+
+[node name="Feedback" type="AnimationPlayer" parent="Panel" unique_id=753473072]
+libraries/ = SubResource("AnimationLibrary_6jsnr")
+
+[node name="Current Animation Binding" type="Node" parent="Panel/Feedback" unique_id=12152656 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("7_11smm")
+DataContext = NodePath("../../ControlStateContext")
+Query = "{is_hovered}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"default",
+true: &"hovered"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Bonus Item Instance" type="Node" parent="." unique_id=1368591591]
+script = ExtResource("11_xhp4x")
+
+[node name="Lifecycle Animation" type="AnimationPlayer" parent="." unique_id=1082071460]
 libraries/ = SubResource("AnimationLibrary_j0fgn")
 autoplay = &"fade_in"
 next/fade_in = &"stay"
 next/stay = &"fade_out"
 
-[node name="Play Collect" type="Node" parent="AnimationPlayer" unique_id=441190594 node_paths=PackedStringArray("Target")]
-script = ExtResource("2_j0fgn")
-Target = NodePath("..")
-Method = &"play"
-Args = [&"collect", -1, 1.0, false]
-ArgInputTypes = Array[int]([0, 0, 0, 0])
-ArgReplicate = Array[bool]([false, false, false, false])
-TargetMethodInfo = {
-"args": Array[Dictionary]([{
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "name",
-"type": 21,
-"usage": 6
-}, {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "custom_blend",
-"type": 3,
-"usage": 6
-}, {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "custom_speed",
-"type": 3,
-"usage": 6
-}, {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "from_end",
-"type": 1,
-"usage": 6
-}]),
-"default_args": [&"", -1, 1.0, false],
-"flags": 1,
-"id": 7285,
-"name": "play",
-"return": {
-"class_name": &"",
-"hint": 0,
-"hint_string": "",
-"name": "",
-"type": 0,
-"usage": 6
-}
-}
-metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+[node name="Play collect" type="Node" parent="Lifecycle Animation" unique_id=626442591]
+script = ExtResource("11_6jsnr")
+AnimationName = &"collect"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
-[connection signal="Submitted" from="Panel/UserInterfaceComponent" to="Panel/Triggered" method="Trigger" flags=7]
+[node name="Outcome Animation" type="AnimationPlayer" parent="." unique_id=2144958419]
+libraries/ = SubResource("AnimationLibrary_whe46")
+
+[connection signal="Submitted" from="Panel/UserInterfaceComponent" to="Lifecycle Animation/Play collect" method="Trigger" flags=7]
+[connection signal="OutcomeStarted" from="Bonus Item Instance" to="Outcome Animation" method="play"]
