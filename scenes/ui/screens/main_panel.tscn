@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://c146cq1v3flhr"]
+
+[ext_resource type="Texture2D" uid="uid://hxm0pevhuxh3" path="res://assets/textures/main_panel/cat_default_0000.png" id="1_gwv48"]
+[ext_resource type="Script" uid="uid://k88c5byfcni6" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalStation.cs" id="1_kg3vg"]
+[ext_resource type="Texture2D" uid="uid://pwvchvjalcnc" path="res://assets/textures/main_panel/ground.png" id="1_srnk6"]
+[ext_resource type="Script" uid="uid://c3hkl8pcy8l32" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalPortInbound.cs" id="2_jxa73"]
+[ext_resource type="Texture2D" uid="uid://bkw32ts3rtayt" path="res://assets/textures/main_panel/cat_default_0001.png" id="2_srnk6"]
+[ext_resource type="Texture2D" uid="uid://bv2bd3hql8h8o" path="res://assets/textures/main_panel/cat_petting_0000.png" id="4_aeept"]
+[ext_resource type="Texture2D" uid="uid://b7fc56v6bax1n" path="res://assets/textures/main_panel/cat_petting_0001.png" id="5_kg3vg"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="8_jxa73"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ygjdg"]
+size = Vector2(512, -512)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4h4n4"]
+size = Vector2(512, -512)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ygjdg"]
+frames = 2
+frame_0/texture = ExtResource("1_gwv48")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("2_srnk6")
+frame_1/duration = 0.5
+
+[sub_resource type="Animation" id="Animation_nicej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat Pivot/Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_ygjdg")]
+}
+
+[sub_resource type="Animation" id="Animation_jxa73"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat Pivot/Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_ygjdg")]
+}
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nicej"]
+frames = 2
+frame_0/texture = ExtResource("4_aeept")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("5_kg3vg")
+frame_1/duration = 0.5
+
+[sub_resource type="Animation" id="Animation_8it7f"]
+resource_name = "petting"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat Pivot/Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AnimatedTexture_nicej")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibooo"]
+_data = {
+&"RESET": SubResource("Animation_nicej"),
+&"default": SubResource("Animation_jxa73"),
+&"petting": SubResource("Animation_8it7f")
+}
+
+[sub_resource type="Animation" id="Animation_ibooo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat Pivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6kpbr"]
+resource_name = "click"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat Pivot:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334),
+"transitions": PackedFloat32Array(1.8660663, 0.5176324, 1),
+"update": 0,
+"values": [Vector2(1.05, 0.93), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtm6s"]
+_data = {
+&"RESET": SubResource("Animation_ibooo"),
+&"click": SubResource("Animation_6kpbr")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1422576693]
+
+[node name="SignalStation" type="Node" parent="." unique_id=1847163025]
+script = ExtResource("1_kg3vg")
+metadata/_custom_type_script = "uid://k88c5byfcni6"
+
+[node name="Clicked" type="Node" parent="SignalStation" unique_id=64690910]
+script = ExtResource("2_jxa73")
+metadata/_custom_type_script = "uid://c3hkl8pcy8l32"
+
+[node name="Ground" type="MeshInstance2D" parent="." unique_id=685641203]
+modulate = Color(0.89812356, 0.859394, 0.8054351, 1)
+position = Vector2(0, 118.99999)
+scale = Vector2(1.412, 1.412)
+mesh = SubResource("QuadMesh_ygjdg")
+texture = ExtResource("1_srnk6")
+
+[node name="Cat Pivot" type="Node2D" parent="." unique_id=2026853897]
+position = Vector2(0, 175)
+
+[node name="Cat" type="MeshInstance2D" parent="Cat Pivot" unique_id=641554049]
+position = Vector2(0, -175)
+mesh = SubResource("QuadMesh_4h4n4")
+texture = SubResource("AnimatedTexture_ygjdg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=791814590]
+
+[node name="State" type="AnimationPlayer" parent="." unique_id=2144840365]
+libraries/ = SubResource("AnimationLibrary_ibooo")
+next/petting = &"default"
+
+[node name="Play default" type="Node" parent="State" unique_id=37412005]
+script = ExtResource("8_jxa73")
+AnimationName = &"default"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[node name="Play petting" type="Node" parent="State" unique_id=989702312]
+script = ExtResource("8_jxa73")
+AnimationName = &"petting"
+Restart = true
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1132386080]
+libraries/ = SubResource("AnimationLibrary_jtm6s")
+
+[node name="Play click" type="Node" parent="Animation" unique_id=1647140222]
+script = ExtResource("8_jxa73")
+AnimationName = &"click"
+Restart = true
+Deferred = true
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[connection signal="Received" from="SignalStation/Clicked" to="State/Play petting" method="Trigger"]
+[connection signal="Received" from="SignalStation/Clicked" to="Animation/Play click" method="Trigger"]

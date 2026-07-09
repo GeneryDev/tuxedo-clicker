@@ -12,19 +12,58 @@
 [ext_resource type="PackedScene" uid="uid://bdunyve28ljd6" path="res://scenes/ui/elements/generator_button.tscn" id="4_bvx0v"]
 [ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="4_copf3"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="5_sw3t3"]
+[ext_resource type="PackedScene" uid="uid://c146cq1v3flhr" path="res://scenes/ui/screens/main_panel.tscn" id="6_6lk3d"]
+[ext_resource type="Script" uid="uid://060xcyymuvll" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalStationInstanceBridge.cs" id="7_6niy1"]
 [ext_resource type="PackedScene" uid="uid://ckxkjnnn77uqi" path="res://scenes/ui/elements/bulk_store_button.tscn" id="8_d74qc"]
+[ext_resource type="Script" uid="uid://oliucmlr4xel" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalPortOutbound.cs" id="8_ediq1"]
 [ext_resource type="StyleBox" uid="uid://t4o42k6q8a8x" path="res://resources/styleboxes/beige_box_1.tres" id="9_iwavl"]
+[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="10_4h4n4"]
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="11_la5tf"]
 [ext_resource type="StyleBox" uid="uid://cv6s7oyomh0p7" path="res://resources/styleboxes/beige_line_1_horizontal.tres" id="11_txx2a"]
 [ext_resource type="Script" uid="uid://c8d5lnapgn7jw" path="res://scripts/CatClicker/BonusSpawner.cs" id="12_6yght"]
 [ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="12_txx2a"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="12_v2j4h"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="12_xd75i"]
 [ext_resource type="PackedScene" uid="uid://cfm8xg05rcfkb" path="res://scenes/ui/elements/bonus_item.tscn" id="13_gx115"]
 [ext_resource type="StyleBox" uid="uid://q0vgqf677d0u" path="res://resources/styleboxes/beige_line_1_vertical.tres" id="14_ewcn1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
+blend_mode = 4
 
 [sub_resource type="Resource" id="Resource_41dup"]
 script = ExtResource("5_sw3t3")
 BaseFontSize = 36
 metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="Resource" id="Resource_6lk3d"]
+script = ExtResource("10_4h4n4")
+MaximumContentWidth = 400
+metadata/_custom_type_script = "uid://dq8tdw83fjsto"
+
+[sub_resource type="StyleBox" id="StyleBox_6niy1"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("12_v2j4h")
+Texture = ExtResource("11_la5tf")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 20.0
+ExpandMarginTop = 6.0
+ExpandMarginRight = 20.0
+ExpandMarginBottom = 6.0
+metadata/_custom_type_script = "uid://b52iivqa651xf"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yhc"]
 
@@ -82,6 +121,32 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1843758047]
+material = SubResource("CanvasItemMaterial_6lk3d")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer" unique_id=1048588458]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(748, 648)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport" unique_id=1422576693 instance=ExtResource("6_6lk3d")]
+position = Vector2(386, 324)
+
+[node name="Viewport Signals Bridge" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D" unique_id=1489480848]
+script = ExtResource("7_6niy1")
+metadata/_custom_type_script = "uid://060xcyymuvll"
+
+[node name="Clicked" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge" unique_id=136264471]
+script = ExtResource("8_ediq1")
+
 [node name="Point Button" type="Button" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=285848583]
 layout_mode = 1
 anchors_preset = 15
@@ -89,6 +154,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Point Button" unique_id=1613411602]
 script = ExtResource("3_ngerl")
@@ -96,7 +162,7 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
-[node name="Top Info" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1818834133]
+[node name="Top Info" type="CenterContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1244402739]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -107,23 +173,39 @@ offset_right = 310.0
 offset_bottom = 117.0
 mouse_filter = 2
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info" unique_id=2040517205 node_paths=PackedStringArray("DataContext")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainPanel/Top Info" unique_id=1781430026]
+layout_mode = 2
+
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer" unique_id=2040517205 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-theme_override_font_sizes/mono_font_size = 36
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
 TextFormat = "{points}"
-DataContext = NodePath("../../../../../Game State")
+DataContext = NodePath("../../../../../../Game State")
 UsePostProcessing = true
-PostProcessors = [SubResource("Resource_41dup")]
+PostProcessors = [SubResource("Resource_41dup"), SubResource("Resource_6lk3d")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer/FormattedLabel" unique_id=269454096]
+modulate = Color(0.8666667, 0.68235296, 0.4117647, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBox_6niy1")
 
 [node name="Sidebar" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=937194687]
 custom_minimum_size = Vector2(400, 0)
@@ -270,6 +352,7 @@ offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="Spawner" type="Node" parent="Bonus Overlay" unique_id=1014041059 node_paths=PackedStringArray("Template")]
 script = ExtResource("12_6yght")
@@ -301,3 +384,4 @@ TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
+[connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]

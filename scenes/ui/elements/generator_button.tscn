@@ -4,19 +4,19 @@
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_kw2wh"]
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_qugwo"]
 [ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_y5wqn"]
-[ext_resource type="Texture2D" uid="uid://c8nopga08yl73" path="res://icon.svg" id="3_abl8f"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_owvq4"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="4_8xxn1"]
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="4_di5gf"]
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="4_oatpg"]
 [ext_resource type="Script" uid="uid://b6r30cwtmb8sk" path="res://scripts/CatClicker/PointGeneratorFunctions.cs" id="4_qugwo"]
 [ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_tmovg"]
+[ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="6_vqf3t"]
 [ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="10_y5wqn"]
 [ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="13_vqf3t"]
 
 [sub_resource type="Resource" id="Resource_xic20"]
 script = ExtResource("4_oatpg")
-Value = ExtResource("3_abl8f")
+Value = ExtResource("6_vqf3t")
 metadata/_custom_type_script = "uid://ol1wwcdce7t2"
 
 [sub_resource type="Resource" id="Resource_owvq4"]
@@ -338,7 +338,7 @@ theme_override_constants/separation = 16
 [node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1482321458]
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
-texture = ExtResource("3_abl8f")
+texture = ExtResource("6_vqf3t")
 expand_mode = 1
 stretch_mode = 5
 
