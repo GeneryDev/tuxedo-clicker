@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using GDF.Serialization;
 using Godot;
 
 namespace CatClicker;
 
-public partial struct GameState
+public partial struct GameState : IJsonSerializable
 {
     public double UnixTimestampSec;
     public BigInteger Points;
@@ -89,7 +90,14 @@ public partial struct GameState
 
     private static BigInteger AdvanceGenerator<TModifier>(PointGeneratorState generatorState, double delta, out PointGeneratorState newGeneratorState, TModifier modifier) where TModifier : IProductionModifier
     {
-        decimal tickRate = generatorState.TotalTickRate;
+        var generatorDef = PointGenerators.FromId(generatorState.GeneratorId).Resource;
+        if (generatorDef == null)
+        {
+            newGeneratorState = generatorState;
+            return 0;
+        }
+        decimal tickRate = (decimal)generatorDef.TickRate * generatorState.Count;
+        BigInteger pointsPerTick = generatorDef.PointsPerTick;
 
         modifier.ModifyGeneratorProductionRate(generatorState, ref tickRate);
         
@@ -108,7 +116,7 @@ public partial struct GameState
         {
             Phase = newPhase
         };
-        return totalTicksInt * generatorState.PointsPerTick;
+        return totalTicksInt * pointsPerTick;
     }
 
     private static readonly List<ActiveEffectState> TempEffectStates = new();
@@ -156,5 +164,26 @@ public partial struct GameState
         }
 
         return false;
+    }
+
+    public void Deserialize(Variant v)
+    {
+        var json = JsonSerializer.Default;
+        var dict = v.AsGodotDictionary();
+        json.Deserialize(dict, nameof(UnixTimestampSec), ref UnixTimestampSec);
+        json.Deserialize(dict, nameof(Points), ref Points);
+        json.Deserialize(dict, nameof(GeneratorStates), ref GeneratorStates);
+        json.Deserialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
+    }
+
+    public Variant Serialize()
+    {
+        var json = JsonSerializer.Default;
+        var dict = new Godot.Collections.Dictionary();
+        json.Serialize(dict, nameof(UnixTimestampSec), ref UnixTimestampSec);
+        json.Serialize(dict, nameof(Points), ref Points);
+        json.Serialize(dict, nameof(GeneratorStates), ref GeneratorStates);
+        json.Serialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
+        return dict;
     }
 }

@@ -13,4 +13,9 @@ public partial class GameStateFunctions : Node
     {
         GameStateManager.Instance.GainEffect(effectId, duration);
     }
+
+    public void Save()
+    {
+        GameStateManager.Instance.Save();
+    }
 }

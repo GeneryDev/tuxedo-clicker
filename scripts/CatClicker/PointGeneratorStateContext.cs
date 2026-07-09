@@ -30,23 +30,11 @@ public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<P
         return default;
     }
 
-    private double GetProgress()
-    {
-        var state = GetCurrentState();
-
-        return (double)((decimal)state.Phase * state.TotalTickRate);
-    }
-
     public bool GetContextVariable(string key, string input, ref Variant output, IDataQueryOptions options)
     {
         if (!GameStateManager.InstanceExists) return false;
         switch (key)
         {
-            case "progress":
-            {
-                output = GetProgress();
-                return true;
-            }
             case "count":
             {
                 output = GetCurrentState().Count;

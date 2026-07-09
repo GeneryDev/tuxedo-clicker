@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://dtb32g4wow0l6"]
+
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="1_jlu7u"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_5r064"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_30t2d"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_bov4b"]
+
+[sub_resource type="Animation" id="Animation_5r064"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Save"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_30t2d"]
+resource_name = "saved"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Saved!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bov4b"]
+resource_name = "unsaved"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Save"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bkis"]
+_data = {
+&"RESET": SubResource("Animation_5r064"),
+&"saved": SubResource("Animation_30t2d"),
+&"unsaved": SubResource("Animation_bov4b")
+}
+
+[node name="Game Actions Panel" type="MarginContainer" unique_id=827295019]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Game State Functions" type="Node" parent="." unique_id=926912793]
+script = ExtResource("1_jlu7u")
+
+[node name="Game State" type="Node" parent="." unique_id=2048429991]
+script = ExtResource("2_5r064")
+TypeId = "game_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1320422769]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Save Button" type="Button" parent="VBoxContainer" unique_id=220306163]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Save"
+
+[node name="State" type="AnimationPlayer" parent="VBoxContainer/Save Button" unique_id=204245274]
+libraries/ = SubResource("AnimationLibrary_8bkis")
+
+[node name="Current Animation Binding" type="Node" parent="VBoxContainer/Save Button/State" unique_id=1008231107 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_30t2d")
+DataContext = NodePath("../../../../Game State")
+Query = "{is_save_dirty}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"saved",
+true: &"unsaved"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Save Button" unique_id=593358921]
+script = ExtResource("4_bov4b")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="Game State Functions" method="Save"]

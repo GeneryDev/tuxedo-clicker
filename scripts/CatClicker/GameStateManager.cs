@@ -30,18 +30,10 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
 
     public override void _Ready()
     {
-        State = new GameState()
+        if (!Load())
         {
-            UnixTimestampSec = Now,
-            // Points = new System.Numerics.BigInteger(205008967533512230M)
-        };
-        var generatorStates = new List<PointGeneratorState>();
-        foreach (var generator in PointGenerators.CollectAll(new()))
-        {
-            generatorStates.Add(generator.Resource.GetDefaultState());
+            LoadState(NewBlankState());
         }
-
-        State.GeneratorStates = generatorStates.ToArray();
     }
 
     public void Step()
@@ -58,6 +50,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
     {
         Step();
         State.Points++;
+        MarkDirty();
         EmitSignalUpdated();
     }
 
@@ -71,6 +64,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             if (State.GeneratorStates[i].GeneratorId != generatorId) continue;
             State.GeneratorStates[i].Count += count;
         }
+        MarkDirty();
         EmitSignalUpdated();
     }
 
@@ -82,6 +76,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             State.Points -= amount;
             return true;
         }
+        MarkDirty();
         EmitSignalUpdated();
 
         return false;
@@ -99,6 +94,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             RemainingSec = duration
         };
         State.ActiveEffectStates = newEffects;
+        MarkDirty();
         EmitSignalUpdated();
     }
 }

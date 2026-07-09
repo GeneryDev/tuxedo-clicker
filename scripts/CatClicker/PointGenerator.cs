@@ -13,14 +13,12 @@ public partial class PointGenerator : Resource, IDataContext
 
     [ExportGroup("Point Generation")]
     [Export] public double TickRate = 1;
-    [Export] public double PointsPerTick = 1;
+    [Export] public long PointsPerTick = 1;
 
     [ExportGroup("Cost")]
     [Export] public long BaseCost = 1;
     [Export] public double CostScalingPerLevel = 1.4f;
     
-    public decimal PointsPerSecond => (decimal)(PointsPerTick * TickRate);
-
     public PointGenerators.Descriptor Descriptor => PointGenerators.From(this);
 
     public bool GetContextVariable(string key, string input, ref Variant output, IDataQueryOptions options)
@@ -45,18 +43,6 @@ public partial class PointGenerator : Resource, IDataContext
         }
 
         return false;
-    }
-
-    public PointGeneratorState GetDefaultState()
-    {
-        return new()
-        {
-            GeneratorId = Descriptor.Id,
-            Count = 0,
-            Phase = 0,
-            PointsPerTick = new BigInteger(PointsPerTick),
-            SingleTickRate = (decimal)TickRate
-        };
     }
 
     public BigInteger GetPointCostForLevel(int level)

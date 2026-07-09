@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="12_xd75i"]
 [ext_resource type="PackedScene" uid="uid://cfm8xg05rcfkb" path="res://scenes/ui/elements/bonus_item.tscn" id="13_gx115"]
 [ext_resource type="StyleBox" uid="uid://q0vgqf677d0u" path="res://resources/styleboxes/beige_line_1_vertical.tres" id="14_ewcn1"]
+[ext_resource type="PackedScene" uid="uid://dtb32g4wow0l6" path="res://scenes/ui/elements/game_actions_panel.tscn" id="15_ediq1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
 blend_mode = 4
@@ -106,6 +107,11 @@ metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
 [node name="Game State Functions" type="Node" parent="." unique_id=1519584734]
 script = ExtResource("4_copf3")
 
+[node name="Autosave Timer" type="Timer" parent="Game State Functions" unique_id=446098712]
+wait_time = 60.0
+autostart = true
+ignore_time_scale = true
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2121992238]
 layout_mode = 1
 anchors_preset = 15
@@ -182,10 +188,10 @@ custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 7
-theme_override_font_sizes/bold_italics_font_size = 7
-theme_override_font_sizes/italics_font_size = 7
-theme_override_font_sizes/mono_font_size = 7
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -206,6 +212,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBox_6niy1")
+
+[node name="Game Actions Panel" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=827295019 instance=ExtResource("15_ediq1")]
+layout_mode = 1
+offset_top = -43.0
+offset_right = 76.0
 
 [node name="Sidebar" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=937194687]
 custom_minimum_size = Vector2(400, 0)
@@ -383,5 +394,6 @@ TargetNode = NodePath("..")
 TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
+[connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]

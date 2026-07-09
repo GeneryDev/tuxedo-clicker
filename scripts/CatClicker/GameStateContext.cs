@@ -29,6 +29,11 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
                 output = GetCurrentState().HasEffect(input);
                 return true;
             }
+            case "is_save_dirty":
+            {
+                output = GameStateManager.Instance.IsDirty();
+                return true;
+            }
         }
 
         return false;
