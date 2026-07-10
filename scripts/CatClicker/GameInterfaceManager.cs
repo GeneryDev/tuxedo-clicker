@@ -87,7 +87,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
     };
     private static readonly (int Magnitude, string Suffix)[] TimeSuffixes = new[]
     {
-        (0, "seconds"),
+        (1, "seconds"),
         (60, "minutes"),
         (60*60, "hours"),
         (60*60*24, "days"),
