@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cxk4uy2pavyhy"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_jbagm"]
+
+[resource]
+script = ExtResource("1_jbagm")
+DisplayName = "Neutrinos"
+Description = "Paw-ticle Accelerators are twice as efficient."
+FlavorText = "Must have been the wind."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_7"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

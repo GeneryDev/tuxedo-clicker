@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bpo36ragmiq4p"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_m1fg3"]
+
+[resource]
+script = ExtResource("1_m1fg3")
+DisplayName = "Fertilizer"
+Description = "Catnip Gardens are twice as efficient."
+FlavorText = "Millions must grow."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_4"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

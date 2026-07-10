@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://d4pmqlu7ytbb"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_8qc1f"]
+
+[resource]
+script = ExtResource("1_8qc1f")
+DisplayName = "Merchandise"
+Description = "Cat Shrines generate twice as many pets."
+FlavorText = "Don't turn me into a marketable plushie!"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_5"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

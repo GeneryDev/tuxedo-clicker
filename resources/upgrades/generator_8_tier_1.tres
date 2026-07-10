@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://blha8iuqfhnw3"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_a8dwg"]
+
+[resource]
+script = ExtResource("1_a8dwg")
+DisplayName = "Life multiplication"
+Description = "Vitality Amplifiers are twice as efficient."
+FlavorText = "The rich get richer."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_8"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

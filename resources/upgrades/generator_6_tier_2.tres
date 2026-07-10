@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ctumy7d7j6fyy"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_shydk"]
+
+[resource]
+script = ExtResource("1_shydk")
+DisplayName = "His name is..."
+Description = "Internet Videos generate twice as many pets."
+FlavorText = "Look him up on your school computer"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_6"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

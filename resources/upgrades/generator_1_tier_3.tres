@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://rj270lry5u1u"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_3eg8a"]
+
+[resource]
+script = ExtResource("1_3eg8a")
+DisplayName = "Expert handling"
+Description = "Hands can pet twice as fast."
+FlavorText = "*purr*"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_3"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

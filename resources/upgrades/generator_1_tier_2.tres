@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ctietr4upw6ph"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_pkpv5"]
+
+[resource]
+script = ExtResource("1_pkpv5")
+DisplayName = "Gloves"
+Description = "Hands can pet twice as fast."
+FlavorText = "Claws hurt half as much!"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_2"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

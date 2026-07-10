@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bksmp38ptcg7g"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_bwdi5"]
+
+[resource]
+script = ExtResource("1_bwdi5")
+DisplayName = "Donations from locals"
+Description = "Animal Shelters are twice as efficient."
+FlavorText = "Money's gotta come from somewhere."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_3"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

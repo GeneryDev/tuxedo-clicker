@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bsw66tyw5n7wb"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_rhgde"]
+
+[resource]
+script = ExtResource("1_rhgde")
+DisplayName = "Fences"
+Description = "Catnip Gardens are twice as efficient."
+FlavorText = "We're gonna need to keep cats out of this one."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_4"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

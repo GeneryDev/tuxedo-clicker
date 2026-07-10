@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c4l2pl1vku5iy"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_sir2i"]
+
+[resource]
+script = ExtResource("1_sir2i")
+DisplayName = "Scratching post"
+Description = "Cat Towers can produce twice as many pets."
+FlavorText = "Please leave the couch alone!"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_2"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

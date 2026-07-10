@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ba8c5lxyr7mmv"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_yo8c4"]
+
+[resource]
+script = ExtResource("1_yo8c4")
+DisplayName = "Combo"
+Description = "Paw-ticle Accelerators are twice as efficient."
+FlavorText = "241 pets from one particle - new highscore!"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_7"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

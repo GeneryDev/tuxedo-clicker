@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bketmyv43vjnh"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_aftaq"]
+
+[resource]
+script = ExtResource("1_aftaq")
+DisplayName = "Low-poly cat"
+Description = "Internet Videos generate twice as many pets."
+FlavorText = "Gotta make a move to a town that's right for me"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_6"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

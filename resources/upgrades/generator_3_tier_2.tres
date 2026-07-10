@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dqoxb33imwup4"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_jp1q4"]
+
+[resource]
+script = ExtResource("1_jp1q4")
+DisplayName = "Cost-effective supplies"
+Description = "Animal Shelters are twice as efficient."
+FlavorText = "More incentives to adopt."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_3"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

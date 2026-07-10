@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://d2v2hgjrjw2ps"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_i2cax"]
+
+[resource]
+script = ExtResource("1_i2cax")
+DisplayName = "Skyscratcher"
+Description = "Cat Towers can produce twice as many pets."
+FlavorText = "I see no God up here, other than ME."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_2"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

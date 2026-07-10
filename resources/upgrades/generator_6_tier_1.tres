@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://chk8veiybp1nr"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_ctwpt"]
+
+[resource]
+script = ExtResource("1_ctwpt")
+DisplayName = "Rainbow Cat"
+Description = "Internet Videos generate twice as many pets."
+FlavorText = "nyanyanyanyanyanyanya..."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_6"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

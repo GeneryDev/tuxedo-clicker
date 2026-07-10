@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://d4bp0nf0mmy1b"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_dy5vl"]
+
+[resource]
+script = ExtResource("1_dy5vl")
+DisplayName = "Team 0%"
+Description = "Time Machines produce twice as many pets."
+FlavorText = "No cat left unpet"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_9"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

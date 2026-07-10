@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://uegvpva57sat"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_sokvl"]
+
+[resource]
+script = ExtResource("1_sokvl")
+DisplayName = "Cat chrono-compass"
+Description = "Time Machines produce twice as many pets."
+FlavorText = "It's always \"where's the cat?\" but never \"when's the cat?\""
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_9"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

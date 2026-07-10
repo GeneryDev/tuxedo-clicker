@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dhv47u58irt0"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_f0v3t"]
+
+[resource]
+script = ExtResource("1_f0v3t")
+DisplayName = "Scratch-proof hull"
+Description = "Time Machines produce twice as many pets."
+FlavorText = "Big cats deserve love too"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_9"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

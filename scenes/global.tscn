@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
 [ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
 [ext_resource type="Script" uid="uid://6n3qkca1aw3h" path="res://addons/gdf-godot/GDF/Networking/GdfRpcSystem.cs" id="3_6rlim"]
+[ext_resource type="Script" uid="uid://dadjbppajq65x" path="res://scripts/CatClicker/Upgrades.cs" id="3_dxqtg"]
 [ext_resource type="Script" uid="uid://5krjgh5qqo37" path="res://addons/gdf-godot/GDF/PropertyStacks/GlobalPropertyStack.cs" id="3_m3l3d"]
 [ext_resource type="Script" uid="uid://dchytqeoyxkj" path="res://addons/gdf-godot/GDF/UI/ScreenStack.cs" id="4_nelfd"]
 [ext_resource type="Script" uid="uid://cjjjip5vkuwkj" path="res://addons/gdf-godot/GDF/PropertyStacks/Definitions/Specialized/MouseModeProperty.cs" id="5_bv183"]
@@ -69,6 +70,9 @@ script = ExtResource("2_2se67")
 
 [node name="Effects" type="Node" parent="Resource Libraries" unique_id=395748941]
 script = ExtResource("2_3q7h5")
+
+[node name="Upgrades" type="Node" parent="Resource Libraries" unique_id=2101824912]
+script = ExtResource("3_dxqtg")
 
 [node name="Room" type="Node" parent="." unique_id=865892212]
 script = ExtResource("2_mmyj5")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dsgp5k3ctbtqv"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_nvg7c"]
+
+[resource]
+script = ExtResource("1_nvg7c")
+DisplayName = "Increased capacity"
+Description = "Animal Shelters are twice as efficient."
+FlavorText = "To find every cat a home."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_3"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

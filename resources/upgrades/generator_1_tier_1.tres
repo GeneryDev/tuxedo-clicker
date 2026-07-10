@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://iuc2v7enjuqt"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_aqeai"]
+
+[resource]
+script = ExtResource("1_aqeai")
+DisplayName = "Two-handed"
+Description = "Hands can pet twice as fast."
+FlavorText = "I didn't need both hands anyway."
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_1"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

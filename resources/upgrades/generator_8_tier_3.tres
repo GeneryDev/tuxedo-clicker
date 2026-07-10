@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://6rbk6a8f30j"]
+
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_ej4qj"]
+
+[resource]
+script = ExtResource("1_ej4qj")
+DisplayName = "Herd immunity"
+Description = "Vitality Amplifiers are twice as efficient."
+FlavorText = "Did you know, cats used to have 9 lives?"
+ModifiesProductionRate = true
+ProductionRateMultiplier = 2.0
+ModifiedGeneratorId = &"generator_8"
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"
