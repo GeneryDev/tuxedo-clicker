@@ -36,6 +36,11 @@ public partial class PointGenerator : Resource, IDataContext
                 output = DisplayName;
                 return true;
             }
+            case "description":
+            {
+                output = Description;
+                return true;
+            }
             case "base_cost":
             {
                 output = BaseCost;

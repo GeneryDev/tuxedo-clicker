@@ -49,6 +49,14 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
                 replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points)} pets";
                 return true;
             }
+            case "points_per_second":
+            {
+                var rate = GameStateManager.Instance.GetCurrentState()
+                    .ComputeTotalProductionRate(out _);
+
+                replacement = rate.ToString();
+                return true;
+            }
         }
 
         return false;

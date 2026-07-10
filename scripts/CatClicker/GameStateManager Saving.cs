@@ -107,6 +107,9 @@ public partial class GameStateManager
         
         // Sanitize effect states (add list if missing)
         state.ActiveEffectStates ??= System.Array.Empty<ActiveEffectState>();
+        
+        // Sanitize progression data (add if missing)
+        state.ProgressionData ??= new();
     }
 
     public static GameState NewBlankState()

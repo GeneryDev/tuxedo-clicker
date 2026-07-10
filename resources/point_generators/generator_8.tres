@@ -5,8 +5,7 @@
 [resource]
 script = ExtResource("1_jlr5l")
 DisplayName = "Vitality Amplifier"
-Description = "In the process of researching cats' longevity, scientists developed a groundbreaking new medicine. This medicine can multiply the subject's lives by nine, bringing cats' expected life count to an average of 81.
-Unfortunately, this medicine only shows effects on cats and no such life-extending enhancements have been developed for humans."
+Description = "This novel medicine multiplies the cats' lives by nine, bringing cats' expected life count to an average of 81, for additional petting opportunities."
 TickRate = 242000.0
 BaseCost = 170000000
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

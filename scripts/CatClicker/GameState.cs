@@ -14,6 +14,8 @@ public partial struct GameState : IJsonSerializable
     public PointGeneratorState[] GeneratorStates;
     public ActiveEffectState[] ActiveEffectStates;
 
+    public GameProgressionData ProgressionData;
+
     public GameState AdvanceTo(double now)
     {
         double delta = now - UnixTimestampSec;
@@ -39,7 +41,7 @@ public partial struct GameState : IJsonSerializable
     private GameState AdvanceOnce(double delta)
     {
         BigInteger generatedPoints = 0;
-        generatedPoints += AdvanceGenerators(GeneratorStates, delta, out var newGeneratorStates, this);
+        generatedPoints += AdvanceGenerators(GeneratorStates, delta, out var newGeneratorStates);
 
         AdvanceEffects(ActiveEffectStates, delta, out var newEffectStates);
 
@@ -64,7 +66,7 @@ public partial struct GameState : IJsonSerializable
         return maxDelta;
     }
 
-    private static BigInteger AdvanceGenerators<TModifier>(PointGeneratorState[] generatorStates, double delta, out PointGeneratorState[] newGeneratorStates, TModifier modifier) where TModifier : IProductionModifier
+    private BigInteger AdvanceGenerators(PointGeneratorState[] generatorStates, double delta, out PointGeneratorState[] newGeneratorStates)
     {
         if (generatorStates == null)
         {
@@ -82,24 +84,15 @@ public partial struct GameState : IJsonSerializable
         
         for (var i = 0; i < generatorStates.Length; i++)
         {
-            generatedPoints += AdvanceGenerator(generatorStates[i], delta, out newGeneratorStates[i], modifier);
+            generatedPoints += AdvanceGenerator(generatorStates[i], delta, out newGeneratorStates[i]);
         }
 
         return generatedPoints;
     }
 
-    private static BigInteger AdvanceGenerator<TModifier>(PointGeneratorState generatorState, double delta, out PointGeneratorState newGeneratorState, TModifier modifier) where TModifier : IProductionModifier
+    private BigInteger AdvanceGenerator(PointGeneratorState generatorState, double delta, out PointGeneratorState newGeneratorState)
     {
-        var generatorDef = PointGenerators.FromId(generatorState.GeneratorId).Resource;
-        if (generatorDef == null)
-        {
-            newGeneratorState = generatorState;
-            return 0;
-        }
-        decimal tickRate = (decimal)generatorDef.TickRate * generatorState.Count;
-        BigInteger pointsPerTick = generatorDef.PointsPerTick;
-
-        modifier.ModifyGeneratorProductionRate(generatorState, ref tickRate);
+        ComputeGeneratorProductionRate(generatorState, out decimal tickRate, out var pointsPerTick);
         
         if (tickRate == 0)
         {
@@ -117,6 +110,55 @@ public partial struct GameState : IJsonSerializable
             Phase = newPhase
         };
         return totalTicksInt * pointsPerTick;
+    }
+
+    public PointGeneratorState GetGeneratorState(StringName generatorId)
+    {
+        if (GeneratorStates != null)
+        {
+            foreach (var state in GeneratorStates)
+            {
+                if (state.GeneratorId == generatorId) return state;
+            }
+        }
+
+        return default;
+    }
+
+    public PlayerFacingNumber ComputeTotalProductionRate(out decimal totalRate)
+    {
+        totalRate = 0;
+        if (GeneratorStates != null)
+        {
+            foreach (var state in GeneratorStates)
+            {
+                ComputeGeneratorProductionRate(state, out decimal tickRate, out var pointsPerTick);
+                totalRate += tickRate * pointsPerTick;
+            }
+        }
+
+        return new PlayerFacingNumber(totalRate);
+    }
+
+    public PlayerFacingNumber ComputeGeneratorProductionRate(StringName generatorId, out decimal tickRate, out long pointsPerTick)
+    {
+        return ComputeGeneratorProductionRate(GetGeneratorState(generatorId), out tickRate, out pointsPerTick);
+    }
+
+    public PlayerFacingNumber ComputeGeneratorProductionRate(PointGeneratorState generatorState, out decimal tickRate, out long pointsPerTick)
+    {
+        var generatorDef = PointGenerators.FromId(generatorState.GeneratorId).Resource;
+        if (generatorDef == null)
+        {
+            tickRate = 0;
+            pointsPerTick = 0;
+            return default;
+        }
+        tickRate = (decimal)generatorDef.TickRate * generatorState.Count;
+        pointsPerTick = generatorDef.PointsPerTick;
+
+        this.ModifyGeneratorProductionRate(generatorState, ref tickRate);
+        return new PlayerFacingNumber(tickRate * pointsPerTick);
     }
 
     private static readonly List<ActiveEffectState> TempEffectStates = new();
@@ -174,6 +216,7 @@ public partial struct GameState : IJsonSerializable
         json.Deserialize(dict, nameof(Points), ref Points);
         json.Deserialize(dict, nameof(GeneratorStates), ref GeneratorStates);
         json.Deserialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
+        json.Deserialize(dict, nameof(ProgressionData), ref ProgressionData);
     }
 
     public Variant Serialize()
@@ -184,6 +227,7 @@ public partial struct GameState : IJsonSerializable
         json.Serialize(dict, nameof(Points), ref Points);
         json.Serialize(dict, nameof(GeneratorStates), ref GeneratorStates);
         json.Serialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
+        json.Serialize(dict, nameof(ProgressionData), ref ProgressionData);
         return dict;
     }
 }

@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="6_vqf3t"]
 [ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="10_y5wqn"]
 [ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="13_vqf3t"]
+[ext_resource type="Script" uid="uid://chs80weqw8m6j" path="res://scripts/CatClicker/TooltipSpawner.cs" id="14_vqf3t"]
+[ext_resource type="PackedScene" uid="uid://cm0byrbiohgji" path="res://scenes/ui/screens/generator_tooltip.tscn" id="15_36bd3"]
 
 [sub_resource type="Resource" id="Resource_xic20"]
 script = ExtResource("4_oatpg")
@@ -173,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0.32999998, 0.41933322, 1)]
+"values": [Color(1, 0.32941177, 0.41960785, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -495,6 +497,27 @@ TargetPropertyName = "current_animation"
 FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Tooltip Origin" type="Control" parent="." unique_id=1098957039]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_right = -12.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TooltipSpawner" type="Node" parent="Tooltip Origin" unique_id=1343418753 node_paths=PackedStringArray("UIComponent", "TooltipOrigin")]
+script = ExtResource("14_vqf3t")
+Template = ExtResource("15_36bd3")
+Delay = 0.2
+DataContextsBySlot = Dictionary[StringName, NodePath]({
+&"generator_data": NodePath("../../Generator Data"),
+&"generator_state": NodePath("../../Generator State")
+})
+UIComponent = NodePath("../../UserInterfaceComponent")
+TooltipOrigin = NodePath("..")
+metadata/_custom_type_script = "uid://chs80weqw8m6j"
 
 [connection signal="Updated" from="Game Interface" to="Generator State" method="Refresh"]
 [connection signal="Submitted" from="UserInterfaceComponent" to="Generator Functions" method="Purchase" flags=3]

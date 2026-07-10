@@ -43,8 +43,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         Step();
         BigInteger increment = 1;
         State.Points += increment;
-        MarkDirty();
-        EmitSignalUpdated();
+        FinishStateChange();
         MessageChannel.BroadcastMessage("cursor_msg", $"+{GameInterfaceManager.Instance.FormatNumber(increment)}");
     }
 
@@ -58,8 +57,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             if (State.GeneratorStates[i].GeneratorId != generatorId) continue;
             State.GeneratorStates[i].Count += count;
         }
-        MarkDirty();
-        EmitSignalUpdated();
+        FinishStateChange();
     }
 
     public bool WithdrawPoints(BigInteger amount)
@@ -70,8 +68,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             State.Points -= amount;
             return true;
         }
-        MarkDirty();
-        EmitSignalUpdated();
+        FinishStateChange();
 
         return false;
     }
@@ -88,6 +85,12 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
             RemainingSec = duration
         };
         State.ActiveEffectStates = newEffects;
+        FinishStateChange();
+    }
+
+    private void FinishStateChange()
+    {
+        State.ProgressionData.UpdateFromGameState(State);
         MarkDirty();
         EmitSignalUpdated();
     }
