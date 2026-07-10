@@ -22,9 +22,12 @@ public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<P
     {
         if (!GameStateManager.InstanceExists) return default;
         var gameState = GameStateManager.Instance.GetCurrentState();
-        foreach (var state in gameState.GeneratorStates)
+        if (gameState.GeneratorStates != null)
         {
-            if (state.GeneratorId == GeneratorId) return state;
+            foreach (var state in gameState.GeneratorStates)
+            {
+                if (state.GeneratorId == GeneratorId) return state;
+            }
         }
 
         return default;

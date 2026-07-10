@@ -18,4 +18,9 @@ public partial class GameStateFunctions : Node
     {
         GameStateManager.Instance.Save();
     }
+
+    public void Load()
+    {
+        GameStateManager.Instance.Load();
+    }
 }

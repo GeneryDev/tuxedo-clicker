@@ -38,7 +38,19 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
             n = BigInteger.Abs(n);
         }
 
-        FormatIntegerShortScale(n, _sb);
+        FormatIntegerLog10(n, _sb, ShortScaleNumberSuffixes);
+        return _sb.ToString();
+    }
+    public string FormatTime(double sec)
+    {
+        _sb.Clear();
+        if (sec < 0)
+        {
+            _sb.Append('-');
+            sec *= -1;
+        }
+
+        FormatInteger((int)sec, _sb, TimeSuffixes);
         return _sb.ToString();
     }
 
@@ -73,9 +85,18 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
         (6*11, "undecillion"),
         (6*12, "duodecillion"),
     };
+    private static readonly (int Magnitude, string Suffix)[] TimeSuffixes = new[]
+    {
+        (0, "seconds"),
+        (60, "minutes"),
+        (60*60, "hours"),
+        (60*60*24, "days"),
+        (60*60*24*30, "months"),
+        (60*60*24*365, "years")
+    };
 
     private static readonly BigInteger Ten = new BigInteger(10);
-    private static void FormatIntegerShortScale(BigInteger n, StringBuilder sb)
+    private static void FormatIntegerLog10(BigInteger n, StringBuilder sb, (int Magnitude, string Suffix)[] suffixes)
     {
         if (n.IsZero)
         {
@@ -84,7 +105,6 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
         }
         int log10 = Mathf.FloorToInt(BigInteger.Log10(n));
 
-        var suffixes = ShortScaleNumberSuffixes;
         for (int i = suffixes.Length - 1; i >= 0; i--)
         {
             var entry = suffixes[i];
@@ -107,33 +127,35 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
 
         sb.Append(n.ToString("N0"));
         return;
-        //
-        // switch (log10)
-        // {
-        //     case 0 or 1 or 2: // up to 999
-        //     case 3 or 4 or 5: // 1,000 to 999,999
-        //         sb.Append(n.ToString("N0"));
-        //         break;
-        //     case 6 or 7 or 8: // 1,000,000 to 999,999,999
-        //         sb.Append(((double)(n * 10 / 1_000_000) / 10).ToString("N1"));
-        //         sb.Append(" million");
-        //         break;
-        //     case 9 or 10 or 11: // 1,000,000,000 to 999,999,999,999
-        //         sb.Append(((double)(n * 10 / 1_000_000_000) / 10).ToString("N1"));
-        //         sb.Append(" billion");
-        //         break;
-        //     case 12 or 13 or 14: // 1,000,000,000,000 to 999,999,999,999,999
-        //         sb.Append(((double)(n * 10 / 1_000_000_000_000) / 10).ToString("N1"));
-        //         sb.Append(" trillion");
-        //         break;
-        //     case 15 or 16 or 17: // 1,000,000,000,000,000 to 999,999,999,999,999,999
-        //     case > 17:
-        //         sb.Append(((double)(n * 10 / 1_000_000_000_000_000) / 10).ToString("N1"));
-        //         sb.Append(" quadrillion");
-        //         break;
-        //     default:
-        //         sb.Append(n.ToString("N0"));
-        //         break;
-        // }
+    }
+    private static void FormatInteger(BigInteger n, StringBuilder sb, (int Magnitude, string Suffix)[] suffixes)
+    {
+        if (n.IsZero)
+        {
+            sb.Append('0');
+            return;
+        }
+        for (int i = suffixes.Length - 1; i >= 0; i--)
+        {
+            var entry = suffixes[i];
+            if (n >= entry.Magnitude)
+            {
+                if (entry.Suffix == null)
+                {
+                    sb.Append(n.ToString("N0"));
+                }
+                else
+                {
+                    sb.Append(((double)(n * Ten / entry.Magnitude) / 10).ToString("N1"));
+                    sb.Append(' ');
+                    sb.Append(entry.Suffix);
+                }
+
+                return;
+            }
+        }
+
+        sb.Append(n.ToString("N0"));
+        return;
     }
 }

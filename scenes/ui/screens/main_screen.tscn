@@ -447,6 +447,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="ready" from="Game State Functions" to="Game State Functions" method="Load" flags=3]
 [connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]

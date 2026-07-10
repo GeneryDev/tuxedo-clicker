@@ -28,14 +28,6 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         base._Process(delta);
     }
 
-    public override void _Ready()
-    {
-        if (!Load())
-        {
-            LoadState(NewBlankState());
-        }
-    }
-
     public void Step()
     {
         State = GetCurrentState();

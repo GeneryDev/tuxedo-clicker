@@ -36,7 +36,15 @@ public partial class GameStateManager
         EmitSignalUpdated();
     }
 
-    public bool Load()
+    public void Load()
+    {
+        if (!LoadFromDisk())
+        {
+            LoadState(NewBlankState());
+        }
+    }
+
+    public bool LoadFromDisk()
     {
         if (!FileAccess.FileExists(SaveFilePath))
         {
@@ -66,8 +74,10 @@ public partial class GameStateManager
         var pointsGeneratedSinceSave = GetCurrentState().Points - State.Points;
         double timeElapsedSinceSave = GetCurrentState().UnixTimestampSec - State.UnixTimestampSec;
         _saveDirty = false;
-        if(timeElapsedSinceSave > 0)
-            GD.Print($"Generated {GameInterfaceManager.Instance.FormatNumber(pointsGeneratedSinceSave)} points over {(timeElapsedSinceSave / 60):N} minutes");
+        if (timeElapsedSinceSave > 0)
+        {
+            MessageChannel.BroadcastMessage("effect_msg", $"Generated {GameInterfaceManager.Instance.FormatNumber(pointsGeneratedSinceSave)} points over {GameInterfaceManager.Instance.FormatTime(timeElapsedSinceSave)}");
+        }
         EmitSignalUpdated();
         return true;
     }
