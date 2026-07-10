@@ -273,6 +273,58 @@ _data = {
 &"cannot_afford": SubResource("Animation_ux4xf")
 }
 
+[sub_resource type="Animation" id="Animation_36bd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name Label:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["{name}"]
+}
+
+[sub_resource type="Animation" id="Animation_d4xxn"]
+resource_name = "hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name Label:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["???"]
+}
+
+[sub_resource type="Animation" id="Animation_v7ca1"]
+resource_name = "revealed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Name Label:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["{name}"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8i0tr"]
+_data = {
+&"RESET": SubResource("Animation_36bd3"),
+&"hidden": SubResource("Animation_d4xxn"),
+&"revealed": SubResource("Animation_v7ca1")
+}
+
 [node name="Button" type="Button" unique_id=784526635]
 custom_minimum_size = Vector2(0, 80)
 offset_right = 386.0
@@ -364,11 +416,11 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/line_separation = -4
 theme_override_fonts/normal_font = ExtResource("10_y5wqn")
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 fit_content = true
 vertical_alignment = 1
 script = ExtResource("4_di5gf")
@@ -518,6 +570,24 @@ DataContextsBySlot = Dictionary[StringName, NodePath]({
 UIComponent = NodePath("../../UserInterfaceComponent")
 TooltipOrigin = NodePath("..")
 metadata/_custom_type_script = "uid://chs80weqw8m6j"
+
+[node name="Reveal Status" type="AnimationPlayer" parent="." unique_id=995501919]
+libraries/ = SubResource("AnimationLibrary_8i0tr")
+
+[node name="Current Animation Binding" type="Node" parent="Reveal Status" unique_id=1074109850 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_owvq4")
+DataContext = NodePath("../../Generator State")
+Query = "{is_revealed}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"hidden",
+true: &"revealed"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [connection signal="Updated" from="Game Interface" to="Generator State" method="Refresh"]
 [connection signal="Submitted" from="UserInterfaceComponent" to="Generator Functions" method="Purchase" flags=3]

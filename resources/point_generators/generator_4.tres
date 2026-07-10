@@ -8,4 +8,5 @@ DisplayName = "Catnip Garden"
 Description = "Produces a cat's favorite herb at scale."
 TickRate = 250.0
 BaseCost = 12000
+RequireGeneratorOwned = &"generator_2"
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

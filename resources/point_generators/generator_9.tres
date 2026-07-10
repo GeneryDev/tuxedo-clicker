@@ -8,4 +8,5 @@ DisplayName = "Time Machine"
 Description = "Since developing a Time Machine, a large world-wide group of enthusiastic volunteers has committed to find and pet every single unpet cat in history."
 TickRate = 1365500.0
 BaseCost = 1800000000
+RequireGeneratorOwned = &"generator_7"
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

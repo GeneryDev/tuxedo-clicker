@@ -63,7 +63,18 @@ public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<P
             }
             case "ever_owned":
             {
-                output = (GetCurrentGameState().ProgressionData?.GetMaxOwnedGeneratorCount(GeneratorId) ?? 0) > 0;
+                output = EverOwned();
+                return true;
+            }
+            case "unlocked":
+            case "is_unlocked":
+            {
+                output = IsUnlocked();
+                return true;
+            }
+            case "is_revealed":
+            {
+                output = IsUnlocked() && (EverOwned() || CanAffordSinglePurchase());
                 return true;
             }
         }
@@ -112,6 +123,11 @@ public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<P
 
         return false;
     }
+
+    public bool EverOwned()
+    {
+        return (GetCurrentGameState().ProgressionData?.GetMaxOwnedGeneratorCount(GeneratorId) ?? 0) > 0;
+    }
     
     public int GetCount()
     {
@@ -154,6 +170,16 @@ public struct PointGeneratorStateContext : IDataContext, ICacheableDataContext<P
         }
 
         return purchaseCount;
+    }
+
+    public bool IsUnlocked()
+    {
+        var def = Definition;
+        if (!string.IsNullOrEmpty(def.RequireGeneratorOwned))
+        {
+            if (!new PointGeneratorStateContext(def.RequireGeneratorOwned).EverOwned()) return false;
+        }
+        return true;
     }
 
     public void ConnectUpdateSignal(Callable callable)

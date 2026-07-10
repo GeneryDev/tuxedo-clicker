@@ -8,4 +8,5 @@ DisplayName = "Cat Shrine"
 Description = "Serves as a gathering place for cats and for humans to express their fondness of cats."
 TickRate = 1450.0
 BaseCost = 140000
+RequireGeneratorOwned = &"generator_3"
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

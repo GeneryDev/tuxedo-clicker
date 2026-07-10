@@ -221,10 +221,10 @@ custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -255,10 +255,10 @@ custom_minimum_size = Vector2(194, 17)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 14
-theme_override_font_sizes/bold_italics_font_size = 14
-theme_override_font_sizes/italics_font_size = 14
-theme_override_font_sizes/mono_font_size = 14
+theme_override_font_sizes/bold_font_size = 7
+theme_override_font_sizes/bold_italics_font_size = 7
+theme_override_font_sizes/italics_font_size = 7
+theme_override_font_sizes/mono_font_size = 7
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -462,7 +462,7 @@ theme_override_constants/margin_right = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1339578291]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 
 [node name="Button" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1958264304 instance=ExtResource("8_d74qc")]
 layout_mode = 2
@@ -499,9 +499,14 @@ size_flags_vertical = 3
 [node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer" unique_id=1852111951 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
 script = ExtResource("3_bvx0v")
 DataContext = NodePath("../../../../../../../../Point Generators")
-CollectionQuery = "{all} {_collection:sort_stable:{base_cost}}"
+CollectionQuery = "{all} {_collection:filter:{state.unlocked}} {_collection:sort_stable:{base_cost}}"
 DefaultTemplate = NodePath("../MarginContainer/Generator List/NodeTemplate")
 metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
+
+[node name="Timer" type="Timer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer/NodeFactory" unique_id=1973278523]
+wait_time = 0.1
+autostart = true
+ignore_time_scale = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer" unique_id=1278514474]
 layout_mode = 2
@@ -595,9 +600,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="Updated" from="Game State/Game State" to="Upgrades" method="Update"]
+[connection signal="Updated" from="Game State/Game State" to="Point Generators" method="Update"]
 [connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
 [connection signal="Triggered" from="Game State Functions/Load on Ready" to="Game State Functions" method="Load" flags=3]
 [connection signal="ready" from="Game State Functions/Load on Ready" to="Game State Functions/Load on Ready" method="Trigger"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]
 [connection signal="timeout" from="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades/NodeFactory/Timer" to="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades/NodeFactory" method="Update"]
+[connection signal="timeout" from="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer/NodeFactory/Timer" to="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer/NodeFactory" method="Update"]

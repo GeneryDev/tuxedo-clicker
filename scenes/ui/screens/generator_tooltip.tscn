@@ -241,6 +241,58 @@ _data = {
 &"cannot_afford": SubResource("Animation_7m3ya")
 }
 
+[sub_resource type="Animation" id="Animation_ick5y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text/Name:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["{name}"]
+}
+
+[sub_resource type="Animation" id="Animation_i2elv"]
+resource_name = "hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text/Name:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["???"]
+}
+
+[sub_resource type="Animation" id="Animation_tbaf2"]
+resource_name = "revealed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text/Name:TextFormat")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["{name}"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ick5y"]
+_data = {
+&"RESET": SubResource("Animation_ick5y"),
+&"hidden": SubResource("Animation_i2elv"),
+&"revealed": SubResource("Animation_tbaf2")
+}
+
 [node name="GeneratorTooltip" type="Control" unique_id=1353685262]
 layout_mode = 3
 anchors_preset = 0
@@ -356,7 +408,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755 node_paths=PackedStringArray("DataContext")]
-custom_minimum_size = Vector2(83, 32)
+custom_minimum_size = Vector2(40, 32)
 layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("6_83o15")
@@ -449,17 +501,22 @@ theme_override_styles/panel = SubResource("StyleBox_7m3ya")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1636249517]
+[node name="Stats Container" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1636249517]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=400747805]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container" unique_id=400747805]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=372207190]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container" unique_id=372207190]
 layout_mode = 2
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1166186422 node_paths=PackedStringArray("DataContext")]
+[node name="Padding" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container/HBoxContainer" unique_id=879169734]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container/HBoxContainer" unique_id=1166186422 node_paths=PackedStringArray("DataContext")]
 clip_contents = false
 custom_minimum_size = Vector2(270, 34)
 layout_mode = 2
@@ -479,7 +536,7 @@ UsePostProcessing = true
 PostProcessors = [SubResource("Resource_hlw86")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
-[node name="Background" type="Panel" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/FormattedLabel" unique_id=1246828139]
+[node name="Background" type="Panel" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container/HBoxContainer/FormattedLabel" unique_id=1246828139]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -490,7 +547,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBox_7m3ya")
 
-[node name="Visibility Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1545677349 node_paths=PackedStringArray("DataContext", "TargetNode")]
+[node name="Visibility Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Stats Container" unique_id=1545677349 node_paths=PackedStringArray("DataContext", "TargetNode")]
 script = ExtResource("11_hlw86")
 DataContext = NodePath("../../../../../Generator State")
 Query = "{ever_owned}"
@@ -498,11 +555,14 @@ TargetNode = NodePath("..")
 TargetPropertyName = "visible"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1771340869]
+[node name="Description Container" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=348884752]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer/Description Container" unique_id=1771340869]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=336286345 node_paths=PackedStringArray("DataContext")]
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Description Container" unique_id=336286345 node_paths=PackedStringArray("DataContext")]
 custom_minimum_size = Vector2(77, 17)
 layout_mode = 2
 mouse_filter = 2
@@ -514,10 +574,18 @@ theme_override_font_sizes/mono_font_size = 14
 fit_content = true
 script = ExtResource("5_224nf")
 TextFormat = "{description}"
-DataContext = NodePath("../../../../Generator Data")
+DataContext = NodePath("../../../../../Generator Data")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_1m72i")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Visibility Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Description Container" unique_id=625909630 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("11_hlw86")
+DataContext = NodePath("../../../../../Generator State")
+Query = "{is_revealed}"
+TargetNode = NodePath("..")
+TargetPropertyName = "visible"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=354614055]
 libraries/ = SubResource("AnimationLibrary_ewr7c")
@@ -570,5 +638,24 @@ FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
+[node name="Reveal Status" type="AnimationPlayer" parent="." unique_id=756815953]
+libraries/ = SubResource("AnimationLibrary_ick5y")
+
+[node name="Current Animation Binding" type="Node" parent="Reveal Status" unique_id=141680941 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("11_hlw86")
+DataContext = NodePath("../../Generator State")
+Query = "{is_revealed}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"hidden",
+true: &"revealed"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
 [connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
 [connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]
+[connection signal="Updated" from="Reveal Status/Current Animation Binding" to="Reveal Status" method="advance" binds= [0.01]]

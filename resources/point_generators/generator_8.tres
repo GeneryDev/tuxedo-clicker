@@ -8,4 +8,5 @@ DisplayName = "Vitality Amplifier"
 Description = "This novel medicine multiplies the cats' lives by nine, bringing cats' expected life count to an average of 81, for additional petting opportunities."
 TickRate = 242000.0
 BaseCost = 170000000
+RequireGeneratorOwned = &"generator_6"
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"
