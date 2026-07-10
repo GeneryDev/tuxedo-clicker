@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdunyve28ljd6" path="res://scenes/ui/elements/generator_button.tscn" id="4_bvx0v"]
 [ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="4_copf3"]
 [ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="5_sw3t3"]
+[ext_resource type="Script" uid="uid://eribg7y4pkkf" path="res://addons/gdf-godot/GDF/Logical/Diode.cs" id="6_5k3j3"]
 [ext_resource type="PackedScene" uid="uid://c146cq1v3flhr" path="res://scenes/ui/screens/main_panel.tscn" id="6_6lk3d"]
 [ext_resource type="Script" uid="uid://060xcyymuvll" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalStationInstanceBridge.cs" id="7_6niy1"]
 [ext_resource type="PackedScene" uid="uid://ckxkjnnn77uqi" path="res://scenes/ui/elements/bulk_store_button.tscn" id="8_d74qc"]
@@ -114,6 +115,10 @@ script = ExtResource("4_copf3")
 wait_time = 60.0
 autostart = true
 ignore_time_scale = true
+
+[node name="Load on Ready" type="Node" parent="Game State Functions" unique_id=326723596]
+script = ExtResource("6_5k3j3")
+metadata/_custom_type_script = "uid://eribg7y4pkkf"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2121992238]
 layout_mode = 1
@@ -447,7 +452,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="ready" from="Game State Functions" to="Game State Functions" method="Load" flags=3]
 [connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
+[connection signal="Triggered" from="Game State Functions/Load on Ready" to="Game State Functions" method="Load" flags=3]
+[connection signal="ready" from="Game State Functions/Load on Ready" to="Game State Functions/Load on Ready" method="Trigger"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
 [connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]
