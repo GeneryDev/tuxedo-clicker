@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_fkfgs")
-DisplayName = "Generator 5"
-TickRate = 4350.0
+DisplayName = "Cat Shrine"
+Description = "Serves as a gathering place for cats and for humans to express their fondness of cats."
+TickRate = 1450.0
 BaseCost = 140000
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_mb3yq")
-DisplayName = "Generator 7"
-TickRate = 141000.0
+DisplayName = "Paw-ticle Accelerator"
+Description = "Scientists are researching novel ways to pet cats in more efficient ways. One such method is accelerating special particles through groups of cats, which appears to emulate the effects of petting."
+TickRate = 43600.0
 BaseCost = 16000000
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

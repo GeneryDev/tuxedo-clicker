@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_8q6em")
-DisplayName = "Shelter"
-TickRate = 10.0
+DisplayName = "Cat Tower"
+Description = "Provides a safe and cozy center of operations for household cats. Keep away from empty cardboard boxes to protect your investment."
+TickRate = 6.0
 BaseCost = 100
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_bw36d")
-DisplayName = "Pawticle Accelerator"
-TickRate = 25200.0
+DisplayName = "Internet Video"
+Description = "Entrances millions of humans worldwide through cat-centric Internet posts, and drives them to care for cats of their own."
+TickRate = 7950.0
 BaseCost = 1500000
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://bvfuqxdj88fga"]
+
+[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_tgerf"]
+
+[resource]
+script = ExtResource("1_tgerf")
+DisplayName = "Meowko's Basilisk"
+Description = "A benevolent artificial superintelligence mirroring humans' fondness for felines. Upon creation, it commits all of humanity's resources to rescue every cat that came before, and transport them to the present, as an opportunity for them to experience the cat-utopia that you have created on Earth."
+TickRate = 7874000.0
+BaseCost = 19000000000
+metadata/_custom_type_script = "uid://c1fj71axqb3o1"

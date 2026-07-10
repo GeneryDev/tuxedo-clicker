@@ -9,7 +9,8 @@ namespace CatClicker;
 [GlobalClass]
 public partial class PointGenerator : Resource, IDataContext
 {
-    [Export] public string DisplayName;
+    [Export] public string DisplayName = "";
+    [Export(PropertyHint.MultilineText)] public string Description = "";
 
     [ExportGroup("Point Generation")]
     [Export] public double TickRate = 1;

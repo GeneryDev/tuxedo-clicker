@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_dx2ik")
 DisplayName = "Hand"
+Description = "As it turns out, we have hands for exactly one reason."
 TickRate = 0.5
 BaseCost = 10
 metadata/_custom_type_script = "uid://c1fj71axqb3o1"
