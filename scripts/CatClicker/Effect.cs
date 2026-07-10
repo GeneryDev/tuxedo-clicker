@@ -14,7 +14,7 @@ public partial class Effect : Resource, IProductionModifier
     public bool ModifiesProductionRate = false;
 
     [Export] public double ProductionRateMultiplier = 1.0f;
-    [Export] public StringName ModifiedGeneratorId = "";
+    [Export] public StringName AffectedGeneratorId = "";
     
     public Effects.Descriptor Descriptor => Effects.From(this);
 
@@ -40,9 +40,9 @@ public partial class Effect : Resource, IProductionModifier
     public bool ModifyGeneratorProductionRate(PointGeneratorState generator, ref decimal rate)
     {
         if (!ModifiesProductionRate) return false;
-        if (!ModifiedGeneratorId.IsNullOrEmpty())
+        if (!AffectedGeneratorId.IsNullOrEmpty())
         {
-            if (generator.GeneratorId != ModifiedGeneratorId) return false;
+            if (generator.GeneratorId != AffectedGeneratorId) return false;
         }
 
         rate *= (decimal)ProductionRateMultiplier;

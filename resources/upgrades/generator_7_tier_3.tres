@@ -4,10 +4,12 @@
 
 [resource]
 script = ExtResource("1_yo8c4")
-DisplayName = "Combo"
+DisplayName = "Neutrinos"
 Description = "Paw-ticle Accelerators are twice as efficient."
-FlavorText = "241 pets from one particle - new highscore!"
+FlavorText = "Must have been the wind."
+AffectedGeneratorId = &"generator_7"
+BaseCostAsFactorOfGeneratorBaseCost = 500.0
+RequireGeneratorCount = 25
 ModifiesProductionRate = true
 ProductionRateMultiplier = 2.0
-ModifiedGeneratorId = &"generator_7"
 metadata/_custom_type_script = "uid://1w0hwfr5cybt"

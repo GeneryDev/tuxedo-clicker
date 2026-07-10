@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://qugfy63j28yq"]
+
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_e3llr"]
+[ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="1_fe2ks"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="2_hf1tc"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="2_p5nbx"]
+[ext_resource type="Script" uid="uid://chs80weqw8m6j" path="res://scripts/CatClicker/TooltipSpawner.cs" id="3_00kxl"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="3_p5nbx"]
+[ext_resource type="PackedScene" uid="uid://cjalsugyp11oj" path="res://scenes/ui/screens/upgrade_tooltip.tscn" id="4_hf1tc"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="4_kubk0"]
+[ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="5_dbxii"]
+[ext_resource type="Script" uid="uid://817hutlf14fc" path="res://scripts/CatClicker/UpgradeFunctions.cs" id="10_2uj3q"]
+
+[sub_resource type="Resource" id="Resource_p5nbx"]
+script = ExtResource("5_dbxii")
+Value = ExtResource("1_fe2ks")
+metadata/_custom_type_script = "uid://ol1wwcdce7t2"
+
+[sub_resource type="Animation" id="Animation_mq2oe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p5nbx"]
+resource_name = "can_afford"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2uj3q"]
+resource_name = "cannot_afford"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.64, 0.64, 0.64, 0.32156864)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq2oe"]
+_data = {
+&"RESET": SubResource("Animation_mq2oe"),
+&"can_afford": SubResource("Animation_p5nbx"),
+&"cannot_afford": SubResource("Animation_2uj3q")
+}
+
+[node name="Button" type="Button" unique_id=960162718]
+custom_minimum_size = Vector2(60, 60)
+
+[node name="Upgrade Data" type="Node" parent="." unique_id=542383548]
+script = ExtResource("1_e3llr")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Upgrade State" type="Node" parent="." unique_id=1831505357 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("2_p5nbx")
+ParentDataContext = NodePath("Upgrade State")
+
+[node name="Upgrade State" type="Node" parent="Upgrade State" unique_id=1382271598]
+script = ExtResource("3_p5nbx")
+TypeId = "upgrade_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Params_upgrade Id Binding" type="Node" parent="Upgrade State/Upgrade State" unique_id=1145564365 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../Upgrade Data")
+Query = "{id}"
+TargetNode = NodePath("..")
+TargetPropertyName = "params/upgrade_id"
+ThrottleUpdate = false
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Upgrade Functions" type="Node" parent="." unique_id=715121525]
+script = ExtResource("10_2uj3q")
+
+[node name="Upgrade Id Binding" type="Node" parent="Upgrade Functions" unique_id=1972762318 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../Upgrade Data")
+Query = "{id}"
+TargetNode = NodePath("..")
+TargetPropertyName = "UpgradeId"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="UserInterfaceComponent" type="Node" parent="." unique_id=2006407453]
+script = ExtResource("2_hf1tc")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1903969804]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2ks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect" unique_id=1034261962 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../Upgrade Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Tooltip Origin" type="Control" parent="." unique_id=110035659]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TooltipSpawner" type="Node" parent="Tooltip Origin" unique_id=1282707551 node_paths=PackedStringArray("UIComponent", "TooltipOrigin")]
+script = ExtResource("3_00kxl")
+Template = ExtResource("4_hf1tc")
+Delay = 0.2
+DataContextsBySlot = Dictionary[StringName, NodePath]({
+&"upgrade_data": NodePath("../../Upgrade Data"),
+&"upgrade_state": NodePath("../../Upgrade State")
+})
+UIComponent = NodePath("../../UserInterfaceComponent")
+TooltipOrigin = NodePath("..")
+metadata/_custom_type_script = "uid://chs80weqw8m6j"
+
+[node name="Purchaseability" type="AnimationPlayer" parent="." unique_id=763482684]
+libraries/ = SubResource("AnimationLibrary_mq2oe")
+
+[node name="Current Animation Binding" type="Node" parent="Purchaseability" unique_id=1700744073 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../Upgrade State")
+Query = "{can_afford}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"cannot_afford",
+true: &"can_afford"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[connection signal="Submitted" from="UserInterfaceComponent" to="Upgrade Functions" method="Purchase" flags=3]

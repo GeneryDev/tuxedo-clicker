@@ -94,4 +94,11 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         MarkDirty();
         EmitSignalUpdated();
     }
+
+    public void AddUpgrade(StringName upgradeId)
+    {
+        Step();
+        State.ProgressionData.AddUpgrade(upgradeId);
+        FinishStateChange();
+    }
 }

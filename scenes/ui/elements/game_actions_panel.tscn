@@ -99,10 +99,6 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="Game State Functions" type="Node" parent="." unique_id=926912793]
 script = ExtResource("1_jlu7u")
@@ -145,4 +141,17 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=60467267]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Settings
+"
+
+[node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Settings" unique_id=307983704]
+script = ExtResource("4_bov4b")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
 [connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="Game State Functions" method="Save"]
+[connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="Game State Functions" method="Save"]

@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://c7w751xhtlmd3" path="res://scripts/CatClicker/MessageChannel.cs" id="16_fwakm"]
 [ext_resource type="PackedScene" uid="uid://cul0p3e10in66" path="res://scenes/ui/elements/effect_message.tscn" id="17_sngan"]
 [ext_resource type="PackedScene" uid="uid://bc5m6pasui6au" path="res://scenes/ui/elements/cursor_message.tscn" id="19_adi41"]
+[ext_resource type="PackedScene" uid="uid://qugfy63j28yq" path="res://scenes/ui/elements/upgrade_button.tscn" id="24_3khxw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
 blend_mode = 4
@@ -73,6 +74,8 @@ metadata/_custom_type_script = "uid://b52iivqa651xf"
 [sub_resource type="Resource" id="Resource_5k3j3"]
 script = ExtResource("5_sw3t3")
 metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5k3j3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yhc"]
 
@@ -124,6 +127,16 @@ ignore_time_scale = true
 script = ExtResource("6_5k3j3")
 metadata/_custom_type_script = "uid://eribg7y4pkkf"
 
+[node name="Upgrades" type="Node" parent="." unique_id=31036804]
+script = ExtResource("3_l6q0j")
+LibraryTypeString = "Upgrade"
+metadata/_custom_type_script = "uid://bwjl50hav4euk"
+
+[node name="Point Generators" type="Node" parent="." unique_id=19234917]
+script = ExtResource("3_l6q0j")
+LibraryTypeString = "PointGenerator"
+metadata/_custom_type_script = "uid://bwjl50hav4euk"
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2121992238]
 layout_mode = 1
 anchors_preset = 15
@@ -135,11 +148,16 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=534946788]
 layout_mode = 2
 
-[node name="MainPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1278070459]
+[node name="Left Side" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=968009866]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1843758047]
+[node name="MainPanel" type="Panel" parent="MarginContainer/HBoxContainer/Left Side" unique_id=1278070459]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1843758047]
 material = SubResource("CanvasItemMaterial_6lk3d")
 layout_mode = 1
 anchors_preset = 15
@@ -149,23 +167,23 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer" unique_id=1048588458]
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer" unique_id=1048588458]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(748, 648)
+size = Vector2i(748, 557)
 render_target_update_mode = 4
 
-[node name="Node2D" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport" unique_id=1422576693 instance=ExtResource("6_6lk3d")]
+[node name="Node2D" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer/SubViewport" unique_id=1422576693 instance=ExtResource("6_6lk3d")]
 position = Vector2(386, 324)
 
-[node name="Viewport Signals Bridge" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D" unique_id=1489480848]
+[node name="Viewport Signals Bridge" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer/SubViewport/Node2D" unique_id=1489480848]
 script = ExtResource("7_6niy1")
 metadata/_custom_type_script = "uid://060xcyymuvll"
 
-[node name="Clicked" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge" unique_id=136264471]
+[node name="Clicked" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge" unique_id=136264471]
 script = ExtResource("8_ediq1")
 
-[node name="Point Button" type="Button" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=285848583]
+[node name="Point Button" type="Button" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=285848583]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,13 +192,13 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Point Button" unique_id=1613411602]
+[node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button" unique_id=1613411602]
 script = ExtResource("3_ngerl")
 NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
-[node name="Top Info" type="CenterContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1244402739]
+[node name="Top Info" type="CenterContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1244402739]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -191,32 +209,32 @@ offset_right = 310.0
 offset_bottom = 117.0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainPanel/Top Info" unique_id=1781430026]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info" unique_id=1781430026]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer" unique_id=1821159884]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer" unique_id=1821159884]
 layout_mode = 2
 
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer/CenterContainer" unique_id=2040517205 node_paths=PackedStringArray("DataContext")]
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer/CenterContainer" unique_id=2040517205 node_paths=PackedStringArray("DataContext")]
 clip_contents = false
-custom_minimum_size = Vector2(120, 42)
+custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-theme_override_font_sizes/bold_italics_font_size = 36
-theme_override_font_sizes/italics_font_size = 36
-theme_override_font_sizes/mono_font_size = 36
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
 TextFormat = "{points}"
-DataContext = NodePath("../../../../../../../Game State")
+DataContext = NodePath("../../../../../../../../Game State")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_41dup"), SubResource("Resource_6lk3d")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
-[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer/CenterContainer/FormattedLabel" unique_id=269454096]
+[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer/CenterContainer/FormattedLabel" unique_id=269454096]
 modulate = Color(0.8666667, 0.68235296, 0.4117647, 1)
 show_behind_parent = true
 layout_mode = 1
@@ -228,10 +246,10 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBox_6niy1")
 
-[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer" unique_id=404689801]
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer" unique_id=404689801]
 layout_mode = 2
 
-[node name="FormattedLabel2" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer/CenterContainer2" unique_id=302246190 node_paths=PackedStringArray("DataContext")]
+[node name="FormattedLabel2" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer/CenterContainer2" unique_id=302246190 node_paths=PackedStringArray("DataContext")]
 clip_contents = false
 custom_minimum_size = Vector2(194, 17)
 layout_mode = 2
@@ -245,12 +263,12 @@ fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
 TextFormat = "{points_per_second} per second"
-DataContext = NodePath("../../../../../../../Game State")
+DataContext = NodePath("../../../../../../../../Game State")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_5k3j3"), SubResource("Resource_6lk3d")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
-[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/MainPanel/Top Info/VBoxContainer/CenterContainer2/FormattedLabel2" unique_id=1039373766]
+[node name="Background" type="Panel" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Top Info/VBoxContainer/CenterContainer2/FormattedLabel2" unique_id=1039373766]
 modulate = Color(0.8666667, 0.68235296, 0.4117647, 1)
 show_behind_parent = true
 layout_mode = 1
@@ -262,12 +280,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBox_6niy1")
 
-[node name="Game Actions Panel" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=827295019 instance=ExtResource("15_ediq1")]
-layout_mode = 1
-offset_top = -43.0
-offset_right = 76.0
-
-[node name="Effect Messages Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=126707300]
+[node name="Effect Messages Panel" type="MarginContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=126707300]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -280,17 +293,17 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Effect Messages Panel" unique_id=1831960986 node_paths=PackedStringArray("Template")]
+[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Effect Messages Panel" unique_id=1831960986 node_paths=PackedStringArray("Template")]
 script = ExtResource("16_fwakm")
 Group = &"effect_msg"
 Template = NodePath("../NodeTemplate")
 
-[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Effect Messages Panel" unique_id=1260085358]
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Effect Messages Panel" unique_id=1260085358]
 script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("17_sngan")
 metadata/_custom_type_script = "uid://cipgbcqmkinta"
 
-[node name="Cursor Messages Panel" type="Control" parent="MarginContainer/HBoxContainer/MainPanel" unique_id=1017266866]
+[node name="Cursor Messages Panel" type="Control" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1017266866]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -301,15 +314,102 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Cursor Messages Panel" unique_id=18310845 node_paths=PackedStringArray("Template")]
+[node name="Message Channel" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Cursor Messages Panel" unique_id=18310845 node_paths=PackedStringArray("Template")]
 script = ExtResource("16_fwakm")
 Group = &"cursor_msg"
 Template = NodePath("../NodeTemplate")
 SpawnAtMousePosition = true
 
-[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/MainPanel/Cursor Messages Panel" unique_id=1621293438]
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Cursor Messages Panel" unique_id=1621293438]
 script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("19_adi41")
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Bottom Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/Left Side" unique_id=1365087730]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("9_iwavl")
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel" unique_id=83107683]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Separator3" type="Panel" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/Control" unique_id=818883195]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = -4.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("11_txx2a")
+
+[node name="Separator4" type="Panel" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/Control" unique_id=132690291]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("11_txx2a")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel" unique_id=1559079792]
+layout_mode = 2
+theme_override_constants/margin_left = -4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer" unique_id=1467472035]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer" unique_id=830995850]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("12_txx2a")
+
+[node name="Game Actions Panel" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/PanelContainer" unique_id=827295019 instance=ExtResource("15_ediq1")]
+layout_mode = 2
+theme_override_constants/margin_left = -8
+theme_override_constants/margin_top = -8
+theme_override_constants/margin_right = -8
+theme_override_constants/margin_bottom = -8
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer" unique_id=1656736211]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer" unique_id=406248215]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+
+[node name="Upgrades" type="HFlowContainer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer" unique_id=1131582474]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades" unique_id=1407755019 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
+script = ExtResource("3_bvx0v")
+DataContext = NodePath("../../../../../../../../../Upgrades")
+CollectionQuery = "{all} {_collection:filter:{state.unlocked} && !{state.active}} {_collection:sort_stable:{base_cost}}"
+DefaultTemplate = NodePath("../NodeTemplate")
+metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
+
+[node name="Timer" type="Timer" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades/NodeFactory" unique_id=208709447]
+wait_time = 0.1
+autostart = true
+ignore_time_scale = true
+
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades" unique_id=1649614605]
+script = ExtResource("3_b5fur")
+TemplateScene = ExtResource("24_3khxw")
+PreviewCount = 8
 metadata/_custom_type_script = "uid://cipgbcqmkinta"
 
 [node name="Sidebar" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=937194687]
@@ -324,11 +424,6 @@ theme_override_constants/margin_top = -4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Point Generators" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer" unique_id=19234917]
-script = ExtResource("3_l6q0j")
-LibraryTypeString = "PointGenerator"
-metadata/_custom_type_script = "uid://bwjl50hav4euk"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer" unique_id=1422461659]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -337,7 +432,14 @@ theme_override_constants/separation = 8
 visible = false
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = ExtResource("11_txx2a")
+theme_override_styles/panel = ExtResource("12_txx2a")
+
+[node name="Panel3" type="Panel" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer" unique_id=2085024172]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5k3j3")
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer" unique_id=1578150477]
 custom_minimum_size = Vector2(0, 60)
@@ -396,7 +498,7 @@ size_flags_vertical = 3
 
 [node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Sidebar/MarginContainer/VBoxContainer/Panel2/ScrollContainer" unique_id=1852111951 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
 script = ExtResource("3_bvx0v")
-DataContext = NodePath("../../../../Point Generators")
+DataContext = NodePath("../../../../../../../../Point Generators")
 CollectionQuery = "{all} {_collection:sort_stable:{base_cost}}"
 DefaultTemplate = NodePath("../MarginContainer/Generator List/NodeTemplate")
 metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
@@ -496,5 +598,6 @@ offset_bottom = 40.0
 [connection signal="timeout" from="Game State Functions/Autosave Timer" to="Game State Functions" method="Save"]
 [connection signal="Triggered" from="Game State Functions/Load on Ready" to="Game State Functions" method="Load" flags=3]
 [connection signal="ready" from="Game State Functions/Load on Ready" to="Game State Functions/Load on Ready" method="Trigger"]
-[connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
-[connection signal="Submitted" from="MarginContainer/HBoxContainer/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]
+[connection signal="Submitted" from="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button/UserInterfaceComponent" to="Game State Functions" method="Click"]
+[connection signal="Submitted" from="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button/UserInterfaceComponent" to="MarginContainer/HBoxContainer/Left Side/MainPanel/SubViewportContainer/SubViewport/Node2D/Viewport Signals Bridge/Clicked" method="Emit"]
+[connection signal="timeout" from="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades/NodeFactory/Timer" to="MarginContainer/HBoxContainer/Left Side/Bottom Panel/MarginContainer/HBoxContainer/ScrollContainer/Upgrades/NodeFactory" method="Update"]

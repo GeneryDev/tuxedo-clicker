@@ -1,37 +1,38 @@
-[gd_scene format=3 uid="uid://cm0byrbiohgji"]
+[gd_scene format=3 uid="uid://cjalsugyp11oj"]
 
-[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_loan6"]
-[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_224nf"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="2_341ir"]
-[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="2_ondbh"]
-[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="3_ewr7c"]
-[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="3_m7obl"]
-[ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="4_vf681"]
-[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="5_224nf"]
-[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="6_83o15"]
-[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="7_ithlt"]
-[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="8_83o15"]
-[ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="8_j2iqc"]
-[ext_resource type="Script" uid="uid://c64ieqqgm8ha7" path="res://addons/gdf-godot/GDF/UI/ControlConstraint.cs" id="11_afk3w"]
-[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="11_hlw86"]
-[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="12_cmxbe"]
-[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="13_j2iqc"]
-[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="14_cmxbe"]
+[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_2hx7q"]
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_03b0g"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="3_ao25y"]
+[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="4_81afc"]
+[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="5_ors7y"]
+[ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="6_iavkh"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="7_rq3k7"]
+[ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="8_ao25y"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="8_r0r3n"]
+[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="9_bh1oo"]
+[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="10_jxosm"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="11_onsqv"]
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="12_w21cn"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="13_km6ht"]
+[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="14_3pl1p"]
+[ext_resource type="FontFile" uid="uid://ctxfsug5dr4iw" path="res://assets/fonts/ComicNeue-BoldItalic.ttf" id="15_03b0g"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="15_35m4m"]
+[ext_resource type="Script" uid="uid://c64ieqqgm8ha7" path="res://addons/gdf-godot/GDF/UI/ControlConstraint.cs" id="16_r65ld"]
 
-[sub_resource type="Resource" id="Resource_7m3ya"]
-script = ExtResource("8_j2iqc")
-Value = ExtResource("4_vf681")
+[sub_resource type="Resource" id="Resource_81afc"]
+script = ExtResource("8_ao25y")
+Value = ExtResource("6_iavkh")
 metadata/_custom_type_script = "uid://ol1wwcdce7t2"
 
 [sub_resource type="Resource" id="Resource_afk3w"]
-script = ExtResource("7_ithlt")
-BaseFontSize = 24
+script = ExtResource("9_bh1oo")
+BaseFontSize = 18
 ContentWidthThresholdToShrink = 100
 ContentWidthThresholdToShrinkSubsequentLines = 100
 metadata/_custom_type_script = "uid://iir4w637gc2k"
 
 [sub_resource type="Resource" id="Resource_m7obl"]
-script = ExtResource("8_83o15")
+script = ExtResource("10_jxosm")
 MaximumContentWidth = 250
 metadata/_custom_type_script = "uid://dq8tdw83fjsto"
 
@@ -42,8 +43,8 @@ content_margin_left = -1.0
 content_margin_top = -1.0
 content_margin_right = -1.0
 content_margin_bottom = -1.0
-script = ExtResource("13_j2iqc")
-Texture = ExtResource("12_cmxbe")
+script = ExtResource("13_km6ht")
+Texture = ExtResource("12_w21cn")
 OverrideTextureSize = Vector2i(245, 161)
 PatchCountHorizontal = 3
 PatchCountVertical = 3
@@ -62,12 +63,12 @@ ModulateColor = Color(1, 0.9254902, 0.7647059, 1)
 metadata/_custom_type_script = "uid://b52iivqa651xf"
 
 [sub_resource type="Resource" id="Resource_hlw86"]
-script = ExtResource("8_83o15")
+script = ExtResource("10_jxosm")
 MaximumContentWidth = 300
 metadata/_custom_type_script = "uid://dq8tdw83fjsto"
 
 [sub_resource type="Resource" id="Resource_1m72i"]
-script = ExtResource("8_83o15")
+script = ExtResource("10_jxosm")
 MaximumContentWidth = 300
 metadata/_custom_type_script = "uid://dq8tdw83fjsto"
 
@@ -189,7 +190,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_cmxbe"]
-resource_name = "can_afford_bulk"
+resource_name = "can_afford"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -201,21 +202,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.21568628, 0.8, 0.28235295, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_j2iqc"]
-resource_name = "can_afford_single"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer/Purchase Cost:theme_override_colors/default_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.32941177, 0.41960785, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7m3ya"]
@@ -236,51 +222,50 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbaf2"]
 _data = {
 &"RESET": SubResource("Animation_hlw86"),
-&"can_afford_bulk": SubResource("Animation_cmxbe"),
-&"can_afford_single": SubResource("Animation_j2iqc"),
+&"can_afford": SubResource("Animation_cmxbe"),
 &"cannot_afford": SubResource("Animation_7m3ya")
 }
 
-[node name="GeneratorTooltip" type="Control" unique_id=1353685262]
+[node name="UpgradeTooltip" type="Control" unique_id=1353685262]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
-script = ExtResource("1_loan6")
+script = ExtResource("1_2hx7q")
 Order = 1
 FollowParentControlRect = true
 metadata/_custom_type_script = "uid://bko61fppga1kx"
 
-[node name="Generator Data" type="Node" parent="." unique_id=1705884865]
-script = ExtResource("2_224nf")
-InjectableSlotId = &"generator_data"
+[node name="Upgrade Data" type="Node" parent="." unique_id=1705884865]
+script = ExtResource("2_03b0g")
+InjectableSlotId = &"upgrade_data"
 DefaultVariableValues = {}
 DefaultCollections = {}
 EditorPreviewVariables = {}
 metadata/_custom_type_script = "uid://k8suh3w0dagg"
 
-[node name="Generator State" type="Node" parent="." unique_id=2145116473]
-script = ExtResource("2_224nf")
-InjectableSlotId = &"generator_state"
+[node name="Upgrade State" type="Node" parent="." unique_id=2145116473]
+script = ExtResource("2_03b0g")
+InjectableSlotId = &"upgrade_state"
 DefaultVariableValues = {}
 DefaultCollections = {}
 EditorPreviewVariables = {}
 metadata/_custom_type_script = "uid://k8suh3w0dagg"
 
 [node name="Game Interface" type="Node" parent="." unique_id=1301699648]
-script = ExtResource("3_m7obl")
+script = ExtResource("3_ao25y")
 TypeId = "game_interface"
 metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=495254499]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 0
-grow_vertical = 2
-pivot_offset_ratio = Vector2(1, 0.5)
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
 
 [node name="Background" type="Control" parent="MarginContainer" unique_id=1251900493]
 layout_mode = 2
@@ -293,7 +278,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_ondbh")
+theme_override_styles/panel = ExtResource("4_81afc")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/Background" unique_id=519272589]
 layout_mode = 1
@@ -306,7 +291,7 @@ offset_right = -6.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_ewr7c")
+theme_override_styles/panel = ExtResource("5_ors7y")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Background" unique_id=71253382]
 layout_mode = 1
@@ -319,7 +304,7 @@ offset_right = -12.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_ondbh")
+theme_override_styles/panel = ExtResource("4_81afc")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=798605601]
 layout_mode = 2
@@ -335,17 +320,17 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/Header" unique_id=1760402554]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("4_vf681")
+texture = ExtResource("6_iavkh")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Texture Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Header/TextureRect" unique_id=48213371 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("11_hlw86")
-DataContext = NodePath("../../../../../../Generator Data")
+[node name="Texture Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Header/TextureRect" unique_id=1346719777 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("11_onsqv")
+DataContext = NodePath("../../../../../../Upgrade Data")
 Query = "{icon}"
-DefaultValue = SubResource("Resource_7m3ya")
+DefaultValue = SubResource("Resource_81afc")
 TargetNode = NodePath("..")
 TargetPropertyName = "texture"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
@@ -356,33 +341,22 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755 node_paths=PackedStringArray("DataContext")]
-custom_minimum_size = Vector2(83, 32)
+custom_minimum_size = Vector2(63, 24)
 layout_mode = 2
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("6_83o15")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
-theme_override_font_sizes/mono_font_size = 24
+theme_override_fonts/normal_font = ExtResource("7_rq3k7")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+theme_override_font_sizes/mono_font_size = 18
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("5_224nf")
+script = ExtResource("8_r0r3n")
 TextFormat = "{name}"
-DataContext = NodePath("../../../../../../Generator Data")
+DataContext = NodePath("../../../../../../Upgrade Data")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_afk3w"), SubResource("Resource_m7obl")]
-metadata/_custom_type_script = "uid://dxkaapm2dks2e"
-
-[node name="Count" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=1919776470 node_paths=PackedStringArray("DataContext")]
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 14
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("5_224nf")
-TextFormat = "Owned: {count}"
-DataContext = NodePath("../../../../../../Generator State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Padding" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/Header" unique_id=612637748]
@@ -398,30 +372,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Padding" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer" unique_id=983879313]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Bulk Purchase Amount" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer" unique_id=1558162368 node_paths=PackedStringArray("DataContext")]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 14
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("5_224nf")
-TextFormat = "x{bulk_purchase_amount}"
-DataContext = NodePath("../../../../../../../Game Interface")
-metadata/_custom_type_script = "uid://dxkaapm2dks2e"
-
-[node name="Visibility Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer/Bulk Purchase Amount" unique_id=73735351 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("11_hlw86")
-DataContext = NodePath("../../../../../../../../Game Interface")
-Query = "{bulk_purchase_amount} > 1"
-TargetNode = NodePath("..")
-TargetPropertyName = "visible"
-metadata/_custom_type_script = "uid://wbquqef0rnl5"
-
 [node name="Purchase Cost" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer" unique_id=1297135494 node_paths=PackedStringArray("DataContext")]
 clip_contents = false
 layout_mode = 2
@@ -429,9 +379,9 @@ mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("5_224nf")
-TextFormat = "{bulk_purchase_cost}"
-DataContext = NodePath("../../../../../../../Generator State")
+script = ExtResource("8_r0r3n")
+TextFormat = "{purchase_cost}"
+DataContext = NodePath("../../../../../../../Upgrade State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Background" type="Panel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/CenterContainer/HBoxContainer/Purchase Cost" unique_id=1345736255]
@@ -456,15 +406,12 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=372207190]
-layout_mode = 2
-
-[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1166186422 node_paths=PackedStringArray("DataContext")]
+[node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1166186422 node_paths=PackedStringArray("DataContext")]
 clip_contents = false
-custom_minimum_size = Vector2(270, 34)
+custom_minimum_size = Vector2(77, 17)
 layout_mode = 2
 mouse_filter = 2
-theme_override_fonts/bold_font = ExtResource("14_cmxbe")
+theme_override_fonts/bold_font = ExtResource("14_3pl1p")
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 14
 theme_override_font_sizes/bold_italics_font_size = 14
@@ -472,49 +419,33 @@ theme_override_font_sizes/italics_font_size = 14
 theme_override_font_sizes/mono_font_size = 14
 bbcode_enabled = true
 fit_content = true
-script = ExtResource("5_224nf")
-TextFormat = "Production: [b]{points_per_second} pets[/b] per second ([b]{production_percentage}%[/b] of total)"
-DataContext = NodePath("../../../../../../Generator State")
+script = ExtResource("8_r0r3n")
+TextFormat = "{description}"
+DataContext = NodePath("../../../../../Upgrade Data")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_hlw86")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
-
-[node name="Background" type="Panel" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/FormattedLabel" unique_id=1246828139]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBox_7m3ya")
-
-[node name="Visibility Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1545677349 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("11_hlw86")
-DataContext = NodePath("../../../../../Generator State")
-Query = "{ever_owned}"
-TargetNode = NodePath("..")
-TargetPropertyName = "visible"
-metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1771340869]
 layout_mode = 2
 mouse_filter = 2
 
 [node name="FormattedLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=336286345 node_paths=PackedStringArray("DataContext")]
-custom_minimum_size = Vector2(77, 17)
+custom_minimum_size = Vector2(76, 17)
 layout_mode = 2
 mouse_filter = 2
+theme_override_fonts/italics_font = ExtResource("15_03b0g")
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 14
 theme_override_font_sizes/bold_italics_font_size = 14
 theme_override_font_sizes/italics_font_size = 14
 theme_override_font_sizes/mono_font_size = 14
+bbcode_enabled = true
 fit_content = true
-script = ExtResource("5_224nf")
-TextFormat = "{description}"
-DataContext = NodePath("../../../../Generator Data")
+horizontal_alignment = 2
+script = ExtResource("8_r0r3n")
+TextFormat = "[i]{flavor_text}[/i]"
+DataContext = NodePath("../../../../Upgrade Data")
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_1m72i")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
@@ -524,19 +455,20 @@ libraries/ = SubResource("AnimationLibrary_ewr7c")
 autoplay = &"fade_in"
 
 [node name="Play fade_in" type="Node" parent="AnimationPlayer" unique_id=886272813]
-script = ExtResource("2_341ir")
+script = ExtResource("15_35m4m")
 AnimationName = &"fade_in"
 FromAnimationList = []
 metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
 [node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
-script = ExtResource("2_341ir")
+script = ExtResource("15_35m4m")
 AnimationName = &"fade_out"
 FromAnimationList = []
 metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
 [node name="ControlConstraint" type="Control" parent="." unique_id=947616453 node_paths=PackedStringArray("Target")]
 layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -544,9 +476,9 @@ anchor_bottom = 0.5
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("11_afk3w")
+script = ExtResource("16_r65ld")
 Target = NodePath("../MarginContainer")
-TargetAnchor = Vector2(1, 0.5)
+TargetAnchor = Vector2(0.5, 1)
 SelfObstructingGroup = &""
 metadata/_custom_type_script = "uid://c64ieqqgm8ha7"
 
@@ -554,15 +486,13 @@ metadata/_custom_type_script = "uid://c64ieqqgm8ha7"
 libraries/ = SubResource("AnimationLibrary_tbaf2")
 
 [node name="Current Animation Binding" type="Node" parent="Purchaseability" unique_id=1749224115 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("11_hlw86")
-DataContext = NodePath("../../Generator State")
-Query = "1*int({can_afford_single}) + 2*int({can_afford_bulk})"
+script = ExtResource("11_onsqv")
+DataContext = NodePath("../../Upgrade State")
+Query = "{can_afford}"
 ValueMappingEnabled = true
 ValueMappings = {
-0: "cannot_afford",
-1: "can_afford_single",
-2: "impossible",
-3: "can_afford_bulk"
+false: &"cannot_afford",
+true: &"can_afford"
 }
 TargetNode = NodePath("..")
 TargetPropertyName = "current_animation"

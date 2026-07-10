@@ -8,6 +8,7 @@ namespace CatClicker;
 public class GameProgressionData : IJsonSerializable
 {
     public Dictionary<StringName, int> MaxOwnedGeneratorCounts;
+    public HashSet<StringName> ActiveUpgrades;
 
     public void UpdateFromGameState(GameState state)
     {
@@ -25,6 +26,23 @@ public class GameProgressionData : IJsonSerializable
         }
     }
 
+    public bool HasUpgrade(StringName upgradeId)
+    {
+        return ActiveUpgrades?.Contains(upgradeId) ?? false;
+    }
+
+    public void AddUpgrade(StringName upgradeId)
+    {
+        ActiveUpgrades ??= new();
+        ActiveUpgrades.Add(upgradeId);
+    }
+
+    public void RemoveUpgrade(StringName upgradeId)
+    {
+        ActiveUpgrades ??= new();
+        ActiveUpgrades.Remove(upgradeId);
+    }
+
     public int GetMaxOwnedGeneratorCount(StringName generatorId)
     {
         return MaxOwnedGeneratorCounts?.GetValueOrDefault(generatorId) ?? 0;
@@ -35,6 +53,7 @@ public class GameProgressionData : IJsonSerializable
         var json = JsonSerializer.Default;
         var dict = v.AsGodotDictionary();
         json.DeserializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
+        json.DeserializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
     }
 
     public Variant Serialize()
@@ -42,6 +61,7 @@ public class GameProgressionData : IJsonSerializable
         var json = JsonSerializer.Default;
         var dict = new Godot.Collections.Dictionary();
         json.SerializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
+        json.SerializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
         return dict;
     }
 }

@@ -14,6 +14,15 @@ public partial struct GameState : IProductionModifier
             }
         }
 
+        if (ProgressionData?.ActiveUpgrades != null)
+        {
+            foreach (var upgradeId in ProgressionData.ActiveUpgrades)
+            {
+                if (Upgrades.FromId(upgradeId).Resource?.ModifyGeneratorProductionRate(generator, ref rate) ?? false)
+                    any = true;
+            }
+        }
+
         return any;
     }
 }

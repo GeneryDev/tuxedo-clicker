@@ -51,6 +51,21 @@ public partial class PointGenerator : Resource, IDataContext
         return false;
     }
 
+    public bool GetSubContext(string key, string input, ref IDataContext output, IDataQueryOptions options)
+    {
+        switch (key)
+        {
+            case "state":
+            case "state_context":
+            {
+                output = new PointGeneratorStateContext(Descriptor.Id).Boxed();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public BigInteger GetPointCostForLevel(int level)
     {
         return new BigInteger(Math.Floor(GetPrecisePointCostForLevel(level)));
