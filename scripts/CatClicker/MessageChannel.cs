@@ -6,10 +6,10 @@ namespace CatClicker;
 public partial class MessageChannel : Node
 {
     [Export] public StringName Group;
-    [Export]
-    public NodeTemplate Template;
+    [Export] public NodeTemplate Template;
 
     [Export] public bool SpawnAtMousePosition = false;
+    [Export] public bool Print = true;
     
     public override void _EnterTree()
     {
@@ -31,9 +31,19 @@ public partial class MessageChannel : Node
 
     public static void BroadcastMessage(string group, string text)
     {
+        bool doPrint = false;
         foreach (var node in GameStateManager.Instance.GetTree().GetNodesInGroup(group))
         {
-            if(node is MessageChannel ch && ch.Group == group) ch.ReceiveMessage(text);
+            if (node is MessageChannel ch && ch.Group == group)
+            {
+                if (ch.Print) doPrint = true;
+                ch.ReceiveMessage(text);
+            }
+        }
+
+        if (doPrint)
+        {
+            GD.Print($"[{group}] {text}");
         }
     }
 }

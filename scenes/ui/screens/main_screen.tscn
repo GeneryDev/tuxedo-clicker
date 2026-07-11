@@ -319,6 +319,7 @@ script = ExtResource("16_fwakm")
 Group = &"cursor_msg"
 Template = NodePath("../NodeTemplate")
 SpawnAtMousePosition = true
+Print = false
 
 [node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Cursor Messages Panel" unique_id=1621293438]
 script = ExtResource("3_b5fur")
