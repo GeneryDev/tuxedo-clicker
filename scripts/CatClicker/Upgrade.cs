@@ -118,7 +118,7 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
     public bool ModifyClickProduction(decimal totalProductionRate, ref BigInteger pointGain)
     {
         if (!ModifiesClickProduction) return false;
-        pointGain += new BigInteger((int)(totalProductionRate*(decimal)ClickProductionFromTotalProduction));
+        pointGain += new BigInteger(totalProductionRate*(decimal)ClickProductionFromTotalProduction);
         return true;
     }
 
