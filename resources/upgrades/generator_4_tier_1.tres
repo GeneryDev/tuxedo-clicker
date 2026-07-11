@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bnr1dbk6wb558"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_nal18"]
+[ext_resource type="Texture2D" uid="uid://chaw18x2s54py" path="res://assets/textures/ui/upgrades/catnip_garden.png" id="1_yk0xj"]
 
 [resource]
 script = ExtResource("1_nal18")
@@ -8,6 +9,8 @@ DisplayName = "Accurate watering"
 Description = "Catnip Gardens are twice as efficient."
 FlavorText = "Suffer from a bad crop no more."
 AffectedGeneratorId = &"generator_4"
+Icon = ExtResource("1_yk0xj")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 10.0
 RequireGeneratorCount = 1
 ModifiesProductionRate = true

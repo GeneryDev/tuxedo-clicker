@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://iuc2v7enjuqt"]
 
+[ext_resource type="Texture2D" uid="uid://n547fbmafovn" path="res://assets/textures/ui/upgrades/hand.png" id="1_64an7"]
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_aqeai"]
 
 [resource]
@@ -8,6 +9,8 @@ DisplayName = "Two-handed"
 Description = "Hands can pet twice as fast."
 FlavorText = "I didn't need both hands anyway."
 AffectedGeneratorId = &"generator_1"
+Icon = ExtResource("1_64an7")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 10.0
 RequireGeneratorCount = 1
 ModifiesProductionRate = true

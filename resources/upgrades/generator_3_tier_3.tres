@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bksmp38ptcg7g"]
 
+[ext_resource type="Texture2D" uid="uid://cjd3c81ow3kun" path="res://assets/textures/ui/upgrades/animal_shelter.png" id="1_8xgug"]
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_bwdi5"]
 
 [resource]
@@ -8,6 +9,8 @@ DisplayName = "Donations from locals"
 Description = "Animal Shelters are twice as efficient."
 FlavorText = "Money's gotta come from somewhere."
 AffectedGeneratorId = &"generator_3"
+Icon = ExtResource("1_8xgug")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 500.0
 RequireGeneratorCount = 25
 ModifiesProductionRate = true

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://rj270lry5u1u"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_3eg8a"]
+[ext_resource type="Texture2D" uid="uid://n547fbmafovn" path="res://assets/textures/ui/upgrades/hand.png" id="1_3xcbw"]
 
 [resource]
 script = ExtResource("1_3eg8a")
@@ -8,6 +9,8 @@ DisplayName = "Expert handling"
 Description = "Hands can pet twice as fast."
 FlavorText = "*purr*"
 AffectedGeneratorId = &"generator_1"
+Icon = ExtResource("1_3xcbw")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 500.0
 RequireGeneratorCount = 25
 ModifiesProductionRate = true

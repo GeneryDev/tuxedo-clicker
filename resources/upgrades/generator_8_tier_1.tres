@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://blha8iuqfhnw3"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_a8dwg"]
+[ext_resource type="Texture2D" uid="uid://c1bvsqmvw6ayd" path="res://assets/textures/ui/upgrades/vitality_amplifier.png" id="1_l2nyi"]
 
 [resource]
 script = ExtResource("1_a8dwg")
@@ -8,6 +9,8 @@ DisplayName = "Life multiplication"
 Description = "Vitality Amplifiers are twice as efficient."
 FlavorText = "The rich get richer."
 AffectedGeneratorId = &"generator_8"
+Icon = ExtResource("1_l2nyi")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 10.0
 RequireGeneratorCount = 1
 ModifiesProductionRate = true

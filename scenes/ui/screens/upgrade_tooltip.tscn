@@ -24,6 +24,11 @@ script = ExtResource("8_ao25y")
 Value = ExtResource("6_iavkh")
 metadata/_custom_type_script = "uid://ol1wwcdce7t2"
 
+[sub_resource type="Resource" id="Resource_ao25y"]
+script = ExtResource("8_ao25y")
+Value = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ol1wwcdce7t2"
+
 [sub_resource type="Resource" id="Resource_afk3w"]
 script = ExtResource("9_bh1oo")
 BaseFontSize = 18
@@ -333,6 +338,15 @@ Query = "{icon}"
 DefaultValue = SubResource("Resource_81afc")
 TargetNode = NodePath("..")
 TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="MarginContainer/MarginContainer/VBoxContainer/Header/TextureRect" unique_id=650127450 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("11_onsqv")
+DataContext = NodePath("../../../../../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_ao25y")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Heading Text" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/Header" unique_id=424839535]

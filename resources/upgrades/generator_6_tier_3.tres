@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bketmyv43vjnh"]
 
+[ext_resource type="Texture2D" uid="uid://c657camrgdnrb" path="res://assets/textures/ui/upgrades/internet_video.png" id="1_31h3a"]
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_aftaq"]
 
 [resource]
@@ -8,6 +9,8 @@ DisplayName = "Low-poly cat"
 Description = "Internet Videos generate twice as many pets."
 FlavorText = "Gotta make a move to a town that's right for me"
 AffectedGeneratorId = &"generator_6"
+Icon = ExtResource("1_31h3a")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 500.0
 RequireGeneratorCount = 25
 ModifiesProductionRate = true

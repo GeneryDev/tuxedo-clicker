@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://d2v2hgjrjw2ps"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_i2cax"]
+[ext_resource type="Texture2D" uid="uid://2ei56a7pr6qr" path="res://assets/textures/ui/upgrades/cat_tower.png" id="1_x5bsk"]
 
 [resource]
 script = ExtResource("1_i2cax")
@@ -8,6 +9,8 @@ DisplayName = "Skyscratcher"
 Description = "Cat Towers can produce twice as many pets."
 FlavorText = "I see no God up here, other than ME."
 AffectedGeneratorId = &"generator_2"
+Icon = ExtResource("1_x5bsk")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 500.0
 RequireGeneratorCount = 25
 ModifiesProductionRate = true

@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cxk4uy2pavyhy"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_jbagm"]
+[ext_resource type="Texture2D" uid="uid://b5v867tw7ddpx" path="res://assets/textures/ui/upgrades/pawticle_accelerator.png" id="1_lh6qy"]
 
 [resource]
 script = ExtResource("1_jbagm")
@@ -8,6 +9,8 @@ DisplayName = "Combo"
 Description = "Paw-ticle Accelerators are twice as efficient."
 FlavorText = "241 pets from one particle - new highscore!"
 AffectedGeneratorId = &"generator_7"
+Icon = ExtResource("1_lh6qy")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 10.0
 RequireGeneratorCount = 1
 ModifiesProductionRate = true

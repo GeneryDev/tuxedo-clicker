@@ -11,6 +11,60 @@
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="5_dbxii"]
 [ext_resource type="Script" uid="uid://817hutlf14fc" path="res://scripts/CatClicker/UpgradeFunctions.cs" id="10_2uj3q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r77g"]
+bg_color = Color(0.40392157, 0.33333334, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpqem"]
+bg_color = Color(1, 1, 1, 0.6745098)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq2oe"]
+bg_color = Color(0.6, 0.6, 0.6, 0.36078432)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.26, 0.26, 0.26, 0.2784314)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uj3q"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_2uj3q"]
+script = ExtResource("5_dbxii")
+Value = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ol1wwcdce7t2"
+
 [sub_resource type="Resource" id="Resource_p5nbx"]
 script = ExtResource("5_dbxii")
 Value = ExtResource("1_fe2ks")
@@ -30,6 +84,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/Outline:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_p5nbx"]
 resource_name = "can_afford"
@@ -45,6 +135,42 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/Outline:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2uj3q"]
 resource_name = "cannot_afford"
@@ -58,7 +184,43 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.64, 0.64, 0.64, 0.32156864)]
+"values": [Color(0.56, 0.56, 0.56, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/Outline:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mq2oe"]
@@ -70,6 +232,9 @@ _data = {
 
 [node name="Button" type="Button" unique_id=960162718]
 custom_minimum_size = Vector2(60, 60)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1r77g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jpqem")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mq2oe")
 
 [node name="Upgrade Data" type="Node" parent="." unique_id=542383548]
 script = ExtResource("1_e3llr")
@@ -113,6 +278,26 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
+[node name="Colored Outline" type="Panel" parent="." unique_id=1300219497]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2uj3q")
+
+[node name="Self Modulate Binding" type="Node" parent="Colored Outline" unique_id=1452767559 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1903969804]
 layout_mode = 1
 anchors_preset = -1
@@ -135,6 +320,150 @@ Query = "{icon}"
 DefaultValue = SubResource("Resource_p5nbx")
 TargetNode = NodePath("..")
 TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect" unique_id=1368244627 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Outline" type="Control" parent="TextureRect" unique_id=1082706766]
+modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/Outline" unique_id=4657045]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2ks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect2" unique_id=332880271 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect2" unique_id=2023465600 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/Outline" unique_id=1356145379]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2ks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect4" unique_id=1850905417 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect4" unique_id=1596976304 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect/Outline" unique_id=338009244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2ks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect5" unique_id=998566032 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect5" unique_id=1333777037 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/Outline" unique_id=1393371874]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fe2ks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect3" unique_id=1857670685 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect3" unique_id=1472606638 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_kubk0")
+DataContext = NodePath("../../../../Upgrade Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Tooltip Origin" type="Control" parent="." unique_id=110035659]

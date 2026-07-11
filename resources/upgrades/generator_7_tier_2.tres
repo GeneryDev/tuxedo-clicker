@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ch10i8j5fevsw"]
 
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_f4l4n"]
+[ext_resource type="Texture2D" uid="uid://b5v867tw7ddpx" path="res://assets/textures/ui/upgrades/pawticle_accelerator.png" id="1_pgksp"]
 
 [resource]
 script = ExtResource("1_f4l4n")
@@ -8,6 +9,8 @@ DisplayName = "Blue-shifted pets"
 Description = "Paw-ticle Accelerators are twice as efficient."
 FlavorText = "Is that hand coming this way?"
 AffectedGeneratorId = &"generator_7"
+Icon = ExtResource("1_pgksp")
+IconModulate = Color(0.8235294, 0.34509805, 0.94509804, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 50.0
 RequireGeneratorCount = 5
 ModifiesProductionRate = true

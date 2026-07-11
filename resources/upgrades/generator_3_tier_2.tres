@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dqoxb33imwup4"]
 
+[ext_resource type="Texture2D" uid="uid://cjd3c81ow3kun" path="res://assets/textures/ui/upgrades/animal_shelter.png" id="1_ea3yr"]
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_jp1q4"]
 
 [resource]
@@ -8,6 +9,8 @@ DisplayName = "Cost-effective supplies"
 Description = "Animal Shelters are twice as efficient."
 FlavorText = "More incentives to adopt."
 AffectedGeneratorId = &"generator_3"
+Icon = ExtResource("1_ea3yr")
+IconModulate = Color(0.8235294, 0.34509805, 0.94509804, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 50.0
 RequireGeneratorCount = 5
 ModifiesProductionRate = true

@@ -1,4 +1,5 @@
-﻿using GDF.Data;
+﻿using System;
+using GDF.Data;
 using GDF.Util;
 using Godot;
 
@@ -13,6 +14,9 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
     [Export(PropertyHint.MultilineText)] public string FlavorText = "";
     
     [Export] public StringName AffectedGeneratorId = "";
+
+    [Export] public Texture2D Icon;
+    [Export] public Color IconModulate = Colors.White;
 
     [ExportGroup("Cost")]
     [Export] public long CustomBaseCost = 0;
@@ -56,7 +60,12 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
             }
             case "icon":
             {
-                output = default;
+                output = Icon;
+                return true;
+            }
+            case "icon_modulate":
+            {
+                output = IconModulate;
                 return true;
             }
             case "base_cost":
@@ -116,8 +125,26 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
     public void SetupAsTieredGeneratorUpgrade()
     {
         string filename = this.ResourcePath.GetBaseName().GetFile();
+        string generatorId = filename[..(filename.IndexOf("_tier", StringComparison.Ordinal))];
+
+        var generator = GD.Load<PointGenerator>($"res://resources/point_generators/{generatorId}.tres");
+        if (generator == null)
+        {
+            GD.PrintErr($"Invalid generator {generatorId}");
+            return;
+        }
+        
+        AffectedGeneratorId = generatorId;
+        
         int tier = int.Parse(filename[(filename.LastIndexOf('_') + 1)..]);
         BaseCostAsFactorOfGeneratorBaseCost = new int[] {10, 10*5, 10*5*10}[tier - 1];
         RequireGeneratorCount = new int[] {1, 5, 25}[tier - 1];
+
+        var iconPath = $"res://assets/textures/ui/upgrades/{generator.Icon.ResourcePath.GetFile()}";
+        Icon = GD.Load<Texture2D>(iconPath);
+        IconModulate = new Color[] { new Color("4acafe"), new("D258F1"), new("F0BF3A") }[tier - 1];
+        
+        EmitChanged();
+        ResourceSaver.Save(this);
     }
 }

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dsgp5k3ctbtqv"]
 
+[ext_resource type="Texture2D" uid="uid://cjd3c81ow3kun" path="res://assets/textures/ui/upgrades/animal_shelter.png" id="1_7pjmm"]
 [ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_nvg7c"]
 
 [resource]
@@ -8,6 +9,8 @@ DisplayName = "Increased capacity"
 Description = "Animal Shelters are twice as efficient."
 FlavorText = "To find every cat a home."
 AffectedGeneratorId = &"generator_3"
+Icon = ExtResource("1_7pjmm")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
 BaseCostAsFactorOfGeneratorBaseCost = 10.0
 RequireGeneratorCount = 1
 ModifiesProductionRate = true
