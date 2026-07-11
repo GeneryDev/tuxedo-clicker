@@ -1,4 +1,5 @@
-﻿using GDF.Data;
+﻿using System;
+using GDF.Data;
 using GDF.Debug;
 using GDF.Multiplayer;
 using GDF.Util;
@@ -47,7 +48,12 @@ public partial class BonusSpawner : Node
 
     private float GetSpawnChance()
     {
-        return BaseChancePerSecond;
+        float chance = BaseChancePerSecond;
+        if (GameStateManager.Instance.State.ProgressionData.HasUpgrade("box_tier_1"))
+        {
+            chance = 1 - Mathf.Pow(1 - chance, 2);
+        }
+        return chance;
     }
 
     private void AttemptSpawn()

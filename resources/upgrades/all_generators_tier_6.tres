@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://delj1uypchimg"]
+
+[ext_resource type="Texture2D" uid="uid://dp05suevx58x1" path="res://assets/textures/ui/upgrades/pet.png" id="1_mv2fw"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_nk2rv"]
+
+[resource]
+script = ExtResource("2_nk2rv")
+DisplayName = "Squishes"
+Description = "Overall pet production is increased by 20%"
+FlavorText = "Squish that cat."
+Icon = ExtResource("1_mv2fw")
+IconModulate = Color(0.65882355, 0.43137255, 1, 1)
+CustomBaseCost = 1000000000000
+RequireTotalGeneratedPoints = 1000000000000
+ModifiesProductionRate = true
+ProductionRateMultiplier = 1.2
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

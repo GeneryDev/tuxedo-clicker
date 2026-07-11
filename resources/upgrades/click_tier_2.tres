@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://djxvtaujardwp"]
+
+[ext_resource type="Texture2D" uid="uid://c420b3t6dy341" path="res://assets/textures/ui/upgrades/cursor.png" id="1_32qqb"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_etl2m"]
+
+[resource]
+script = ExtResource("2_etl2m")
+DisplayName = "Mouse on a string"
+Description = "Clicking gains 5% of your pets per second"
+Icon = ExtResource("1_32qqb")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
+CustomBaseCost = 5000
+RequireTotalClicks = 150
+ModifiesClickProduction = true
+ClickProductionFromTotalProduction = 0.05
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

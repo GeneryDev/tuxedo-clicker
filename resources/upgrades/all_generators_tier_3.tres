@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bslcg1d4ve7so"]
+
+[ext_resource type="Texture2D" uid="uid://dp05suevx58x1" path="res://assets/textures/ui/upgrades/pet.png" id="1_ioy50"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_v4ny6"]
+
+[resource]
+script = ExtResource("2_v4ny6")
+DisplayName = "Snout boops"
+Description = "Overall pet production is increased by 20%"
+Icon = ExtResource("1_ioy50")
+IconModulate = Color(0.8235294, 0.34509805, 0.94509804, 1)
+CustomBaseCost = 10000000
+RequireTotalGeneratedPoints = 10000000
+ModifiesProductionRate = true
+ProductionRateMultiplier = 1.2
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

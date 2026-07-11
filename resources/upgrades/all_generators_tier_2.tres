@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dsg0xdo7ksr8i"]
+
+[ext_resource type="Texture2D" uid="uid://dp05suevx58x1" path="res://assets/textures/ui/upgrades/pet.png" id="1_klivx"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_em16j"]
+
+[resource]
+script = ExtResource("2_em16j")
+DisplayName = "Chin scratches"
+Description = "Overall pet production is increased by 20%"
+Icon = ExtResource("1_klivx")
+IconModulate = Color(0.2901961, 0.7921569, 0.99607843, 1)
+CustomBaseCost = 100000
+RequireTotalGeneratedPoints = 100000
+ModifiesProductionRate = true
+ProductionRateMultiplier = 1.2
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

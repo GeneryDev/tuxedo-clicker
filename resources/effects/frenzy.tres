@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://l871t1rr5kt1"]
 
 [ext_resource type="Script" uid="uid://cp7d8gegts48f" path="res://scripts/CatClicker/Effect.cs" id="1_5cnk6"]
+[ext_resource type="Texture2D" uid="uid://bmfyxxwoa6e6" path="res://assets/textures/ui/upgrades/box.png" id="1_ecvcq"]
 
 [resource]
 script = ExtResource("1_5cnk6")
 DisplayName = "Frenzy"
+Icon = ExtResource("1_ecvcq")
+IconModulate = Color(0.85882354, 0.6392157, 0.3764706, 1)
 ModifiesProductionRate = true
 ProductionRateMultiplier = 7.0
 metadata/_custom_type_script = "uid://cp7d8gegts48f"

@@ -83,6 +83,30 @@ public struct UpgradeStateContext : IDataContext, ICacheableDataContext<UpgradeS
         {
             if (new PointGeneratorStateContext(def.AffectedGeneratorId).GetCount() < requiredCount) return false;
         }
+
+        if (def.RequireTotalGeneratedPoints != 0)
+        {
+            if (GameStateManager.Instance.GetCurrentState().TotalGeneratedPoints <
+                def.RequireTotalGeneratedPoints) return false;
+        }
+
+        if (def.RequireTotalClickedPoints != 0)
+        {
+            if (GameStateManager.Instance.GetCurrentState().TotalClickedPoints <
+                def.RequireTotalClickedPoints) return false;
+        }
+
+        if (def.RequireTotalClicks != 0)
+        {
+            if (GameStateManager.Instance.GetCurrentState().TotalClicks <
+                def.RequireTotalClicks) return false;
+        }
+
+        if (def.RequireBonusItemClicks != 0)
+        {
+            if (GameStateManager.Instance.GetCurrentState().BonusItemClicks <
+                def.RequireBonusItemClicks) return false;
+        }
         return true;
     }
     

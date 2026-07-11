@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ceqg81af6o23e"]
+
+[ext_resource type="Texture2D" uid="uid://c420b3t6dy341" path="res://assets/textures/ui/upgrades/cursor.png" id="1_pjqax"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_7u6fh"]
+
+[resource]
+script = ExtResource("2_7u6fh")
+DisplayName = "Laser pointer"
+Description = "Clicking gains 5% of your pets per second"
+Icon = ExtResource("1_pjqax")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
+CustomBaseCost = 500000
+RequireTotalClicks = 600
+ModifiesClickProduction = true
+ClickProductionFromTotalProduction = 0.05
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

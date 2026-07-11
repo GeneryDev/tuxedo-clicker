@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bkq7f5r83o7l0"]
+
+[ext_resource type="Texture2D" uid="uid://c420b3t6dy341" path="res://assets/textures/ui/upgrades/cursor.png" id="1_ecjoc"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_mp8jp"]
+
+[resource]
+script = ExtResource("2_mp8jp")
+DisplayName = "Ball of yarn"
+Description = "Clicking gains 5% of your pets per second"
+Icon = ExtResource("1_ecjoc")
+IconModulate = Color(0.8235294, 0.34509805, 0.94509804, 1)
+CustomBaseCost = 50000
+RequireTotalClicks = 300
+ModifiesClickProduction = true
+ClickProductionFromTotalProduction = 0.05
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

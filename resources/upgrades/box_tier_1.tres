@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://uqib61dc0pu8"]
+
+[ext_resource type="Texture2D" uid="uid://bmfyxxwoa6e6" path="res://assets/textures/ui/upgrades/box.png" id="1_f2vbd"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_8411a"]
+
+[resource]
+script = ExtResource("2_8411a")
+DisplayName = "Same-day delivery"
+Description = "Cardboard boxes appear twice as often"
+Icon = ExtResource("1_f2vbd")
+IconModulate = Color(0.8235294, 0.34509805, 0.94509804, 1)
+CustomBaseCost = 9999
+RequireBonusItemClicks = 1
+ModifiesProductionRate = true
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

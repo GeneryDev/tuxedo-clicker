@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://c7w751xhtlmd3" path="res://scripts/CatClicker/MessageChannel.cs" id="16_fwakm"]
 [ext_resource type="PackedScene" uid="uid://cul0p3e10in66" path="res://scenes/ui/elements/effect_message.tscn" id="17_sngan"]
 [ext_resource type="PackedScene" uid="uid://bc5m6pasui6au" path="res://scenes/ui/elements/cursor_message.tscn" id="19_adi41"]
+[ext_resource type="PackedScene" uid="uid://camv01o2qyfxu" path="res://scenes/ui/elements/active_effect_indicator.tscn" id="22_vj3aw"]
 [ext_resource type="PackedScene" uid="uid://qugfy63j28yq" path="res://scenes/ui/elements/upgrade_button.tscn" id="24_3khxw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
@@ -75,10 +76,6 @@ metadata/_custom_type_script = "uid://b52iivqa651xf"
 script = ExtResource("5_sw3t3")
 metadata/_custom_type_script = "uid://iir4w637gc2k"
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5k3j3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yhc"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d74qc"]
 draw_center = false
 border_width_left = 24
@@ -87,6 +84,10 @@ border_width_right = 24
 border_width_bottom = 24
 border_color = Color(0.94, 0.6736667, 0, 0.5372549)
 border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5k3j3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2yhc"]
 
 [node name="MainScreen" type="Control" unique_id=1599050281 node_paths=PackedStringArray("UserInterface")]
 layout_mode = 3
@@ -221,10 +222,10 @@ custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 7
-theme_override_font_sizes/bold_italics_font_size = 7
-theme_override_font_sizes/italics_font_size = 7
-theme_override_font_sizes/mono_font_size = 7
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -255,10 +256,10 @@ custom_minimum_size = Vector2(194, 17)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 7
-theme_override_font_sizes/bold_italics_font_size = 7
-theme_override_font_sizes/italics_font_size = 7
-theme_override_font_sizes/mono_font_size = 7
+theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("3_pq4e1")
@@ -325,6 +326,51 @@ Print = false
 script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("19_adi41")
 metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Active Effect Indicators" type="VFlowContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=590655818]
+custom_minimum_size = Vector2(60, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="NodeFactory" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Active Effect Indicators" unique_id=1562150958 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
+script = ExtResource("3_bvx0v")
+DataContext = NodePath("../../../../../../Game State")
+CollectionQuery = "{active_effects}"
+DefaultTemplate = NodePath("../NodeTemplate")
+metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
+
+[node name="NodeTemplate" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Active Effect Indicators" unique_id=1684430424]
+script = ExtResource("3_b5fur")
+TemplateScene = ExtResource("22_vj3aw")
+PreviewCount = 2
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Frenzy Overlay" type="Panel" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1203514077]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d74qc")
+
+[node name="Visibility Binding" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Frenzy Overlay" unique_id=2076433341 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("12_xd75i")
+DataContext = NodePath("../../../../../../Game State")
+Query = "{has_effect:frenzy}"
+TargetNode = NodePath("..")
+TargetPropertyName = "visible"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Bottom Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/Left Side" unique_id=1365087730]
 custom_minimum_size = Vector2(0, 80)
@@ -576,25 +622,6 @@ BaseChancePerSecond = 0.005
 script = ExtResource("3_b5fur")
 TemplateScene = ExtResource("13_gx115")
 metadata/_custom_type_script = "uid://cipgbcqmkinta"
-
-[node name="Frenzy Overlay" type="Panel" parent="." unique_id=1203514077]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_d74qc")
-
-[node name="Visibility Binding" type="Node" parent="Frenzy Overlay" unique_id=2076433341 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("12_xd75i")
-DataContext = NodePath("../../Game State")
-Query = "{has_effect:frenzy}"
-TargetNode = NodePath("..")
-TargetPropertyName = "visible"
-metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Control" type="Control" parent="." unique_id=1166250511]
 anchors_preset = 0

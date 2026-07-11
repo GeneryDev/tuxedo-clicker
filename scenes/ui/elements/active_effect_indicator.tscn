@@ -1,0 +1,300 @@
+[gd_scene format=3 uid="uid://camv01o2qyfxu"]
+
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_8gme0"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="2_u0aan"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="4_16vrx"]
+[ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="7_nke4t"]
+[ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="8_jtryo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r77g"]
+bg_color = Color(0.25, 0.218375, 0.16749999, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Gradient" id="Gradient_yascu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.6751098, 0.8320343, 0.654902)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ha4x8"]
+gradient = SubResource("Gradient_yascu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uj3q"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Resource" id="Resource_2uj3q"]
+script = ExtResource("7_nke4t")
+Value = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://ol1wwcdce7t2"
+
+[sub_resource type="Resource" id="Resource_p5nbx"]
+script = ExtResource("7_nke4t")
+Value = ExtResource("8_jtryo")
+metadata/_custom_type_script = "uid://ol1wwcdce7t2"
+
+[node name="Button" type="Panel" unique_id=2124737869]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 60.0
+offset_bottom = 60.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1r77g")
+
+[node name="Effect State" type="Node" parent="." unique_id=542383548]
+script = ExtResource("1_8gme0")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Effect State Live" type="Node" parent="Effect State" unique_id=1831505357 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("2_u0aan")
+ParentDataContext = NodePath("..")
+
+[node name="Effect Data" type="Node" parent="." unique_id=457130222]
+script = ExtResource("1_8gme0")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Context Binding" type="Node" parent="Effect Data" unique_id=1145564365 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../Effect State")
+Query = "{effect}"
+QueryType = 2
+TargetNode = NodePath("..")
+ThrottleUpdate = false
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=301645636]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture1D_ha4x8")
+
+[node name="Value Binding" type="Node" parent="ProgressBar" unique_id=350359955 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../Effect State/Effect State Live")
+Query = "{progress}*100"
+TargetNode = NodePath("..")
+TargetPropertyName = "value"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Colored Outline" type="Panel" parent="." unique_id=1300219497]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2uj3q")
+
+[node name="Self Modulate Binding" type="Node" parent="Colored Outline" unique_id=1452767559 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1903969804]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_jtryo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect" unique_id=1034261962 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../Effect Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect" unique_id=1368244627 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Outline" type="Control" parent="TextureRect" unique_id=1082706766]
+modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/Outline" unique_id=4657045]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_jtryo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect2" unique_id=332880271 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect2" unique_id=2023465600 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/Outline" unique_id=1356145379]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_jtryo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect4" unique_id=1850905417 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect4" unique_id=1596976304 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect5" type="TextureRect" parent="TextureRect/Outline" unique_id=338009244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_jtryo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect5" unique_id=998566032 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect5" unique_id=1333777037 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/Outline" unique_id=1393371874]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_jtryo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Texture Binding" type="Node" parent="TextureRect/Outline/TextureRect3" unique_id=1857670685 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon}"
+DefaultValue = SubResource("Resource_p5nbx")
+TargetNode = NodePath("..")
+TargetPropertyName = "texture"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Self Modulate Binding" type="Node" parent="TextureRect/Outline/TextureRect3" unique_id=1472606638 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("4_16vrx")
+DataContext = NodePath("../../../../Effect Data")
+Query = "{icon_modulate}"
+DefaultValue = SubResource("Resource_2uj3q")
+TargetNode = NodePath("..")
+TargetPropertyName = "self_modulate"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"

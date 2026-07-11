@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using GDF.Data;
 using GDF.Util;
 using Godot;
@@ -24,11 +25,20 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
 
     [ExportGroup("Unlock Condition")]
     [Export] public int RequireGeneratorCount = 0;
+    [Export] public long RequireTotalGeneratedPoints = 0;
+    [Export] public long RequireTotalClickedPoints = 0;
+    [Export] public long RequireTotalClicks = 0;
+    [Export] public long RequireBonusItemClicks = 0;
 
     [ExportGroup("Modifies Production Rate")] [Export(PropertyHint.GroupEnable)]
     public bool ModifiesProductionRate = false;
 
     [Export] public double ProductionRateMultiplier = 1.0f;
+
+    [ExportGroup("Modifies Click Production")] [Export(PropertyHint.GroupEnable)]
+    public bool ModifiesClickProduction = false;
+
+    [Export] public double ClickProductionFromTotalProduction = 0.0f;
 
     public long BaseCost => GetBaseCost();
     
@@ -102,6 +112,13 @@ public partial class Upgrade : Resource, IProductionModifier, IDataContext
         }
 
         rate *= (decimal)ProductionRateMultiplier;
+        return true;
+    }
+
+    public bool ModifyClickProduction(decimal totalProductionRate, ref BigInteger pointGain)
+    {
+        if (!ModifiesClickProduction) return false;
+        pointGain += new BigInteger((int)(totalProductionRate*(decimal)ClickProductionFromTotalProduction));
         return true;
     }
 

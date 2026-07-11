@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://b2umwa2fjvhbu"]
+
+[ext_resource type="Texture2D" uid="uid://bmfyxxwoa6e6" path="res://assets/textures/ui/upgrades/box.png" id="1_ath8h"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_lf8d3"]
+
+[resource]
+script = ExtResource("2_lf8d3")
+DisplayName = "Free packaging"
+Description = "Cardboard boxes' effects last twice as long"
+Icon = ExtResource("1_ath8h")
+IconModulate = Color(0.9411765, 0.7490196, 0.22745098, 1)
+CustomBaseCost = 99999
+RequireBonusItemClicks = 5
+ModifiesProductionRate = true
+metadata/_custom_type_script = "uid://1w0hwfr5cybt"

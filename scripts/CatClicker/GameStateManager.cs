@@ -49,7 +49,9 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
     {
         Step();
         BigInteger increment = 1;
-        State.Points += increment;
+        State.ComputeTotalProductionRate(out var totalRate);
+        State.ModifyClickProduction(totalRate, ref increment);
+        State.AddClickedPoints(increment);
         FinishStateChange();
         MessageChannel.BroadcastMessage("cursor_msg", $"+{GameInterfaceManager.Instance.FormatNumber(increment)}");
     }
@@ -86,12 +88,15 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         var newEffects = new ActiveEffectState[(State.ActiveEffectStates?.Length ?? 0) + 1];
         if (State.ActiveEffectStates != null)
             Array.Copy(State.ActiveEffectStates, newEffects, State.ActiveEffectStates.Length);
-        newEffects[^1] = new()
-        {
-            EffectId = effectId,
-            RemainingSec = duration
-        };
+        newEffects[^1] = new(effectId, duration);
         State.ActiveEffectStates = newEffects;
+        FinishStateChange();
+    }
+
+    public void NotifyBonusItemClick()
+    {
+        Step();
+        State.BonusItemClicks++;
         FinishStateChange();
     }
 

@@ -1,4 +1,5 @@
-﻿using GDF.Data;
+﻿using System.Collections.Generic;
+using GDF.Data;
 using GDF.Data.Static;
 using GDF.Util;
 using Godot;
@@ -55,6 +56,27 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
                     .ComputeTotalProductionRate(out _);
 
                 replacement = rate.ToString();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool GetContextCollection(string key, string input, List<IDataContext> output, IDataQueryOptions options)
+    {
+        switch (key)
+        {
+            case "active_effects":
+            {
+                var state = GetCurrentState();
+                if (state.ActiveEffectStates != null)
+                {
+                    for (int i = 0; i < state.ActiveEffectStates.Length; i++)
+                    {
+                        output.Add(new ActiveEffectStateContext(i).Boxed());
+                    }
+                }
                 return true;
             }
         }

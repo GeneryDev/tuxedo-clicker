@@ -10,11 +10,22 @@ public partial struct GameState : IJsonSerializable
 {
     public double UnixTimestampSec;
     public BigInteger Points;
+    public BigInteger TotalGeneratedPoints;
+    public BigInteger TotalClickedPoints;
+    public long TotalClicks;
+    public long BonusItemClicks;
 
     public PointGeneratorState[] GeneratorStates;
     public ActiveEffectState[] ActiveEffectStates;
 
     public GameProgressionData ProgressionData;
+
+    public void AddClickedPoints(BigInteger points)
+    {
+        Points += points;
+        TotalClickedPoints += points;
+        TotalClicks++;
+    }
 
     public GameState AdvanceTo(double now)
     {
@@ -49,6 +60,7 @@ public partial struct GameState : IJsonSerializable
         {
             UnixTimestampSec = UnixTimestampSec + delta,
             Points = Points + generatedPoints,
+            TotalGeneratedPoints = TotalGeneratedPoints + generatedPoints,
             GeneratorStates = newGeneratorStates,
             ActiveEffectStates = newEffectStates
         };
@@ -214,6 +226,10 @@ public partial struct GameState : IJsonSerializable
         var dict = v.AsGodotDictionary();
         json.Deserialize(dict, nameof(UnixTimestampSec), ref UnixTimestampSec);
         json.Deserialize(dict, nameof(Points), ref Points);
+        json.Deserialize(dict, nameof(TotalGeneratedPoints), ref TotalGeneratedPoints);
+        json.Deserialize(dict, nameof(TotalClickedPoints), ref TotalClickedPoints);
+        json.Deserialize(dict, nameof(TotalClicks), ref TotalClicks);
+        json.Deserialize(dict, nameof(BonusItemClicks), ref BonusItemClicks);
         json.Deserialize(dict, nameof(GeneratorStates), ref GeneratorStates);
         json.Deserialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
         json.Deserialize(dict, nameof(ProgressionData), ref ProgressionData);
@@ -225,6 +241,10 @@ public partial struct GameState : IJsonSerializable
         var dict = new Godot.Collections.Dictionary();
         json.Serialize(dict, nameof(UnixTimestampSec), ref UnixTimestampSec);
         json.Serialize(dict, nameof(Points), ref Points);
+        json.Serialize(dict, nameof(TotalGeneratedPoints), ref TotalGeneratedPoints);
+        json.Serialize(dict, nameof(TotalClickedPoints), ref TotalClickedPoints);
+        json.Serialize(dict, nameof(TotalClicks), ref TotalClicks);
+        json.Serialize(dict, nameof(BonusItemClicks), ref BonusItemClicks);
         json.Serialize(dict, nameof(GeneratorStates), ref GeneratorStates);
         json.Serialize(dict, nameof(ActiveEffectStates), ref ActiveEffectStates);
         json.Serialize(dict, nameof(ProgressionData), ref ProgressionData);

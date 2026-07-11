@@ -103,7 +103,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
             sb.Append('0');
             return;
         }
-        int log10 = Mathf.FloorToInt(BigInteger.Log10(n));
+        int log10 = Mathf.FloorToInt(BigInteger.Log10(n) + Mathf.Epsilon);
 
         for (int i = suffixes.Length - 1; i >= 0; i--)
         {

@@ -1,20 +1,29 @@
 ﻿using GDF.Data;
 using GDF.Util;
 using Godot;
+using System.Numerics;
 
 namespace CatClicker;
 
 [Tool]
 [GlobalClass]
-public partial class Effect : Resource, IProductionModifier
+public partial class Effect : Resource, IProductionModifier, IDataContext
 {
     [Export] public string DisplayName;
+
+    [Export] public Texture2D Icon;
+    [Export] public Color IconModulate = Colors.White;
 
     [ExportGroup("Modifies Production Rate")] [Export(PropertyHint.GroupEnable)]
     public bool ModifiesProductionRate = false;
 
     [Export] public double ProductionRateMultiplier = 1.0f;
     [Export] public StringName AffectedGeneratorId = "";
+
+    [ExportGroup("Modifies Click Production")] [Export(PropertyHint.GroupEnable)]
+    public bool ModifiesClickProduction = false;
+
+    [Export] public double ClickProductionFromTotalProduction = 0.0f;
     
     public Effects.Descriptor Descriptor => Effects.From(this);
 
@@ -32,6 +41,16 @@ public partial class Effect : Resource, IProductionModifier
                 output = DisplayName;
                 return true;
             }
+            case "icon":
+            {
+                output = Icon;
+                return true;
+            }
+            case "icon_modulate":
+            {
+                output = IconModulate;
+                return true;
+            }
         }
 
         return false;
@@ -46,6 +65,13 @@ public partial class Effect : Resource, IProductionModifier
         }
 
         rate *= (decimal)ProductionRateMultiplier;
+        return true;
+    }
+
+    public bool ModifyClickProduction(decimal totalProductionRate, ref BigInteger pointGain)
+    {
+        if (!ModifiesClickProduction) return false;
+        pointGain += new BigInteger((int)(totalProductionRate*(decimal)ClickProductionFromTotalProduction));
         return true;
     }
 }
