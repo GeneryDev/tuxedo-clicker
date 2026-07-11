@@ -15,6 +15,7 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
     public GameState State = new();
 
     public double Now;
+    private GameState _currentState;
 
     public override void _EnterTree()
     {
@@ -35,7 +36,13 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
 
     public GameState GetCurrentState()
     {
-        return State.AdvanceTo(Now);
+        // ReSharper disable once CompareOfFloatsByEqualityOperator
+        // Now is copied directly to UnixTimestampSec in AdvanceTo
+        if (_currentState.UnixTimestampSec == Now)
+        {
+            return _currentState;
+        }
+        return _currentState = State.AdvanceTo(Now);
     }
 
     public void Click()

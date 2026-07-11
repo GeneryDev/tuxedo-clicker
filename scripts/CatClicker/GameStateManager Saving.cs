@@ -16,6 +16,7 @@ public partial class GameStateManager
 
     private void MarkDirty()
     {
+        _currentState = default;
         _saveDirty = true;
     }
 
@@ -70,6 +71,7 @@ public partial class GameStateManager
     {
         SanitizeState(ref newState);
         State = newState;
+        _currentState = default;
         GD.Print("Loaded!");
         var pointsGeneratedSinceSave = GetCurrentState().Points - State.Points;
         double timeElapsedSinceSave = GetCurrentState().UnixTimestampSec - State.UnixTimestampSec;
