@@ -11,6 +11,7 @@ public partial class PointGenerator : Resource, IDataContext
 {
     [Export] public string DisplayName = "";
     [Export(PropertyHint.MultilineText)] public string Description = "";
+    [Export] public Texture2D Icon;
 
     [ExportGroup("Point Generation")]
     [Export] public double TickRate = 1;
@@ -47,6 +48,11 @@ public partial class PointGenerator : Resource, IDataContext
             case "base_cost":
             {
                 output = BaseCost;
+                return true;
+            }
+            case "icon":
+            {
+                output = Icon;
                 return true;
             }
         }

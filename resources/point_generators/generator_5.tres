@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://baia0q0uk162t"]
 
+[ext_resource type="Texture2D" uid="uid://bh7pm3ngc0wpl" path="res://assets/textures/ui/generators/cat_shrine.png" id="1_5dk6b"]
 [ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_fkfgs"]
 
 [resource]
 script = ExtResource("1_fkfgs")
 DisplayName = "Cat Shrine"
 Description = "Serves as a gathering place for cats and for humans to express their fondness of cats."
+Icon = ExtResource("1_5dk6b")
 TickRate = 1450.0
 BaseCost = 140000
 RequireGeneratorOwned = &"generator_3"

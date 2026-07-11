@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://bvfuqxdj88fga"]
 
+[ext_resource type="Texture2D" uid="uid://bfqo06bi2qfo6" path="res://assets/textures/ui/generators/basilisk.png" id="1_4dpkb"]
 [ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_tgerf"]
 
 [resource]
 script = ExtResource("1_tgerf")
 DisplayName = "Meowko's Basilisk"
 Description = "A benevolent artificial superintelligence mirroring humans' fondness for felines. Commits all of humanity's resources to transport every cat from the past to the cat-utopia on present-day Earth."
+Icon = ExtResource("1_4dpkb")
 TickRate = 7874000.0
 BaseCost = 19000000000
 RequireGeneratorOwned = &"generator_8"

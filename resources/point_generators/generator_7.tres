@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://rn3sw4y6fl1f"]
 
+[ext_resource type="Texture2D" uid="uid://l6nj8jr81stn" path="res://assets/textures/ui/generators/pawticle_accelerator.png" id="1_gtgbu"]
 [ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_mb3yq"]
 
 [resource]
 script = ExtResource("1_mb3yq")
 DisplayName = "Paw-ticle Accelerator"
 Description = "Accelerates special particles through groups of cats, which appears to emulate the effects of petting at a large scale."
+Icon = ExtResource("1_gtgbu")
 TickRate = 43600.0
 BaseCost = 16000000
 RequireGeneratorOwned = &"generator_5"

@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://ckgcrjnoctbs2"]
 
 [ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_bw36d"]
+[ext_resource type="Texture2D" uid="uid://chfpmyxmdb5pl" path="res://assets/textures/ui/generators/internet_video.png" id="1_sgqjn"]
 
 [resource]
 script = ExtResource("1_bw36d")
 DisplayName = "Internet Video"
 Description = "Entrances millions of humans worldwide through cat-centric Internet posts, and drives them to care for cats of their own."
+Icon = ExtResource("1_sgqjn")
 TickRate = 7950.0
 BaseCost = 1500000
 RequireGeneratorOwned = &"generator_4"
