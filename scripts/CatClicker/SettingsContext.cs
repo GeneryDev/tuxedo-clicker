@@ -47,25 +47,25 @@ public struct SettingsContext : IDataContext
             case "master_volume":
             {
                 Settings.MasterVolume = value.AsSingle();
-                SettingsManager.Instance.EmitChanged();
+                SettingsManager.Instance.EmitChanged(nameof(Settings.MasterVolume), Settings.MasterVolume);
                 return true;
             }
             case "sfx_volume":
             {
                 Settings.SfxVolume = value.AsSingle();
-                SettingsManager.Instance.EmitChanged();
+                SettingsManager.Instance.EmitChanged(nameof(Settings.SfxVolume), Settings.SfxVolume);
                 return true;
             }
             case "music_volume":
             {
                 Settings.MusicVolume = value.AsSingle();
-                SettingsManager.Instance.EmitChanged();
+                SettingsManager.Instance.EmitChanged(nameof(Settings.MusicVolume), Settings.MusicVolume);
                 return true;
             }
             case "autosave_enabled":
             {
                 Settings.AutosaveEnabled = value.AsBool();
-                SettingsManager.Instance.EmitChanged();
+                SettingsManager.Instance.EmitChanged(nameof(Settings.AutosaveEnabled), Settings.AutosaveEnabled);
                 return true;
             }
         }

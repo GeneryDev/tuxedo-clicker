@@ -36,19 +36,20 @@ public partial class WindowScaling : Node
 	public override void _EnterTree()
 	{
 		base._EnterTree();
-		SettingsManager.Instance.Updated += OnSaveSystemPropertyUpdated;
+		SettingsManager.Instance.PropertyUpdated += OnSettingsPropertyUpdated;
 	}
 
 	public override void _ExitTree()
 	{
 		base._ExitTree();
-		SettingsManager.Instance.Updated -= OnSaveSystemPropertyUpdated;
+		SettingsManager.Instance.PropertyUpdated -= OnSettingsPropertyUpdated;
 	}
 
-	private void OnSaveSystemPropertyUpdated()
+	private void OnSettingsPropertyUpdated(string propertyName, Variant newValue)
 	{
-		// TODO check if changed property is window related?
-		UpdateMajor();
+		if (propertyName is nameof(SettingsData.FullscreenMode) or nameof(SettingsData.LastUsedFullscreenMode)
+		    or nameof(SettingsData.LastUsedWindowedMode) or nameof(SettingsData.Resolution))
+			UpdateMajor();
 	}
 
 	public void ToggleFullscreen()
@@ -57,9 +58,7 @@ public partial class WindowScaling : Node
 			? SettingsManager.Instance.Settings.LastUsedFullscreenMode
 			: default;
 		
-		SettingsManager.Instance.EmitChanged();
-		// SettingsManager.Instance.Settings.MarkDirty();
-		// SettingsManager.Instance.Settings.MarkPropertyUpdated(nameof(SettingsData.FullscreenMode));
+		SettingsManager.Instance.EmitChanged(nameof(SettingsData.FullscreenMode), Variant.From(SettingsManager.Instance.Settings.FullscreenMode));
 	}
 
 	private void OnViewportSizeChanged()
@@ -76,9 +75,7 @@ public partial class WindowScaling : Node
 			{
 				// windowed/maximized mode changed
 				SettingsManager.Instance.Settings.LastUsedWindowedMode = windowMode;
-				SettingsManager.Instance.EmitChanged();
-				// SettingsManager.Instance.Settings.MarkDirty();
-				// SettingsManager.Instance.Settings.MarkPropertyUpdated(nameof(SettingsData.LastUsedWindowedMode));
+				SettingsManager.Instance.EmitChanged(nameof(SettingsData.LastUsedWindowedMode), Variant.From(SettingsManager.Instance.Settings.LastUsedWindowedMode));
 				OnWindowedMaximizedModeChanged();
 			}
 
@@ -86,9 +83,7 @@ public partial class WindowScaling : Node
 			{
 				// got kicked out of full screen mode
 				SettingsManager.Instance.Settings.FullscreenMode = default;
-				SettingsManager.Instance.EmitChanged();
-				// SettingsManager.Instance.Settings.MarkDirty();
-				// SettingsManager.Instance.Settings.MarkPropertyUpdated(nameof(SettingsData.FullscreenMode));
+				SettingsManager.Instance.EmitChanged(nameof(SettingsData.FullscreenMode), Variant.From(SettingsManager.Instance.Settings.FullscreenMode));
 				OnFullscreenModeExited();
 			}
 		}
@@ -98,9 +93,7 @@ public partial class WindowScaling : Node
 			{
 				// fullscreen mode changed
 				SettingsManager.Instance.Settings.LastUsedFullscreenMode = windowMode;
-				SettingsManager.Instance.EmitChanged();
-				// SettingsManager.Instance.Settings.MarkDirty();
-				// SettingsManager.Instance.Settings.MarkPropertyUpdated(nameof(SettingsData.LastUsedFullscreenMode));
+				SettingsManager.Instance.EmitChanged(nameof(SettingsData.LastUsedFullscreenMode), Variant.From(SettingsManager.Instance.Settings.LastUsedFullscreenMode));
 				OnFullscreenModeChanged();
 			}
 		}

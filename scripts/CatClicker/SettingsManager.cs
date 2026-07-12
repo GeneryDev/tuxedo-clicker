@@ -7,15 +7,18 @@ public partial class SettingsManager : SingletonNode<SettingsManager>
 {
     [Signal]
     public delegate void UpdatedEventHandler();
+    [Signal]
+    public delegate void PropertyUpdatedEventHandler(string propertyName, Variant newValue);
     
     public SettingsData Settings = new();
 
     private bool _needsSaving = false;
     
-    public void EmitChanged()
+    public void EmitChanged(string propertyName, Variant value)
     {
         _needsSaving = true;
         EmitSignalUpdated();
+        EmitSignalPropertyUpdated(propertyName, value);
     }
 
     public override void _Ready()
