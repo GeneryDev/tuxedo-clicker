@@ -34,6 +34,18 @@
 [ext_resource type="PackedScene" uid="uid://camv01o2qyfxu" path="res://scenes/ui/elements/active_effect_indicator.tscn" id="22_vj3aw"]
 [ext_resource type="PackedScene" uid="uid://qugfy63j28yq" path="res://scenes/ui/elements/upgrade_button.tscn" id="24_3khxw"]
 
+[sub_resource type="Gradient" id="Gradient_vj3aw"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.11460259, 0.8613678)
+colors = PackedColorArray(0.8918937, 0.8263582, 0.66026294, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vwwup"]
+gradient = SubResource("Gradient_vj3aw")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sh28p"]
+texture = SubResource("GradientTexture2D_vwwup")
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6lk3d"]
 blend_mode = 4
 
@@ -157,6 +169,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_sh28p")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1843758047]
 material = SubResource("CanvasItemMaterial_6lk3d")
