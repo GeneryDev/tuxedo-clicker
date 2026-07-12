@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://btm2eaipxjabc"
+path="res://.godot/imported/Achoo! - Tsundere Twintails.ogg-9e2bbce15b43c7eb87a585838a2e5606.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Achoo! - Tsundere Twintails.ogg"
+dest_files=["res://.godot/imported/Achoo! - Tsundere Twintails.ogg-9e2bbce15b43c7eb87a585838a2e5606.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

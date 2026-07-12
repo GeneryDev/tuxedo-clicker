@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://b2nakpqxk2yft"]
 
 [ext_resource type="PackedScene" uid="uid://b7dsy0phykxa2" path="res://scenes/ui/screens/main_screen.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="2_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://btm2eaipxjabc" path="res://assets/audio/music/Achoo! - Tsundere Twintails.ogg" id="3_tefeu"]
+[ext_resource type="AudioStream" uid="uid://d3yuxkquihwxi" path="res://assets/audio/music/Cat Cafe - Tsundere Twintails.ogg" id="4_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://dyl67laxsthrl" path="res://assets/audio/music/Head Empty - Tsundere Twintails.ogg" id="5_tipki"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_85g3d"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("3_tefeu")
+stream_1 = ExtResource("4_o6xl0")
+stream_2 = ExtResource("5_tipki")
 
 [node name="Main" type="Node" unique_id=212688505]
 
 [node name="MainScreen" parent="." unique_id=1599050281 instance=ExtResource("1_o5qli")]
+
+[node name="GdfAudioPlayer" type="Node" parent="." unique_id=1435145260]
+script = ExtResource("2_tbgi4")
+TriggerMode = 2
+Stream = SubResource("AudioStreamPlaylist_85g3d")
+VolumeDb = -10.0
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
