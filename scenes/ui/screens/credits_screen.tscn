@@ -1,61 +1,32 @@
-[gd_scene format=3 uid="uid://or2pydo3ae62"]
+[gd_scene format=3 uid="uid://1qpkbxvwxbie"]
 
-[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_c41gl"]
-[ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_bd7nx"]
-[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="3_s6ga5"]
-[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="4_bd7nx"]
-[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="4_pji4i"]
-[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="6_r7dh2"]
-[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="7_mqx0v"]
-[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="8_cvkjy"]
-[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="9_ujqi0"]
-[ext_resource type="Script" uid="uid://v32ge7gw3qfn" path="res://addons/gdf-godot/GDF/Data/NodeFactoryConditionalTemplate.cs" id="12_pji4i"]
-[ext_resource type="Script" uid="uid://cipgbcqmkinta" path="res://addons/gdf-godot/GDF/Data/NodeTemplate.cs" id="12_s6ga5"]
-[ext_resource type="PackedScene" uid="uid://dyjmynrjmrrfh" path="res://scenes/ui/elements/setting_fields/volume_slider_field.tscn" id="13_pji4i"]
-[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="13_y4i55"]
-[ext_resource type="Script" uid="uid://l7wbvi5jgr0h" path="res://addons/gdf-godot/GDF/Data/NodeFactory.cs" id="14_pji4i"]
-[ext_resource type="PackedScene" uid="uid://dlnlynrb17jdw" path="res://scenes/ui/elements/setting_fields/label_field.tscn" id="14_r7dh2"]
-[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="14_xo1ui"]
-[ext_resource type="PackedScene" uid="uid://2ankyqj8kl62" path="res://scenes/ui/elements/setting_fields/checkbox_field.tscn" id="15_aemmg"]
-[ext_resource type="PackedScene" uid="uid://c662ejphyl1jt" path="res://scenes/ui/elements/setting_fields/header_field.tscn" id="15_mqx0v"]
-[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="15_wi7im"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="16_rfon1"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="18_y4i55"]
-[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="21_xo1ui"]
-[ext_resource type="PackedScene" uid="uid://1qpkbxvwxbie" path="res://scenes/ui/screens/credits_screen.tscn" id="22_cvkjy"]
+[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_vn61q"]
+[ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_0h15t"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_np4ph"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_diy1k"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="5_002kh"]
+[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="6_soi47"]
+[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="7_fr1ki"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="8_g0mkk"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="9_xjg2y"]
+[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="10_l3whk"]
+[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="11_r4pws"]
+[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="12_5hjdn"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="16_j0nko"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="17_g3h0l"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="25_0iw8v"]
 
-[sub_resource type="Resource" id="Resource_cvkjy"]
-script = ExtResource("8_cvkjy")
+[sub_resource type="Resource" id="Resource_afk3w"]
+script = ExtResource("10_l3whk")
 BaseFontSize = 30
 ContentWidthThresholdToShrink = 200
 ContentWidthThresholdToShrinkSubsequentLines = 200
 metadata/_custom_type_script = "uid://iir4w637gc2k"
 
 [sub_resource type="Resource" id="Resource_m7obl"]
-script = ExtResource("9_ujqi0")
+script = ExtResource("11_r4pws")
 MaximumContentWidth = 375
 metadata/_custom_type_script = "uid://dq8tdw83fjsto"
-
-[sub_resource type="Resource" id="Resource_aemmg"]
-resource_name = "Slider Template: {type} == \"volume_slider\""
-script = ExtResource("12_pji4i")
-TemplatePath = NodePath("../Slider Template")
-Query = "{type} == \"volume_slider\""
-metadata/_custom_type_script = "uid://v32ge7gw3qfn"
-
-[sub_resource type="Resource" id="Resource_r7dh2"]
-resource_name = "Checkbox Template: {type} == \"checkbox\""
-script = ExtResource("12_pji4i")
-TemplatePath = NodePath("../Checkbox Template")
-Query = "{type} == \"checkbox\""
-metadata/_custom_type_script = "uid://v32ge7gw3qfn"
-
-[sub_resource type="Resource" id="Resource_mqx0v"]
-resource_name = "Header Template: {type} == \"header\""
-script = ExtResource("12_pji4i")
-TemplatePath = NodePath("../Header Template")
-Query = "{type} == \"header\""
-metadata/_custom_type_script = "uid://v32ge7gw3qfn"
 
 [sub_resource type="Animation" id="Animation_loan6"]
 length = 0.001
@@ -204,14 +175,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_c41gl")
-Order = 11
+script = ExtResource("1_vn61q")
+Order = 12
 Mode = 1
 UserInterface = NodePath("UserInterface")
 metadata/_custom_type_script = "uid://bko61fppga1kx"
 
 [node name="UserInterface" type="Node" parent="." unique_id=559131556]
-script = ExtResource("2_bd7nx")
+script = ExtResource("2_0h15t")
 metadata/_custom_type_script = "uid://c671jqyj6hfvr"
 
 [node name="Background" type="ColorRect" parent="." unique_id=503992487]
@@ -224,14 +195,18 @@ grow_vertical = 2
 color = Color(0.026188627, 0.06006629, 0.08555234, 0.44705883)
 
 [node name="UserInterfaceComponent" type="Node" parent="Background" unique_id=264586579]
-script = ExtResource("13_y4i55")
+script = ExtResource("3_np4ph")
 NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
-[node name="Settings Interface" type="Node" parent="." unique_id=1823926289]
-script = ExtResource("4_bd7nx")
-TypeId = "settings_interface"
+[node name="Game State" type="Node" parent="." unique_id=28144750 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("4_diy1k")
+ParentDataContext = NodePath("Game State")
+
+[node name="Game State" type="Node" parent="Game State" unique_id=2127634092]
+script = ExtResource("5_002kh")
+TypeId = "game_state"
 metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
 
 [node name="Popup" type="MarginContainer" parent="." unique_id=495254499]
@@ -256,7 +231,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_s6ga5")
+theme_override_styles/panel = ExtResource("6_soi47")
 
 [node name="Panel2" type="Panel" parent="Popup/Panel Background" unique_id=519272589]
 layout_mode = 1
@@ -269,7 +244,7 @@ offset_right = -6.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("4_pji4i")
+theme_override_styles/panel = ExtResource("7_fr1ki")
 
 [node name="Panel3" type="Panel" parent="Popup/Panel Background" unique_id=71253382]
 layout_mode = 1
@@ -282,7 +257,7 @@ offset_right = -12.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("3_s6ga5")
+theme_override_styles/panel = ExtResource("6_soi47")
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup" unique_id=798605601]
 layout_mode = 2
@@ -306,10 +281,10 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755]
-custom_minimum_size = Vector2(124, 40)
+custom_minimum_size = Vector2(113, 40)
 layout_mode = 2
 mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("6_r7dh2")
+theme_override_fonts/normal_font = ExtResource("8_g0mkk")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
@@ -317,10 +292,10 @@ theme_override_font_sizes/italics_font_size = 30
 theme_override_font_sizes/mono_font_size = 30
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("7_mqx0v")
-TextFormat = "Settings"
+script = ExtResource("9_xjg2y")
+TextFormat = "Credits"
 UsePostProcessing = true
-PostProcessors = [SubResource("Resource_cvkjy"), SubResource("Resource_m7obl")]
+PostProcessors = [SubResource("Resource_afk3w"), SubResource("Resource_m7obl")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Middle Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=1636249517]
@@ -332,7 +307,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container" unique_id=839611584]
-custom_minimum_size = Vector2(420, 240)
+custom_minimum_size = Vector2(420, 200)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer" unique_id=1971103502]
@@ -344,77 +319,54 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer" unique_id=48443352]
 layout_mode = 2
 
-[node name="Fields" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=702051729]
+[node name="FormattedLabel" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1110880060 node_paths=PackedStringArray("DataContext")]
 layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("12_5hjdn")
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("9_xjg2y")
+TextFormat = "[font=res://assets/fonts/Mali-Bold.ttf][font_size=21]Cat Clicker[/font_size][/font] [img height=28 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
 
-[node name="NodeFactory" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/Fields" unique_id=756698196 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
-script = ExtResource("14_pji4i")
-DataContext = NodePath("../../../../../../../../../../Settings Interface")
-CollectionQuery = "{settings_fields}"
-DefaultTemplate = NodePath("../Label")
-ConditionalTemplates = Array[ExtResource("12_pji4i")]([SubResource("Resource_aemmg"), SubResource("Resource_r7dh2"), SubResource("Resource_mqx0v")])
-metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
+a silly game made in 5 days
+as a self-imposed challenge
 
-[node name="Label" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/Fields" unique_id=1725428949]
-script = ExtResource("12_s6ga5")
-TemplateScene = ExtResource("14_r7dh2")
-metadata/_custom_type_script = "uid://cipgbcqmkinta"
+[b]Development, Art and Sound Design[/b]
+Daniel Cepeda (Genery)
 
-[node name="Header Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/Fields" unique_id=824078573]
-script = ExtResource("12_s6ga5")
-TemplateScene = ExtResource("15_mqx0v")
-PreviewCount = 1
-metadata/_custom_type_script = "uid://cipgbcqmkinta"
+[b]Music[/b]
+Achoo! - Tsundere Twintails
+Cat Cafe - Tsundere Twintails
+Head Empty - Tsundere Twintails
 
-[node name="Slider Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/Fields" unique_id=1496084974]
-script = ExtResource("12_s6ga5")
-TemplateScene = ExtResource("13_pji4i")
-PreviewCount = 3
-metadata/_custom_type_script = "uid://cipgbcqmkinta"
+[b]Sound Effects[/b] sourced from freesound.org under Creative Commons 0 licenses:
 
-[node name="Checkbox Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/Fields" unique_id=925979428]
-script = ExtResource("12_s6ga5")
-TemplateScene = ExtResource("15_aemmg")
-PreviewCount = 1
-metadata/_custom_type_script = "uid://cipgbcqmkinta"
+Perc_Clap_lo by LudwigMueller
+https://freesound.org/s/548507/
+Mr_Mew_Mew_meows by Keskaowl
+https://freesound.org/s/720306
+Cat Purr by Kerne_123
+https://freesound.org/s/785712
 
-[node name="CenterContainer" type="CenterContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=73339956]
-layout_mode = 2
+[b]Fonts[/b]
+[b]Comic Neue[/b] by Craig Rozynski, Hrant Papazian
+[b][font=res://assets/fonts/Mali-Bold.ttf]Mali[/font][/b] by Cadson Demak
 
-[node name="Button" type="Button" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=1518440214]
-layout_mode = 2
-text = "Credits"
+Made with
+[img height=100]res://assets/textures/branding/godot_logo.svg[/img]
 
-[node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=192947776]
-script = ExtResource("13_y4i55")
-NavigableTo = false
-ClickMode = 3
-metadata/_custom_type_script = "uid://bfppi36isqkgt"
-
-[node name="Game State Functions" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=1108905584]
-script = ExtResource("18_y4i55")
-
-[node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=1432212446]
-script = ExtResource("14_xo1ui")
-Stream = ExtResource("15_wi7im")
-Bus = &"SFX"
-UseGlobalPool = true
-ReleaseAction = 1
-UseDeduplication = true
-DeduplicationTimeFrameSec = 0.1
-metadata/_custom_type_script = "uid://wrcbyscb3t11"
-
-[node name="Credits Screen" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=2070741318]
-script = ExtResource("21_xo1ui")
-Template = ExtResource("22_cvkjy")
-metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
+[b]Using Genery's GDF-Godot framework[/b]
+https://github.com/GeneryDev/gdf-godot"
+DataContext = NodePath("../../../../../../../../../Game State")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
 [node name="Buttons Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=348884752]
 layout_mode = 2
@@ -438,14 +390,14 @@ theme_override_font_sizes/font_size = 24
 text = "Close"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=542877871]
-script = ExtResource("13_y4i55")
+script = ExtResource("3_np4ph")
 NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=1146144144]
-script = ExtResource("14_xo1ui")
-Stream = ExtResource("15_wi7im")
+script = ExtResource("16_j0nko")
+Stream = ExtResource("17_g3h0l")
 Bus = &"SFX"
 UseGlobalPool = true
 ReleaseAction = 1
@@ -458,13 +410,13 @@ libraries/ = SubResource("AnimationLibrary_ewr7c")
 autoplay = &"fade_in"
 
 [node name="Play fade_in" type="Node" parent="AnimationPlayer" unique_id=886272813]
-script = ExtResource("16_rfon1")
+script = ExtResource("25_0iw8v")
 AnimationName = &"fade_in"
 FromAnimationList = []
 metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
 [node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
-script = ExtResource("16_rfon1")
+script = ExtResource("25_0iw8v")
 AnimationName = &"fade_out"
 FromAnimationList = []
 metadata/_custom_type_script = "uid://jcogtucl1u3r"
@@ -472,7 +424,5 @@ metadata/_custom_type_script = "uid://jcogtucl1u3r"
 [connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
 [connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]
 [connection signal="Submitted" from="Background/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
-[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button/Click SFX" method="Trigger"]
-[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button/Credits Screen" method="Trigger" flags=3]
 [connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
 [connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/Click SFX" method="Trigger"]

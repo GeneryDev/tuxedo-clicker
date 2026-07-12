@@ -455,7 +455,9 @@ metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
 [node name="Confirmation Context" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/Confirmation" unique_id=735429203]
 script = ExtResource("18_n5qs3")
 DefaultVariableValues = Dictionary[String, Variant]({
-"body": "Are you sure you want to erase your save data?\n\nThis cannot be undone!",
+"body": "Are you sure you want to erase your save data?
+
+This cannot be undone!",
 "button_text_no": "Go back",
 "button_text_yes": "I'm sure",
 "title": "Wipe Save Data"
