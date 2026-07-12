@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dyjmynrjmrrfh"]
+
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_4p62a"]
+[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="2_wycl6"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_odapn"]
+[ext_resource type="Script" uid="uid://bbopipfu8glwi" path="res://scripts/CatClicker/HSliderExtension.cs" id="5_6tfhj"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="5_ymfqu"]
+[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/CatClicker/SettingsFunctions.cs" id="6_wycl6"]
+[ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="7_1rwqd"]
+[ext_resource type="Script" uid="uid://0mjmm7eo3o6v" path="res://addons/gdf-godot/GDF/Data/DataQuery.cs" id="8_ymfqu"]
+
+[sub_resource type="Resource" id="Resource_6tfhj"]
+script = ExtResource("8_ymfqu")
+DataContext = NodePath("../../Field Context")
+Query = "{key}"
+metadata/_custom_type_script = "uid://0mjmm7eo3o6v"
+
+[sub_resource type="Resource" id="Resource_ruxdh"]
+script = ExtResource("8_ymfqu")
+DataContext = NodePath("../../HSlider")
+Query = "{value} / 100.0"
+metadata/_custom_type_script = "uid://0mjmm7eo3o6v"
+
+[node name="Volume Slider Field" type="HBoxContainer" unique_id=799530015]
+anchors_preset = -1
+offset_right = 397.0
+offset_bottom = 25.0
+theme_override_constants/separation = 16
+
+[node name="Field Context" type="Node" parent="." unique_id=2133350065]
+script = ExtResource("1_4p62a")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=727174890 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(140, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("2_wycl6")
+theme_override_font_sizes/normal_font_size = 21
+theme_override_font_sizes/bold_font_size = 21
+theme_override_font_sizes/bold_italics_font_size = 21
+theme_override_font_sizes/italics_font_size = 21
+theme_override_font_sizes/mono_font_size = 21
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+script = ExtResource("3_odapn")
+TextFormat = "{name}"
+DataContext = NodePath("../Field Context")
+UsePostProcessing = true
+PostProcessors = []
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1114564241]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+script = ExtResource("5_6tfhj")
+
+[node name="Value Binding" type="Node" parent="HSlider" unique_id=1643134399 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("5_ymfqu")
+DataContext = NodePath("../../Field Context")
+Query = "{value} * 100"
+TargetNode = NodePath("..")
+TargetPropertyName = "value"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="Number Label" type="RichTextLabel" parent="." unique_id=1654298607 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("2_wycl6")
+theme_override_font_sizes/normal_font_size = 21
+theme_override_font_sizes/bold_font_size = 21
+theme_override_font_sizes/bold_italics_font_size = 21
+theme_override_font_sizes/italics_font_size = 21
+theme_override_font_sizes/mono_font_size = 21
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("3_odapn")
+TextFormat = "str(int(round({value}*100)))"
+DataContext = NodePath("../Field Context")
+QueryType = 0
+UsePostProcessing = true
+PostProcessors = []
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Settings Functions" type="Node" parent="." unique_id=2005778145]
+script = ExtResource("6_wycl6")
+
+[node name="Write Back" type="Node" parent="Settings Functions" unique_id=1449609511 node_paths=PackedStringArray("Target")]
+script = ExtResource("7_1rwqd")
+Target = NodePath("..")
+Method = &"SetSetting"
+Args = [SubResource("Resource_6tfhj"), SubResource("Resource_ruxdh")]
+ArgInputTypes = Array[int]([1, 1])
+ArgReplicate = Array[bool]([false, false])
+TargetMethodInfo = {
+"args": Array[Dictionary]([{
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "key",
+"type": 4,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "value",
+"type": 0,
+"usage": 131078
+}]),
+"default_args": [],
+"flags": 1,
+"id": 0,
+"name": "SetSetting",
+"return": {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 6
+}
+}
+metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+
+[connection signal="value_changed" from="HSlider" to="Settings Functions/Write Back" method="Trigger" flags=3 unbinds=1]

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c662ejphyl1jt"]
+
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_lukwd"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="2_lukwd"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_5x83w"]
+
+[node name="Header Field" type="HBoxContainer" unique_id=799530015]
+anchors_preset = -1
+theme_override_constants/separation = 16
+
+[node name="Field Context" type="Node" parent="." unique_id=2133350065]
+script = ExtResource("1_lukwd")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=727174890 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(140, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_lukwd")
+theme_override_fonts/bold_font = ExtResource("2_lukwd")
+theme_override_fonts/bold_italics_font = ExtResource("2_lukwd")
+theme_override_fonts/italics_font = ExtResource("2_lukwd")
+theme_override_fonts/mono_font = ExtResource("2_lukwd")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+script = ExtResource("3_5x83w")
+TextFormat = "{name}"
+DataContext = NodePath("../Field Context")
+UsePostProcessing = true
+PostProcessors = []
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"

@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://2ankyqj8kl62"]
+
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_n0yo5"]
+[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="2_avv55"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_a1tdh"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="5_ctxd3"]
+[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/CatClicker/SettingsFunctions.cs" id="6_pqtav"]
+[ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="7_oqxsc"]
+[ext_resource type="Script" uid="uid://c0yjanqaifkam" path="res://addons/gdf-godot/GDF/Logical/Signals/InboundSignalArgument.cs" id="8_n0yo5"]
+[ext_resource type="Script" uid="uid://0mjmm7eo3o6v" path="res://addons/gdf-godot/GDF/Data/DataQuery.cs" id="8_otok7"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="9_a1tdh"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="10_j6ahp"]
+
+[sub_resource type="Resource" id="Resource_6tfhj"]
+script = ExtResource("8_otok7")
+DataContext = NodePath("../../Field Context")
+Query = "{key}"
+metadata/_custom_type_script = "uid://0mjmm7eo3o6v"
+
+[sub_resource type="Resource" id="Resource_avv55"]
+script = ExtResource("8_n0yo5")
+metadata/_custom_type_script = "uid://c0yjanqaifkam"
+
+[node name="Checkbox Field" type="HBoxContainer" unique_id=799530015]
+anchors_preset = -1
+theme_override_constants/separation = 4
+
+[node name="Field Context" type="Node" parent="." unique_id=2133350065]
+script = ExtResource("1_n0yo5")
+DefaultVariableValues = {}
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=727174890 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(140, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("2_avv55")
+theme_override_font_sizes/normal_font_size = 21
+theme_override_font_sizes/bold_font_size = 21
+theme_override_font_sizes/bold_italics_font_size = 21
+theme_override_font_sizes/italics_font_size = 21
+theme_override_font_sizes/mono_font_size = 21
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+script = ExtResource("3_a1tdh")
+TextFormat = "{name}"
+DataContext = NodePath("../Field Context")
+UsePostProcessing = true
+PostProcessors = []
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="OFF" type="RichTextLabel" parent="." unique_id=1654298607 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("2_avv55")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_a1tdh")
+TextFormat = "OFF"
+DataContext = NodePath("../Field Context")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1334141902]
+layout_mode = 2
+
+[node name="Button Pressed Binding" type="Node" parent="CheckButton" unique_id=1643134399 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("5_ctxd3")
+DataContext = NodePath("../../Field Context")
+Query = "{value}"
+TargetNode = NodePath("..")
+TargetPropertyName = "button_pressed"
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="ON" type="RichTextLabel" parent="." unique_id=1328281958 node_paths=PackedStringArray("DataContext")]
+clip_contents = false
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("2_avv55")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_a1tdh")
+TextFormat = "ON"
+DataContext = NodePath("../Field Context")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Settings Functions" type="Node" parent="." unique_id=2005778145]
+script = ExtResource("6_pqtav")
+
+[node name="Write Back" type="Node" parent="Settings Functions" unique_id=1449609511 node_paths=PackedStringArray("Target")]
+script = ExtResource("7_oqxsc")
+Target = NodePath("..")
+Method = &"SetSetting"
+Args = [SubResource("Resource_6tfhj"), SubResource("Resource_avv55")]
+ArgInputTypes = Array[int]([1, 1])
+ArgReplicate = Array[bool]([false, false])
+TargetMethodInfo = {
+"args": Array[Dictionary]([{
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "key",
+"type": 4,
+"usage": 6
+}, {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "value",
+"type": 0,
+"usage": 131078
+}]),
+"default_args": [],
+"flags": 1,
+"id": 0,
+"name": "SetSetting",
+"return": {
+"class_name": &"",
+"hint": 0,
+"hint_string": "",
+"name": "",
+"type": 0,
+"usage": 6
+}
+}
+metadata/_custom_type_script = "uid://buqbj5n61xjbu"
+
+[node name="Click SFX" type="Node" parent="." unique_id=1651030160]
+script = ExtResource("9_a1tdh")
+Stream = ExtResource("10_j6ahp")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[connection signal="pressed" from="CheckButton" to="Click SFX" method="Trigger"]
+[connection signal="toggled" from="CheckButton" to="Settings Functions/Write Back" method="Trigger"]

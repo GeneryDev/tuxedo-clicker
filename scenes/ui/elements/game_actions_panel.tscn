@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_5r064"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_30t2d"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_bov4b"]
+[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="5_cky10"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="5_lnt30"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="6_pfmvp"]
+[ext_resource type="PackedScene" uid="uid://or2pydo3ae62" path="res://scenes/ui/screens/settings_screen.tscn" id="6_sjb6u"]
 
 [sub_resource type="Animation" id="Animation_5r064"]
 length = 0.001
@@ -141,6 +145,16 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
+[node name="Click SFX" type="Node" parent="VBoxContainer/Save Button" unique_id=1634920665]
+script = ExtResource("5_lnt30")
+Stream = ExtResource("6_pfmvp")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=60467267]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
@@ -153,5 +167,22 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
+[node name="ScreenSpawner" type="Node" parent="VBoxContainer/Settings" unique_id=1071434287]
+script = ExtResource("5_cky10")
+Template = ExtResource("6_sjb6u")
+metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
+
+[node name="Click SFX" type="Node" parent="VBoxContainer/Settings" unique_id=193731048]
+script = ExtResource("5_lnt30")
+Stream = ExtResource("6_pfmvp")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
 [connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="Game State Functions" method="Save"]
-[connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="Game State Functions" method="Save"]
+[connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="VBoxContainer/Save Button/Click SFX" method="Trigger"]
+[connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="VBoxContainer/Settings/ScreenSpawner" method="Trigger" flags=3]
+[connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="VBoxContainer/Settings/Click SFX" method="Trigger"]

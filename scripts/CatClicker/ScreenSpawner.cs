@@ -23,7 +23,6 @@ public partial class ScreenSpawner : Node
         var parent = this;
         
         var screen = Template.GdfInstantiate<Screen>();
-        screen.Order = Screen.FindAncestorScreenOrder(this, screen.Order);
         var nodeToEnterTree = screen.ToPlaceholder();
         screen.InjectContext(GetContext());
 

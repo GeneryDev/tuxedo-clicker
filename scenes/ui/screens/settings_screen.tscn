@@ -1,0 +1,439 @@
+[gd_scene format=3 uid="uid://or2pydo3ae62"]
+
+[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_c41gl"]
+[ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_bd7nx"]
+[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="3_s6ga5"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="4_bd7nx"]
+[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="4_pji4i"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="6_r7dh2"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="7_mqx0v"]
+[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="8_cvkjy"]
+[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="9_ujqi0"]
+[ext_resource type="Script" uid="uid://v32ge7gw3qfn" path="res://addons/gdf-godot/GDF/Data/NodeFactoryConditionalTemplate.cs" id="12_pji4i"]
+[ext_resource type="Script" uid="uid://cipgbcqmkinta" path="res://addons/gdf-godot/GDF/Data/NodeTemplate.cs" id="12_s6ga5"]
+[ext_resource type="PackedScene" uid="uid://dyjmynrjmrrfh" path="res://scenes/ui/elements/setting_fields/volume_slider_field.tscn" id="13_pji4i"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="13_y4i55"]
+[ext_resource type="Script" uid="uid://l7wbvi5jgr0h" path="res://addons/gdf-godot/GDF/Data/NodeFactory.cs" id="14_pji4i"]
+[ext_resource type="PackedScene" uid="uid://dlnlynrb17jdw" path="res://scenes/ui/elements/setting_fields/label_field.tscn" id="14_r7dh2"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="14_xo1ui"]
+[ext_resource type="PackedScene" uid="uid://2ankyqj8kl62" path="res://scenes/ui/elements/setting_fields/checkbox_field.tscn" id="15_aemmg"]
+[ext_resource type="PackedScene" uid="uid://c662ejphyl1jt" path="res://scenes/ui/elements/setting_fields/header_field.tscn" id="15_mqx0v"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="15_wi7im"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="16_rfon1"]
+
+[sub_resource type="Resource" id="Resource_afk3w"]
+script = ExtResource("8_cvkjy")
+BaseFontSize = 36
+ContentWidthThresholdToShrink = 100
+ContentWidthThresholdToShrinkSubsequentLines = 100
+metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="Resource" id="Resource_m7obl"]
+script = ExtResource("9_ujqi0")
+MaximumContentWidth = 375
+metadata/_custom_type_script = "uid://dq8tdw83fjsto"
+
+[sub_resource type="Resource" id="Resource_aemmg"]
+resource_name = "Slider Template: {type} == \"volume_slider\""
+script = ExtResource("12_pji4i")
+TemplatePath = NodePath("../Slider Template")
+Query = "{type} == \"volume_slider\""
+metadata/_custom_type_script = "uid://v32ge7gw3qfn"
+
+[sub_resource type="Resource" id="Resource_r7dh2"]
+resource_name = "Checkbox Template: {type} == \"checkbox\""
+script = ExtResource("12_pji4i")
+TemplatePath = NodePath("../Checkbox Template")
+Query = "{type} == \"checkbox\""
+metadata/_custom_type_script = "uid://v32ge7gw3qfn"
+
+[sub_resource type="Resource" id="Resource_mqx0v"]
+resource_name = "Header Template: {type} == \"header\""
+script = ExtResource("12_pji4i")
+TemplatePath = NodePath("../Header Template")
+Query = "{type} == \"header\""
+metadata/_custom_type_script = "uid://v32ge7gw3qfn"
+
+[sub_resource type="Animation" id="Animation_loan6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_341ir"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ondbh"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"HideAndFreeScreen"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Popup:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewr7c"]
+_data = {
+&"RESET": SubResource("Animation_loan6"),
+&"fade_in": SubResource("Animation_341ir"),
+&"fade_out": SubResource("Animation_ondbh")
+}
+
+[node name="Settings Screen" type="Control" unique_id=1353685262 node_paths=PackedStringArray("UserInterface")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_c41gl")
+Order = 11
+Mode = 1
+UserInterface = NodePath("UserInterface")
+metadata/_custom_type_script = "uid://bko61fppga1kx"
+
+[node name="UserInterface" type="Node" parent="." unique_id=559131556]
+script = ExtResource("2_bd7nx")
+metadata/_custom_type_script = "uid://c671jqyj6hfvr"
+
+[node name="Background" type="ColorRect" parent="." unique_id=503992487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.026188627, 0.06006629, 0.08555234, 0.44705883)
+
+[node name="UserInterfaceComponent" type="Node" parent="Background" unique_id=264586579]
+script = ExtResource("13_y4i55")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Settings Interface" type="Node" parent="." unique_id=1823926289]
+script = ExtResource("4_bd7nx")
+TypeId = "settings_interface"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Popup" type="MarginContainer" parent="." unique_id=495254499]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Panel Background" type="Control" parent="Popup" unique_id=1251900493]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Popup/Panel Background" unique_id=1383555974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_s6ga5")
+
+[node name="Panel2" type="Panel" parent="Popup/Panel Background" unique_id=519272589]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_pji4i")
+
+[node name="Panel3" type="Panel" parent="Popup/Panel Background" unique_id=71253382]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_s6ga5")
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup" unique_id=798605601]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer" unique_id=2000197829]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=1095413436]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Heading Text" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Header" unique_id=424839535]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755]
+custom_minimum_size = Vector2(124, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("6_r7dh2")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("7_mqx0v")
+TextFormat = "Settings"
+UsePostProcessing = true
+PostProcessors = [SubResource("Resource_afk3w"), SubResource("Resource_m7obl")]
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Middle Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=1636249517]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="Popup/MarginContainer/VBoxContainer/Middle Container" unique_id=400747805]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container" unique_id=839611584]
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer" unique_id=1971103502]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer" unique_id=2021789606]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer" unique_id=48443352]
+layout_mode = 2
+
+[node name="NodeFactory" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=756698196 node_paths=PackedStringArray("DataContext", "DefaultTemplate")]
+script = ExtResource("14_pji4i")
+DataContext = NodePath("../../../../../../../../../Settings Interface")
+CollectionQuery = "{settings_fields}"
+DefaultTemplate = NodePath("../Label")
+ConditionalTemplates = Array[ExtResource("12_pji4i")]([SubResource("Resource_aemmg"), SubResource("Resource_r7dh2"), SubResource("Resource_mqx0v")])
+metadata/_custom_type_script = "uid://l7wbvi5jgr0h"
+
+[node name="Label" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1725428949]
+script = ExtResource("12_s6ga5")
+TemplateScene = ExtResource("14_r7dh2")
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Header Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=824078573]
+script = ExtResource("12_s6ga5")
+TemplateScene = ExtResource("15_mqx0v")
+PreviewCount = 1
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Slider Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1496084974]
+script = ExtResource("12_s6ga5")
+TemplateScene = ExtResource("13_pji4i")
+PreviewCount = 3
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Checkbox Template" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=925979428]
+script = ExtResource("12_s6ga5")
+TemplateScene = ExtResource("15_aemmg")
+PreviewCount = 1
+metadata/_custom_type_script = "uid://cipgbcqmkinta"
+
+[node name="Buttons Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=348884752]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="Popup/MarginContainer/VBoxContainer/Buttons Container" unique_id=1771340869]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Popup/MarginContainer/VBoxContainer/Buttons Container" unique_id=911617841]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer" unique_id=1958264304]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_disabled_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
+[node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=542877871]
+script = ExtResource("13_y4i55")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=1146144144]
+script = ExtResource("14_xo1ui")
+Stream = ExtResource("15_wi7im")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=354614055]
+libraries/ = SubResource("AnimationLibrary_ewr7c")
+autoplay = &"fade_in"
+
+[node name="Play fade_in" type="Node" parent="AnimationPlayer" unique_id=886272813]
+script = ExtResource("16_rfon1")
+AnimationName = &"fade_in"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
+script = ExtResource("16_rfon1")
+AnimationName = &"fade_out"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
+[connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]
+[connection signal="Submitted" from="Background/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/Click SFX" method="Trigger"]

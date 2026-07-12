@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://3u6er6in4p4a" path="res://scripts/CatClicker/GameStateManager.cs" id="14_7upwp"]
 [ext_resource type="Script" uid="uid://bguagy6f8anx0" path="res://scripts/CatClicker/GameInterfaceManager.cs" id="15_e7lx3"]
 [ext_resource type="Script" uid="uid://bue2dh8nq45gq" path="res://addons/gdf-godot/GDF/Debug/DebugCommandMacro.cs" id="15_korfd"]
+[ext_resource type="Script" uid="uid://bg7lu8otwngs3" path="res://scripts/CatClicker/SettingsManager.cs" id="16_fq2qc"]
 [ext_resource type="Script" uid="uid://b2o084tr0gib5" path="res://scripts/CatClicker/AutoGC.cs" id="17_b18l6"]
 [ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="18_wafyw"]
 [ext_resource type="PackedScene" uid="uid://dp80bxijsm11k" path="res://scenes/ui/screens/ending_screen.tscn" id="19_apua7"]
@@ -105,21 +106,13 @@ metadata/_custom_type_script = "uid://bituwxio8sdy4"
 script = ExtResource("2_opebo")
 metadata/_custom_type_script = "uid://b4vyis3udrf41"
 
-[node name="ScreenStack" type="Control" parent="." unique_id=245332514]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("4_nelfd")
-metadata/_custom_type_script = "uid://dchytqeoyxkj"
-
 [node name="DebugCommandSystem" type="Node" parent="." unique_id=709519784]
 script = ExtResource("1_nmxvb")
 Macros = Array[ExtResource("15_korfd")]([SubResource("Resource_wafyw"), SubResource("Resource_dxqtg")])
 metadata/_custom_type_script = "uid://cqtokr6spdybx"
+
+[node name="Settings Manager" type="Node" parent="." unique_id=1683917737]
+script = ExtResource("16_fq2qc")
 
 [node name="Game State Manager" type="Node" parent="." unique_id=1789383041]
 script = ExtResource("14_7upwp")
@@ -131,6 +124,17 @@ metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
 
 [node name="Game Interface Manager" type="Node" parent="." unique_id=1300401878]
 script = ExtResource("15_e7lx3")
+
+[node name="ScreenStack" type="Control" parent="." unique_id=245332514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_nelfd")
+metadata/_custom_type_script = "uid://dchytqeoyxkj"
 
 [node name="AutoGC" type="Node" parent="." unique_id=5144805]
 script = ExtResource("17_b18l6")

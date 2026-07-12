@@ -2,124 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dj76ooxml8qi0" path="res://scripts/CatClicker/BulkStoreButton.cs" id="1_oei0o"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="2_vnslk"]
-[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="3_haecq"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_r2l0p"]
-[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="4_8ccc7"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="6_yg65m"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="7_auktj"]
 
-[sub_resource type="StyleBox" id="StyleBox_yg65m"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("4_8ccc7")
-Texture = ExtResource("3_haecq")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0, 0, 0, 0.5294118)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_auktj"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("4_8ccc7")
-Texture = ExtResource("3_haecq")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0, 0, 0, 0.7607843)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_8ccc7"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("4_8ccc7")
-Texture = ExtResource("3_haecq")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0.30692267, 0.3069227, 0.3069227, 0.5294118)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_haecq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("4_8ccc7")
-Texture = ExtResource("3_haecq")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0.9209947, 0.92099464, 0.9209944, 1)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
 [node name="Button" type="Button" unique_id=1958264304]
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-theme_override_colors/font_disabled_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-theme_override_styles/normal = SubResource("StyleBox_yg65m")
-theme_override_styles/pressed = SubResource("StyleBox_auktj")
-theme_override_styles/hover = SubResource("StyleBox_8ccc7")
-theme_override_styles/disabled = SubResource("StyleBox_haecq")
 text = "Buy 1"
 script = ExtResource("1_oei0o")
 

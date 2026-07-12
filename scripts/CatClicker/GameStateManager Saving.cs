@@ -11,7 +11,8 @@ public partial class GameStateManager
     
     public void Autosave()
     {
-        Save();
+        if (SettingsManager.Instance.Settings.AutosaveEnabled)
+            Save();
     }
 
     private void MarkDirty()

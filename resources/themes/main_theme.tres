@@ -1,9 +1,244 @@
 [gd_resource type="Theme" format=3 uid="uid://8vdcmitrfkmp"]
 
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="1_7adcq"]
+[ext_resource type="Texture2D" uid="uid://chc5brk2tw28k" path="res://assets/textures/ui/check_button/off_hover.png" id="1_hf3i3"]
 [ext_resource type="StyleBox" uid="uid://t4o42k6q8a8x" path="res://resources/styleboxes/beige_box_1.tres" id="1_x2ak3"]
+[ext_resource type="Texture2D" uid="uid://bfr88lfurl686" path="res://assets/textures/ui/check_button/off.png" id="1_xtbu8"]
 [ext_resource type="FontFile" uid="uid://b316jn2vgnx2o" path="res://assets/fonts/ComicNeue-Bold.ttf" id="2_i4ejt"]
 [ext_resource type="Texture2D" uid="uid://dv1nb4q8k6wow" path="res://assets/textures/ui/rough_box_1.png" id="3_0wthw"]
+[ext_resource type="Texture2D" uid="uid://dw8isyxlqohrd" path="res://assets/textures/ui/check_button/on_hover.png" id="3_1nr78"]
+[ext_resource type="Texture2D" uid="uid://b2yorbgy7mk4s" path="res://assets/textures/ui/check_button/on.png" id="3_hf3i3"]
 [ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="4_dagba"]
+
+[sub_resource type="StyleBox" id="StyleBox_haecq"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_7adcq")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0.9209947, 0.92099464, 0.9209944, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_8ccc7"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_7adcq")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0.30692267, 0.3069227, 0.3069227, 0.5294118)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_yg65m"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_7adcq")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0.40784314, 0.32156864, 0.19215687, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_auktj"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_7adcq")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0, 0, 0, 0.7607843)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="Gradient" id="Gradient_n0yo5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1nr78"]
+gradient = SubResource("Gradient_n0yo5")
+width = 1
+
+[sub_resource type="StyleBox" id="StyleBox_1nr78"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_hf3i3")
+OverrideTextureSize = Vector2i(128, 64)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([1, -1])
+SlicesY = Array[int]([1, -1])
+PatchWeightsX = Array[float]([1.0, 0.0, 1.0])
+PatchWeightsY = Array[float]([1.0, 0.0, 1.0])
+ResolutionScale = 3.0
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_7adcq"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_1nr78")
+OverrideTextureSize = Vector2i(128, 64)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([1, -1])
+SlicesY = Array[int]([1, -1])
+PatchWeightsX = Array[float]([1.0, 0.0, 1.0])
+PatchWeightsY = Array[float]([1.0, 0.0, 1.0])
+ResolutionScale = 3.0
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_ctxd3"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("1_xtbu8")
+OverrideTextureSize = Vector2i(128, 64)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([1, -1])
+SlicesY = Array[int]([1, -1])
+PatchWeightsX = Array[float]([1.0, 0.0, 1.0])
+PatchWeightsY = Array[float]([1.0, 0.0, 1.0])
+ResolutionScale = 3.0
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_pqtav"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("4_dagba")
+Texture = ExtResource("3_hf3i3")
+OverrideTextureSize = Vector2i(128, 64)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([1, -1])
+SlicesY = Array[int]([1, -1])
+PatchWeightsX = Array[float]([1.0, 0.0, 1.0])
+PatchWeightsY = Array[float]([1.0, 0.0, 1.0])
+ResolutionScale = 3.0
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymfqu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.92941177, 0.76862746, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nr78"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rwqd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22352941, 0.15686275, 0.11372549, 1)
+border_width_right = 10
+border_color = Color(0.94509804, 0.8156863, 0.6392157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
 
 [sub_resource type="StyleBox" id="StyleBox_0wthw"]
 resource_local_to_scene = false
@@ -111,6 +346,27 @@ metadata/_custom_type_script = "uid://b52iivqa651xf"
 
 [resource]
 default_font = ExtResource("2_i4ejt")
+Button/colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+Button/colors/font_disabled_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+Button/styles/disabled = SubResource("StyleBox_haecq")
+Button/styles/hover = SubResource("StyleBox_8ccc7")
+Button/styles/normal = SubResource("StyleBox_yg65m")
+Button/styles/pressed = SubResource("StyleBox_auktj")
+CheckButton/icons/checked = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/checked_disabled = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/checked_disabled_mirrored = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/checked_mirrored = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/unchecked = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/unchecked_disabled = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/unchecked_disabled_mirrored = SubResource("GradientTexture1D_1nr78")
+CheckButton/icons/unchecked_mirrored = SubResource("GradientTexture1D_1nr78")
+CheckButton/styles/hover = SubResource("StyleBox_1nr78")
+CheckButton/styles/hover_pressed = SubResource("StyleBox_7adcq")
+CheckButton/styles/normal = SubResource("StyleBox_ctxd3")
+CheckButton/styles/pressed = SubResource("StyleBox_pqtav")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ymfqu")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_1nr78")
+HSlider/styles/slider = SubResource("StyleBoxFlat_1rwqd")
 RichTextLabel/colors/default_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
 RichTextLabel/colors/font_outline_color = Color(0.34117648, 0.2901961, 0.21960784, 1)
 RichTextLabel/colors/font_selected_color = Color(0.34117648, 0.2901961, 0.21960784, 1)

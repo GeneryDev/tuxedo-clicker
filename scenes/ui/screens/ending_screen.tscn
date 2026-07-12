@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="15_7pb3m"]
 [ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="15_tsnew"]
 [ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="16_ygn1g"]
+[ext_resource type="AudioStream" uid="uid://cy0npcq6bo2lc" path="res://assets/audio/sfx/box_empty.ogg" id="17_e23u0"]
 
 [sub_resource type="Resource" id="Resource_afk3w"]
 script = ExtResource("11_aep4f")
@@ -64,110 +65,6 @@ metadata/_custom_type_script = "uid://b52iivqa651xf"
 script = ExtResource("12_v6bbs")
 MaximumContentWidth = 450
 metadata/_custom_type_script = "uid://dq8tdw83fjsto"
-
-[sub_resource type="StyleBox" id="StyleBox_yg65m"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("14_3e4au")
-Texture = ExtResource("13_t46rr")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0, 0, 0, 0.5294118)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_auktj"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("14_3e4au")
-Texture = ExtResource("13_t46rr")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0, 0, 0, 0.7607843)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_8ccc7"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("14_3e4au")
-Texture = ExtResource("13_t46rr")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0.30692267, 0.3069227, 0.3069227, 0.5294118)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
-
-[sub_resource type="StyleBox" id="StyleBox_haecq"]
-resource_local_to_scene = false
-resource_name = ""
-content_margin_left = -1.0
-content_margin_top = -1.0
-content_margin_right = -1.0
-content_margin_bottom = -1.0
-script = ExtResource("14_3e4au")
-Texture = ExtResource("13_t46rr")
-OverrideTextureSize = Vector2i(245, 161)
-PatchCountHorizontal = 3
-PatchCountVertical = 3
-SlicesX = Array[int]([30, 209])
-SlicesY = Array[int]([40, 120])
-PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
-PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
-PatchAxisModesX = Array[int]([0, 0, 0])
-PatchAxisModesY = Array[int]([0, 0, 0])
-ResolutionScale = 8.0
-ExpandMarginLeft = 8.0
-ExpandMarginTop = 2.0
-ExpandMarginRight = 8.0
-ExpandMarginBottom = 2.0
-ModulateColor = Color(0.9209947, 0.92099464, 0.9209944, 1)
-metadata/_custom_type_script = "uid://b52iivqa651xf"
 
 [sub_resource type="Animation" id="Animation_loan6"]
 length = 0.001
@@ -489,7 +386,7 @@ mouse_filter = 2
 
 [node name="FormattedLabel" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Stats Container" unique_id=1166186422]
 clip_contents = false
-custom_minimum_size = Vector2(417, 125)
+custom_minimum_size = Vector2(417, 150)
 layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/bold_font = ExtResource("15_tsnew")
@@ -502,7 +399,7 @@ bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("10_ckhjp")
-TextFormat = "Your work is now complete; cats have successfully domesticated humankind. The newly created Meowko's Basilisk will now oversee all human-cat relations and maintain this cat-utopia you've created in perpetuity."
+TextFormat = "Your work is now complete; cats have successfully domesticated humankind. The newly created Meowko's Basilisk will now oversee all human-cat relations and maintain this cat-utopia you've created in perpetuity. Your assistance is no longer required."
 UsePostProcessing = true
 PostProcessors = [SubResource("Resource_hlw86")]
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
@@ -527,7 +424,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="FormattedLabel" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Description Container" unique_id=336286345]
-custom_minimum_size = Vector2(136, 17)
+custom_minimum_size = Vector2(202, 25)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 21
@@ -548,15 +445,12 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer" unique_id=1958264304]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_disabled_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBox_yg65m")
-theme_override_styles/pressed = SubResource("StyleBox_auktj")
-theme_override_styles/hover = SubResource("StyleBox_8ccc7")
-theme_override_styles/disabled = SubResource("StyleBox_haecq")
 text = "Close"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button" unique_id=542877871]
@@ -591,7 +485,18 @@ AnimationName = &"fade_out"
 FromAnimationList = []
 metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
+[node name="Open SFX" type="Node" parent="." unique_id=1218650410]
+script = ExtResource("14_e23u0")
+Stream = ExtResource("17_e23u0")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
 [connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
 [connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]
+[connection signal="ScreenShown" from="." to="Open SFX" method="Trigger" flags=3]
 [connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
 [connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button/Click SFX" method="Trigger"]
