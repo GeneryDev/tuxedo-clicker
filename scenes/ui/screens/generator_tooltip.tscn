@@ -408,7 +408,7 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755 node_paths=PackedStringArray("DataContext")]
-custom_minimum_size = Vector2(40, 32)
+custom_minimum_size = Vector2(83, 32)
 layout_mode = 2
 mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("6_83o15")
@@ -479,10 +479,11 @@ clip_contents = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("5_224nf")
-TextFormat = "{bulk_purchase_cost}"
+TextFormat = "{bulk_purchase_cost} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]"
 DataContext = NodePath("../../../../../../../Generator State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
@@ -605,6 +606,7 @@ metadata/_custom_type_script = "uid://jcogtucl1u3r"
 
 [node name="ControlConstraint" type="Control" parent="." unique_id=947616453 node_paths=PackedStringArray("Target")]
 layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0

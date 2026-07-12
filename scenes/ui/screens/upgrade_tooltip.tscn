@@ -391,10 +391,11 @@ clip_contents = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("8_r0r3n")
-TextFormat = "{purchase_cost}"
+TextFormat = "{purchase_cost} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]"
 DataContext = NodePath("../../../../../../../Upgrade State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 

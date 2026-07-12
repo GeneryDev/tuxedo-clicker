@@ -460,10 +460,11 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
+bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 script = ExtResource("4_di5gf")
-TextFormat = "{bulk_purchase_cost}"
+TextFormat = "{bulk_purchase_cost} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]"
 DataContext = NodePath("../../../../../Generator State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 
