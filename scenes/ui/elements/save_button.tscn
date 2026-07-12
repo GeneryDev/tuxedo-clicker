@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://gwd48pc2yd1g"]
+
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="1_o18j8"]
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="1_x6skj"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="2_q7nfd"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_wn4f4"]
+[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_x6skj"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_wn4f4"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="5_f3ry6"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="6_t6mas"]
+
+[sub_resource type="StyleBox" id="StyleBox_f3ry6"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("2_wn4f4")
+Texture = ExtResource("1_x6skj")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0, 0, 0, 0.36862746)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_x6skj"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("2_wn4f4")
+Texture = ExtResource("1_x6skj")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0.31, 0.31, 0.31, 0.3254902)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="Animation" id="Animation_5r064"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Save"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_30t2d"]
+resource_name = "saved"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Saved!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bov4b"]
+resource_name = "unsaved"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Save"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bkis"]
+_data = {
+&"RESET": SubResource("Animation_5r064"),
+&"saved": SubResource("Animation_30t2d"),
+&"unsaved": SubResource("Animation_bov4b")
+}
+
+[node name="Save Button" type="Button" unique_id=1625326253]
+custom_minimum_size = Vector2(60, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBox_f3ry6")
+theme_override_styles/hover = SubResource("StyleBox_x6skj")
+text = "Save"
+
+[node name="Game State" type="Node" parent="." unique_id=1204171779]
+script = ExtResource("1_o18j8")
+TypeId = "game_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Game State Functions" type="Node" parent="." unique_id=1356822845]
+script = ExtResource("2_q7nfd")
+
+[node name="State" type="AnimationPlayer" parent="." unique_id=1073611365]
+libraries/ = SubResource("AnimationLibrary_8bkis")
+
+[node name="Current Animation Binding" type="Node" parent="State" unique_id=202677174 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("3_x6skj")
+DataContext = NodePath("../../Game State")
+Query = "{is_save_dirty}"
+ValueMappingEnabled = true
+ValueMappings = {
+false: &"saved",
+true: &"unsaved"
+}
+TargetNode = NodePath("..")
+TargetPropertyName = "current_animation"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
+[node name="UserInterfaceComponent" type="Node" parent="." unique_id=162121593]
+script = ExtResource("4_wn4f4")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Click SFX" type="Node" parent="." unique_id=958041176]
+script = ExtResource("5_f3ry6")
+Stream = ExtResource("6_t6mas")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[connection signal="Submitted" from="UserInterfaceComponent" to="Game State Functions" method="Save"]
+[connection signal="Submitted" from="UserInterfaceComponent" to="Click SFX" method="Trigger"]

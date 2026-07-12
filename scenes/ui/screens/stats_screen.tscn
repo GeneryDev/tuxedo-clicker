@@ -1,0 +1,536 @@
+[gd_scene format=3 uid="uid://cqvqx42n3j0kp"]
+
+[ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_n5qs3"]
+[ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_kiey2"]
+[ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_fo5sv"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_3yhet"]
+[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="4_c0jvs"]
+[ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="5_xcf61"]
+[ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="6_0eh7b"]
+[ext_resource type="FontFile" uid="uid://dkn6ugm2epypf" path="res://assets/fonts/Mali-Bold.ttf" id="7_favc3"]
+[ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="8_sfnih"]
+[ext_resource type="Script" uid="uid://iir4w637gc2k" path="res://addons/gdf-godot/GDF/UI/LabelAutoFontSize.cs" id="9_v57i4"]
+[ext_resource type="Script" uid="uid://dq8tdw83fjsto" path="res://addons/gdf-godot/GDF/UI/LabelDynamicFitToContent.cs" id="10_8rbft"]
+[ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="12_icybc"]
+[ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="13_d35l3"]
+[ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="14_muohc"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="15_fo5sv"]
+[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="17_rro7k"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="18_g6jyo"]
+[ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="18_n5qs3"]
+[ext_resource type="PackedScene" uid="uid://bvjtc8svxbccx" path="res://scenes/ui/screens/confirmation_screen.tscn" id="19_0eh7b"]
+[ext_resource type="Script" uid="uid://k88c5byfcni6" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalStation.cs" id="19_kiey2"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="19_o557f"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="20_0eonu"]
+[ext_resource type="Script" uid="uid://c3hkl8pcy8l32" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalPortInbound.cs" id="20_fo5sv"]
+[ext_resource type="Script" uid="uid://b2pa2urnvprft" path="res://addons/gdf-godot/GDF/Logical/Values/ObjectCallable.cs" id="22_xcf61"]
+[ext_resource type="Script" uid="uid://mx32dultovew" path="res://addons/gdf-godot/GDF/Logical/Values/ValueFromNodePath.cs" id="23_0eh7b"]
+
+[sub_resource type="Resource" id="Resource_afk3w"]
+script = ExtResource("9_v57i4")
+BaseFontSize = 30
+ContentWidthThresholdToShrink = 200
+ContentWidthThresholdToShrinkSubsequentLines = 200
+metadata/_custom_type_script = "uid://iir4w637gc2k"
+
+[sub_resource type="Resource" id="Resource_m7obl"]
+script = ExtResource("10_8rbft")
+MaximumContentWidth = 375
+metadata/_custom_type_script = "uid://dq8tdw83fjsto"
+
+[sub_resource type="StyleBox" id="StyleBox_rro7k"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("14_muohc")
+Texture = ExtResource("13_d35l3")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(0.5, 0.10499999, 0.15108338, 1)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="StyleBox" id="StyleBox_n5qs3"]
+resource_local_to_scene = false
+resource_name = ""
+content_margin_left = -1.0
+content_margin_top = -1.0
+content_margin_right = -1.0
+content_margin_bottom = -1.0
+script = ExtResource("14_muohc")
+Texture = ExtResource("13_d35l3")
+OverrideTextureSize = Vector2i(245, 161)
+PatchCountHorizontal = 3
+PatchCountVertical = 3
+SlicesX = Array[int]([30, 209])
+SlicesY = Array[int]([40, 120])
+PatchWeightsX = Array[float]([0.0, 1.0, 0.0])
+PatchWeightsY = Array[float]([0.0, 1.0, 0.0])
+PatchAxisModesX = Array[int]([0, 0, 0])
+PatchAxisModesY = Array[int]([0, 0, 0])
+ResolutionScale = 8.0
+ExpandMarginLeft = 8.0
+ExpandMarginTop = 2.0
+ExpandMarginRight = 8.0
+ExpandMarginBottom = 2.0
+ModulateColor = Color(1, 0, 0, 0.5294118)
+metadata/_custom_type_script = "uid://b52iivqa651xf"
+
+[sub_resource type="Resource" id="Resource_favc3"]
+script = ExtResource("23_0eh7b")
+NodePath = NodePath("../../Game State Functions")
+
+[sub_resource type="Resource" id="Resource_sfnih"]
+script = ExtResource("22_xcf61")
+Target = SubResource("Resource_favc3")
+Method = &"Reset"
+Args = []
+metadata/_custom_type_script = "uid://b2pa2urnvprft"
+
+[sub_resource type="Animation" id="Animation_loan6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_341ir"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Popup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ondbh"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Popup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"HideAndFreeScreen"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Popup:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewr7c"]
+_data = {
+&"RESET": SubResource("Animation_loan6"),
+&"fade_in": SubResource("Animation_341ir"),
+&"fade_out": SubResource("Animation_ondbh")
+}
+
+[node name="Settings Screen" type="Control" unique_id=1353685262 node_paths=PackedStringArray("UserInterface")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_n5qs3")
+Order = 11
+Mode = 1
+UserInterface = NodePath("UserInterface")
+metadata/_custom_type_script = "uid://bko61fppga1kx"
+
+[node name="UserInterface" type="Node" parent="." unique_id=559131556]
+script = ExtResource("2_kiey2")
+metadata/_custom_type_script = "uid://c671jqyj6hfvr"
+
+[node name="Background" type="ColorRect" parent="." unique_id=503992487]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.026188627, 0.06006629, 0.08555234, 0.44705883)
+
+[node name="UserInterfaceComponent" type="Node" parent="Background" unique_id=264586579]
+script = ExtResource("3_fo5sv")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Game State" type="Node" parent="." unique_id=28144750 node_paths=PackedStringArray("ParentDataContext")]
+script = ExtResource("4_3yhet")
+ParentDataContext = NodePath("Game State")
+
+[node name="Game State" type="Node" parent="Game State" unique_id=2127634092]
+script = ExtResource("4_c0jvs")
+TypeId = "game_state"
+metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
+
+[node name="Popup" type="MarginContainer" parent="." unique_id=495254499]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Panel Background" type="Control" parent="Popup" unique_id=1251900493]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Popup/Panel Background" unique_id=1383555974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_xcf61")
+
+[node name="Panel2" type="Panel" parent="Popup/Panel Background" unique_id=519272589]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("6_0eh7b")
+
+[node name="Panel3" type="Panel" parent="Popup/Panel Background" unique_id=71253382]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("5_xcf61")
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup" unique_id=798605601]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer" unique_id=2000197829]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=1095413436]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Heading Text" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Header" unique_id=424839535]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Header/Heading Text" unique_id=543917755]
+custom_minimum_size = Vector2(79, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("7_favc3")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("8_sfnih")
+TextFormat = "Stats"
+UsePostProcessing = true
+PostProcessors = [SubResource("Resource_afk3w"), SubResource("Resource_m7obl")]
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="Middle Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=1636249517]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="Popup/MarginContainer/VBoxContainer/Middle Container" unique_id=400747805]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container" unique_id=839611584]
+custom_minimum_size = Vector2(420, 200)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer" unique_id=1971103502]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer" unique_id=2021789606]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer" unique_id=48443352]
+layout_mode = 2
+
+[node name="FormattedLabel" type="RichTextLabel" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1110880060 node_paths=PackedStringArray("DataContext")]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/bold_font = ExtResource("12_icybc")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("8_sfnih")
+TextFormat = "[b]Current pet balance:[/b] {points} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
+[b]Pets per second:[/b] {points_per_second} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
+
+[b]Game started:[/b] {run_start_time_relative} ago
+[b]Total pets:[/b] {total_points} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
+[b]Total manual pets:[/b] {total_manual_points} [img height=20 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
+[b]Total clicks:[/b] {total_clicks}
+[b]Cardboard box clicks:[/b] {bonus_item_clicks}"
+DataContext = NodePath("../../../../../../../../../Game State")
+metadata/_custom_type_script = "uid://dxkaapm2dks2e"
+
+[node name="FlowContainer" type="FlowContainer" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1457385143]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer" unique_id=147819625]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBox_rro7k")
+theme_override_styles/hover = SubResource("StyleBox_n5qs3")
+text = "WIPE SAVE DATA"
+
+[node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button" unique_id=1271524664]
+script = ExtResource("3_fo5sv")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Game State Functions" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button" unique_id=680017730]
+script = ExtResource("15_fo5sv")
+
+[node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button" unique_id=1283563759]
+script = ExtResource("18_g6jyo")
+Stream = ExtResource("19_o557f")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Confirmation" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button" unique_id=488596048 node_paths=PackedStringArray("Context", "ConnectSignalStation")]
+script = ExtResource("17_rro7k")
+Template = ExtResource("19_0eh7b")
+Context = NodePath("Confirmation Context")
+ConnectSignalStation = NodePath("../SignalStation")
+metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
+
+[node name="Confirmation Context" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/Confirmation" unique_id=735429203]
+script = ExtResource("18_n5qs3")
+DefaultVariableValues = Dictionary[String, Variant]({
+"body": "Are you sure you want to erase your save data?\n\nThis cannot be undone!",
+"button_text_no": "Go back",
+"button_text_yes": "I'm sure",
+"title": "Wipe Save Data"
+})
+DefaultCollections = {}
+EditorPreviewVariables = {}
+metadata/_custom_type_script = "uid://k8suh3w0dagg"
+
+[node name="SignalStation" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button" unique_id=1951167117]
+script = ExtResource("19_kiey2")
+metadata/_custom_type_script = "uid://k88c5byfcni6"
+
+[node name="Confirmed" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/SignalStation" unique_id=2109150195]
+script = ExtResource("20_fo5sv")
+Callables = Array[ExtResource("22_xcf61")]([SubResource("Resource_sfnih")])
+metadata/_custom_type_script = "uid://c3hkl8pcy8l32"
+
+[node name="Buttons Container" type="VBoxContainer" parent="Popup/MarginContainer/VBoxContainer" unique_id=348884752]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HSeparator" type="HSeparator" parent="Popup/MarginContainer/VBoxContainer/Buttons Container" unique_id=1771340869]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Popup/MarginContainer/VBoxContainer/Buttons Container" unique_id=911617841]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer" unique_id=1958264304]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_disabled_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
+[node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=542877871]
+script = ExtResource("3_fo5sv")
+NavigableTo = false
+ClickMode = 3
+metadata/_custom_type_script = "uid://bfppi36isqkgt"
+
+[node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=1146144144]
+script = ExtResource("18_g6jyo")
+Stream = ExtResource("19_o557f")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=354614055]
+libraries/ = SubResource("AnimationLibrary_ewr7c")
+autoplay = &"fade_in"
+
+[node name="Play fade_in" type="Node" parent="AnimationPlayer" unique_id=886272813]
+script = ExtResource("20_0eonu")
+AnimationName = &"fade_in"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
+script = ExtResource("20_0eonu")
+AnimationName = &"fade_out"
+FromAnimationList = []
+metadata/_custom_type_script = "uid://jcogtucl1u3r"
+
+[connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
+[connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]
+[connection signal="Submitted" from="Background/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/Click SFX" method="Trigger"]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/Confirmation" method="Trigger" flags=3]
+[connection signal="Received" from="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/FlowContainer/Button/SignalStation/Confirmed" to="." method="FadeOutScreen" flags=3]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="." method="FadeOutScreen" flags=3]
+[connection signal="Submitted" from="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/UserInterfaceComponent" to="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button/Click SFX" method="Trigger"]

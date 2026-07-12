@@ -1,101 +1,11 @@
 [gd_scene format=3 uid="uid://dtb32g4wow0l6"]
 
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="1_jlu7u"]
-[ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="2_5r064"]
-[ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_30t2d"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_bov4b"]
 [ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="5_cky10"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="5_lnt30"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="6_pfmvp"]
 [ext_resource type="PackedScene" uid="uid://or2pydo3ae62" path="res://scenes/ui/screens/settings_screen.tscn" id="6_sjb6u"]
-
-[sub_resource type="Animation" id="Animation_5r064"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Save"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_30t2d"]
-resource_name = "saved"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Saved!"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_bov4b"]
-resource_name = "unsaved"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Save"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bkis"]
-_data = {
-&"RESET": SubResource("Animation_5r064"),
-&"saved": SubResource("Animation_30t2d"),
-&"unsaved": SubResource("Animation_bov4b")
-}
+[ext_resource type="PackedScene" uid="uid://cqvqx42n3j0kp" path="res://scenes/ui/screens/stats_screen.tscn" id="8_pfmvp"]
 
 [node name="Game Actions Panel" type="MarginContainer" unique_id=827295019]
 anchors_preset = 2
@@ -104,48 +14,27 @@ anchor_bottom = 1.0
 grow_vertical = 0
 mouse_filter = 2
 
-[node name="Game State Functions" type="Node" parent="." unique_id=926912793]
-script = ExtResource("1_jlu7u")
-
-[node name="Game State" type="Node" parent="." unique_id=2048429991]
-script = ExtResource("2_5r064")
-TypeId = "game_state"
-metadata/_custom_type_script = "uid://dsd7tvanlvfu0"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1320422769]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Save Button" type="Button" parent="VBoxContainer" unique_id=220306163]
+[node name="Stats" type="Button" parent="VBoxContainer" unique_id=2131808831]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-text = "Save"
+text = "Stats"
 
-[node name="State" type="AnimationPlayer" parent="VBoxContainer/Save Button" unique_id=204245274]
-libraries/ = SubResource("AnimationLibrary_8bkis")
-
-[node name="Current Animation Binding" type="Node" parent="VBoxContainer/Save Button/State" unique_id=1008231107 node_paths=PackedStringArray("DataContext", "TargetNode")]
-script = ExtResource("3_30t2d")
-DataContext = NodePath("../../../../Game State")
-Query = "{is_save_dirty}"
-ValueMappingEnabled = true
-ValueMappings = {
-false: &"saved",
-true: &"unsaved"
-}
-TargetNode = NodePath("..")
-TargetPropertyName = "current_animation"
-FireOnlyOnNonNullValues = true
-FireOnlyOnValueChange = true
-metadata/_custom_type_script = "uid://wbquqef0rnl5"
-
-[node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Save Button" unique_id=593358921]
+[node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Stats" unique_id=1325322089]
 script = ExtResource("4_bov4b")
 NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
-[node name="Click SFX" type="Node" parent="VBoxContainer/Save Button" unique_id=1634920665]
+[node name="ScreenSpawner" type="Node" parent="VBoxContainer/Stats" unique_id=1242262047]
+script = ExtResource("5_cky10")
+Template = ExtResource("8_pfmvp")
+metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
+
+[node name="Click SFX" type="Node" parent="VBoxContainer/Stats" unique_id=1167939539]
 script = ExtResource("5_lnt30")
 Stream = ExtResource("6_pfmvp")
 Bus = &"SFX"
@@ -182,7 +71,7 @@ UseDeduplication = true
 DeduplicationTimeFrameSec = 0.1
 metadata/_custom_type_script = "uid://wrcbyscb3t11"
 
-[connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="Game State Functions" method="Save"]
-[connection signal="Submitted" from="VBoxContainer/Save Button/UserInterfaceComponent" to="VBoxContainer/Save Button/Click SFX" method="Trigger"]
+[connection signal="Submitted" from="VBoxContainer/Stats/UserInterfaceComponent" to="VBoxContainer/Stats/ScreenSpawner" method="Trigger" flags=3]
+[connection signal="Submitted" from="VBoxContainer/Stats/UserInterfaceComponent" to="VBoxContainer/Stats/Click SFX" method="Trigger"]
 [connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="VBoxContainer/Settings/ScreenSpawner" method="Trigger" flags=3]
 [connection signal="Submitted" from="VBoxContainer/Settings/UserInterfaceComponent" to="VBoxContainer/Settings/Click SFX" method="Trigger"]

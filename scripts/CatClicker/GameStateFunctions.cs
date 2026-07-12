@@ -19,8 +19,18 @@ public partial class GameStateFunctions : Node
         GameStateManager.Instance.Save();
     }
 
+    public void Autosave()
+    {
+        GameStateManager.Instance.Autosave();
+    }
+
     public void Load()
     {
         GameStateManager.Instance.Load();
+    }
+
+    public void Reset()
+    {
+        GameStateManager.Instance.Reset();
     }
 }

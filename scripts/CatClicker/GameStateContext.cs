@@ -47,7 +47,7 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
         {
             case "points":
             {
-                replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points)} pets";
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points)}";
                 return true;
             }
             case "points_per_second":
@@ -56,6 +56,36 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
                     .ComputeTotalProductionRate(out _);
 
                 replacement = rate.ToString();
+                return true;
+            }
+            case "total_points":
+            {
+                var state = GetCurrentState();
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(state.TotalGeneratedPoints + state.TotalClickedPoints)}";
+                return true;
+            }
+            case "total_manual_points":
+            {
+                var state = GetCurrentState();
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(state.TotalClickedPoints)}";
+                return true;
+            }
+            case "bonus_item_clicks":
+            {
+                var state = GetCurrentState();
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(state.BonusItemClicks)}";
+                return true;
+            }
+            case "total_clicks":
+            {
+                var state = GetCurrentState();
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(state.TotalClicks)}";
+                return true;
+            }
+            case "run_start_time_relative":
+            {
+                var state = GetCurrentState();
+                replacement = $"{GameInterfaceManager.Instance.FormatTime(GameStateManager.Instance.Now - state.ProgressionData.RunStartedUnixTimestamp)}";
                 return true;
             }
         }

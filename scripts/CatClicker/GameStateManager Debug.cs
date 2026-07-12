@@ -38,7 +38,7 @@ public partial class GameStateManager
         Instance.Load();
     }
     [DebugCommand("reset")]
-    public static void Reset()
+    public static void DebugReset()
     {
         Instance.LoadState(NewBlankState());
     }

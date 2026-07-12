@@ -7,12 +7,16 @@ namespace CatClicker;
 
 public class GameProgressionData : IJsonSerializable
 {
+    public double RunStartedUnixTimestamp;
+    
     public Dictionary<StringName, int> MaxOwnedGeneratorCounts;
     public HashSet<StringName> ActiveUpgrades;
     public bool EndingReached = false;
 
     public void UpdateFromGameState(GameState state)
     {
+        if (RunStartedUnixTimestamp == 0) RunStartedUnixTimestamp = state.UnixTimestampSec;
+        
         if (state.GeneratorStates != null)
         {
             foreach (var generatorState in state.GeneratorStates)
@@ -59,6 +63,7 @@ public class GameProgressionData : IJsonSerializable
     {
         var json = JsonSerializer.Default;
         var dict = v.AsGodotDictionary();
+        json.Deserialize(dict, nameof(RunStartedUnixTimestamp), ref RunStartedUnixTimestamp);
         json.DeserializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
         json.DeserializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
         json.Deserialize(dict, nameof(EndingReached), ref EndingReached);
@@ -68,6 +73,7 @@ public class GameProgressionData : IJsonSerializable
     {
         var json = JsonSerializer.Default;
         var dict = new Godot.Collections.Dictionary();
+        json.Serialize(dict, nameof(RunStartedUnixTimestamp), ref RunStartedUnixTimestamp);
         json.SerializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
         json.SerializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
         json.Serialize(dict, nameof(EndingReached), ref EndingReached);

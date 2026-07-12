@@ -116,4 +116,10 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         State.ProgressionData.AddUpgrade(upgradeId);
         FinishStateChange();
     }
+    
+    public void Reset()
+    {
+        Instance.LoadState(NewBlankState());
+        FinishStateChange();
+    }
 }

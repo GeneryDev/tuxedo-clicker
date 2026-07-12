@@ -113,6 +113,12 @@ public partial class GameStateManager
         
         // Sanitize progression data (add if missing)
         state.ProgressionData ??= new();
+        
+        // Set run start time (if missing)
+        if (state.ProgressionData.RunStartedUnixTimestamp == 0)
+        {
+            state.ProgressionData.RunStartedUnixTimestamp = state.UnixTimestampSec;
+        }
     }
 
     public static GameState NewBlankState()
