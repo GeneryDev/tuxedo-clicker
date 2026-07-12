@@ -42,4 +42,9 @@ public partial class GameStateManager
     {
         Instance.LoadState(NewBlankState());
     }
+    [DebugCommand("ending")]
+    public static void DebugEnding()
+    {
+        Instance.EmitSignalEndingReached();
+    }
 }

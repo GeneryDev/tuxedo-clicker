@@ -9,6 +9,7 @@ public class GameProgressionData : IJsonSerializable
 {
     public Dictionary<StringName, int> MaxOwnedGeneratorCounts;
     public HashSet<StringName> ActiveUpgrades;
+    public bool EndingReached = false;
 
     public void UpdateFromGameState(GameState state)
     {
@@ -23,6 +24,12 @@ public class GameProgressionData : IJsonSerializable
                     MaxOwnedGeneratorCounts[generatorState.GeneratorId] = Math.Max(existingMax, generatorState.Count);
                 }
             }
+        }
+
+        if (GetMaxOwnedGeneratorCount("generator_10") > 0 && !EndingReached)
+        {
+            EndingReached = true;
+            GameStateManager.Instance.EmitSignal(GameStateManager.SignalName.EndingReached);
         }
     }
 
@@ -54,6 +61,7 @@ public class GameProgressionData : IJsonSerializable
         var dict = v.AsGodotDictionary();
         json.DeserializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
         json.DeserializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
+        json.Deserialize(dict, nameof(EndingReached), ref EndingReached);
     }
 
     public Variant Serialize()
@@ -62,6 +70,7 @@ public class GameProgressionData : IJsonSerializable
         var dict = new Godot.Collections.Dictionary();
         json.SerializeVariants(dict, nameof(MaxOwnedGeneratorCounts), ref MaxOwnedGeneratorCounts);
         json.SerializeVariants(dict, nameof(ActiveUpgrades), ref ActiveUpgrades);
+        json.Serialize(dict, nameof(EndingReached), ref EndingReached);
         return dict;
     }
 }

@@ -11,6 +11,9 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
 {
     [Signal]
     public delegate void UpdatedEventHandler();
+
+    [Signal]
+    public delegate void EndingReachedEventHandler();
     
     public GameState State = new();
 

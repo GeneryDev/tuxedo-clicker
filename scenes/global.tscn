@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://bguagy6f8anx0" path="res://scripts/CatClicker/GameInterfaceManager.cs" id="15_e7lx3"]
 [ext_resource type="Script" uid="uid://bue2dh8nq45gq" path="res://addons/gdf-godot/GDF/Debug/DebugCommandMacro.cs" id="15_korfd"]
 [ext_resource type="Script" uid="uid://b2o084tr0gib5" path="res://scripts/CatClicker/AutoGC.cs" id="17_b18l6"]
+[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="18_wafyw"]
+[ext_resource type="PackedScene" uid="uid://dp80bxijsm11k" path="res://scenes/ui/screens/ending_screen.tscn" id="19_apua7"]
 
 [sub_resource type="Resource" id="Resource_wokaa"]
 resource_name = "mouse_mode [MouseModeProperty]"
@@ -122,8 +124,15 @@ metadata/_custom_type_script = "uid://cqtokr6spdybx"
 [node name="Game State Manager" type="Node" parent="." unique_id=1789383041]
 script = ExtResource("14_7upwp")
 
+[node name="Ending Screen Spawner" type="Node" parent="Game State Manager" unique_id=1095388915]
+script = ExtResource("18_wafyw")
+Template = ExtResource("19_apua7")
+metadata/_custom_type_script = "uid://dm0xm88qpyf7l"
+
 [node name="Game Interface Manager" type="Node" parent="." unique_id=1300401878]
 script = ExtResource("15_e7lx3")
 
 [node name="AutoGC" type="Node" parent="." unique_id=5144805]
 script = ExtResource("17_b18l6")
+
+[connection signal="EndingReached" from="Game State Manager" to="Game State Manager/Ending Screen Spawner" method="Trigger"]
