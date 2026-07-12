@@ -9,5 +9,5 @@ DisplayName = "Frenzy"
 Icon = ExtResource("1_ecvcq")
 IconModulate = Color(0.85882354, 0.6392157, 0.3764706, 1)
 ModifiesProductionRate = true
-ProductionRateMultiplier = 7.0
+ProductionRateMultiplier = 9.0
 metadata/_custom_type_script = "uid://cp7d8gegts48f"

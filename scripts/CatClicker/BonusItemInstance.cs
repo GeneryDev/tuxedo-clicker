@@ -15,13 +15,13 @@ public partial class BonusItemInstance : Node
 
     private void Empty()
     {
-        var duration = 10;
+        var duration = 15;
         if (GameStateManager.Instance.State.ProgressionData.HasUpgrade("box_tier_2"))
         {
             duration *= 2;
         }
         GameStateManager.Instance.GainEffect("frenzy", duration);
         EmitSignalOutcomeStarted("empty");
-        MessageChannel.BroadcastMessage("effect_msg", $"[b]You found an empty cardboard box![/b]\n(x7 production multiplier for {duration}s)");
+        MessageChannel.BroadcastMessage("effect_msg", $"[b]You found an empty cardboard box![/b]\n(x9 production multiplier for {duration}s)");
     }
 }
