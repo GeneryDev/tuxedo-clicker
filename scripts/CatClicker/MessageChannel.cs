@@ -25,7 +25,7 @@ public partial class MessageChannel : Node
         if (SpawnAtMousePosition)
         {
             var window = GetWindow();
-            task.Instance.GlobalPosition = window.GetFinalTransform().AffineInverse() * window.GetMousePosition();
+            task.Instance.GlobalPosition = window.GetMousePosition();
         }
     }
 

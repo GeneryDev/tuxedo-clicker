@@ -8,6 +8,6 @@ public partial class CursorFollower : Control
     {
         var window = GetWindow();
         base._Process(delta);
-        this.Position = window.GetFinalTransform().AffineInverse() * window.GetMousePosition();
+        this.Position = window.GetMousePosition();
     }
 }
