@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="13_n2uvb"]
 [ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="14_koith"]
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="15_2jp2j"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="16_ap184"]
+[ext_resource type="AudioStream" uid="uid://bacshll52yrn5" path="res://assets/audio/sfx/pet.ogg" id="17_tlous"]
+[ext_resource type="AudioStream" uid="uid://cldt2cvlecjq2" path="res://assets/audio/sfx/purr.ogg" id="18_tlous"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ygjdg"]
 size = Vector2(384, -384)
@@ -355,5 +358,38 @@ FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
+[node name="SFX" type="Node" parent="." unique_id=1197816413]
+script = ExtResource("16_ap184")
+Stream = ExtResource("17_tlous")
+VolumeDb = 10.0
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Purring" type="Node" parent="." unique_id=964790263]
+script = ExtResource("16_ap184")
+Stream = ExtResource("18_tlous")
+VolumeDb = -12.0
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 2
+DeduplicationTimeFrameSec = 0.1
+ParameterLooping = true
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Playing Binding" type="Node" parent="Purring" unique_id=1719384660 node_paths=PackedStringArray("DataContext", "TargetNode")]
+script = ExtResource("13_n2uvb")
+DataContext = NodePath("../../Game State")
+Query = "{has_effect:frenzy}"
+TargetNode = NodePath("..")
+TargetPropertyName = "Playing"
+FireOnlyOnNonNullValues = true
+FireOnlyOnValueChange = true
+metadata/_custom_type_script = "uid://wbquqef0rnl5"
+
 [connection signal="Received" from="SignalStation/Clicked" to="State/Play petting" method="Trigger"]
 [connection signal="Received" from="SignalStation/Clicked" to="Animation/Play click" method="Trigger"]
+[connection signal="Received" from="SignalStation/Clicked" to="SFX" method="Trigger"]

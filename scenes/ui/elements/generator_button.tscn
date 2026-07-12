@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="13_vqf3t"]
 [ext_resource type="Script" uid="uid://chs80weqw8m6j" path="res://scripts/CatClicker/TooltipSpawner.cs" id="14_vqf3t"]
 [ext_resource type="PackedScene" uid="uid://cm0byrbiohgji" path="res://scenes/ui/screens/generator_tooltip.tscn" id="15_36bd3"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="16_v7ca1"]
+[ext_resource type="AudioStream" uid="uid://dqtytwq8ndhqc" path="res://assets/audio/sfx/purchase.ogg" id="17_8i0tr"]
+[ext_resource type="AudioStream" uid="uid://bq87b4qjio3o3" path="res://assets/audio/sfx/error.ogg" id="18_8i0tr"]
 
 [sub_resource type="Resource" id="Resource_xic20"]
 script = ExtResource("4_oatpg")
@@ -416,11 +419,11 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/line_separation = -4
 theme_override_fonts/normal_font = ExtResource("10_y5wqn")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
 fit_content = true
 vertical_alignment = 1
 script = ExtResource("4_di5gf")
@@ -552,6 +555,7 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Tooltip Origin" type="Control" parent="." unique_id=1098957039]
 layout_mode = 1
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = -12.0
@@ -589,5 +593,27 @@ FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
+[node name="Purchase SFX" type="Node" parent="." unique_id=22422452]
+script = ExtResource("16_v7ca1")
+Stream = ExtResource("17_8i0tr")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Error SFX" type="Node" parent="." unique_id=348246423]
+script = ExtResource("16_v7ca1")
+Stream = ExtResource("18_8i0tr")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[connection signal="PurchaseFailed" from="Generator Functions" to="Error SFX" method="Trigger"]
+[connection signal="PurchaseSuccess" from="Generator Functions" to="Purchase SFX" method="Trigger"]
 [connection signal="Updated" from="Game Interface" to="Generator State" method="Refresh"]
 [connection signal="Submitted" from="UserInterfaceComponent" to="Generator Functions" method="Purchase" flags=3]

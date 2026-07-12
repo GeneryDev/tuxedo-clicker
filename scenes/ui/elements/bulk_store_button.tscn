@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="3_haecq"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_r2l0p"]
 [ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="4_8ccc7"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="6_yg65m"]
+[ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="7_auktj"]
 
 [sub_resource type="StyleBox" id="StyleBox_yg65m"]
 resource_local_to_scene = false
@@ -146,4 +148,15 @@ NavigableTo = false
 ClickMode = 3
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
+[node name="Click SFX" type="Node" parent="." unique_id=1146144144]
+script = ExtResource("6_yg65m")
+Stream = ExtResource("7_auktj")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
 [connection signal="Submitted" from="UserInterfaceComponent" to="." method="Select" flags=3]
+[connection signal="Submitted" from="UserInterfaceComponent" to="Click SFX" method="Trigger"]

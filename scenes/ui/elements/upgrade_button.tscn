@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="4_kubk0"]
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="5_dbxii"]
 [ext_resource type="Script" uid="uid://817hutlf14fc" path="res://scripts/CatClicker/UpgradeFunctions.cs" id="10_2uj3q"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="11_1r77g"]
+[ext_resource type="AudioStream" uid="uid://dqtytwq8ndhqc" path="res://assets/audio/sfx/purchase.ogg" id="12_ue1qo"]
+[ext_resource type="AudioStream" uid="uid://bq87b4qjio3o3" path="res://assets/audio/sfx/error.ogg" id="13_l7keh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r77g"]
 bg_color = Color(0.40392157, 0.33333334, 0.22352941, 1)
@@ -468,6 +471,7 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Tooltip Origin" type="Control" parent="." unique_id=110035659]
 layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_top = -16.0
@@ -505,4 +509,26 @@ FireOnlyOnNonNullValues = true
 FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
+[node name="Purchase SFX" type="Node" parent="." unique_id=1858927676]
+script = ExtResource("11_1r77g")
+Stream = ExtResource("12_ue1qo")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Error SFX" type="Node" parent="." unique_id=817507689]
+script = ExtResource("11_1r77g")
+Stream = ExtResource("13_l7keh")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[connection signal="PurchaseFailed" from="Upgrade Functions" to="Error SFX" method="Trigger"]
+[connection signal="PurchaseSuccess" from="Upgrade Functions" to="Purchase SFX" method="Trigger"]
 [connection signal="Submitted" from="UserInterfaceComponent" to="Upgrade Functions" method="Purchase" flags=3]

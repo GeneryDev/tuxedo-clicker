@@ -9,7 +9,10 @@
 [ext_resource type="Script" uid="uid://csxjam05y7w8k" path="res://addons/gdf-godot/GDF/UI/ControlStateContext.cs" id="6_u82cf"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="7_11smm"]
 [ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="11_6jsnr"]
+[ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="11_whe46"]
 [ext_resource type="Script" uid="uid://gdx3hxj5wewd" path="res://scripts/CatClicker/BonusItemInstance.cs" id="11_xhp4x"]
+[ext_resource type="AudioStream" uid="uid://bwxbxg5wahomo" path="res://assets/audio/sfx/box_click.ogg" id="12_xhp4x"]
+[ext_resource type="AudioStream" uid="uid://cy0npcq6bo2lc" path="res://assets/audio/sfx/box_empty.ogg" id="13_whe46"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u82cf"]
 
@@ -566,6 +569,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Empty SFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Trigger"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xhp4x"]
 resource_name = "unopened"
@@ -749,5 +766,26 @@ metadata/_custom_type_script = "uid://jcogtucl1u3r"
 [node name="Outcome Animation" type="AnimationPlayer" parent="." unique_id=2144958419]
 libraries/ = SubResource("AnimationLibrary_whe46")
 
+[node name="Click SFX" type="Node" parent="." unique_id=769032796]
+script = ExtResource("11_whe46")
+Stream = ExtResource("12_xhp4x")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
+[node name="Empty SFX" type="Node" parent="." unique_id=2036543722]
+script = ExtResource("11_whe46")
+Stream = ExtResource("13_whe46")
+Bus = &"SFX"
+UseGlobalPool = true
+ReleaseAction = 1
+UseDeduplication = true
+DeduplicationTimeFrameSec = 0.1
+metadata/_custom_type_script = "uid://wrcbyscb3t11"
+
 [connection signal="Submitted" from="Panel/UserInterfaceComponent" to="Lifecycle Animation/Play collect" method="Trigger" flags=7]
 [connection signal="OutcomeStarted" from="Bonus Item Instance" to="Outcome Animation" method="play"]
+[connection signal="Triggered" from="Lifecycle Animation/Play collect" to="Click SFX" method="Trigger"]
