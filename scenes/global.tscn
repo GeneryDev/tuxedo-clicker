@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cqtokr6spdybx" path="res://addons/gdf-godot/GDF/Debug/DebugCommandSystem.cs" id="1_nmxvb"]
 [ext_resource type="Script" uid="uid://cjdn80g66fgj5" path="res://scripts/TuxedoClicker/PointGenerators.cs" id="2_2se67"]
 [ext_resource type="Script" uid="uid://8cgxqfxv5pps" path="res://scripts/TuxedoClicker/Effects.cs" id="2_3q7h5"]
-[ext_resource type="Script" uid="uid://b4ofd058miqfc" path="res://scripts/TuxedoClicker/SinglePlayerRoom.cs" id="2_mmyj5"]
 [ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
 [ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
 [ext_resource type="Script" uid="uid://6n3qkca1aw3h" path="res://addons/gdf-godot/GDF/Networking/GdfRpcSystem.cs" id="3_6rlim"]
@@ -77,10 +76,6 @@ script = ExtResource("2_3q7h5")
 
 [node name="Upgrades" type="Node" parent="Resource Libraries" unique_id=2101824912]
 script = ExtResource("3_dxqtg")
-
-[node name="Room" type="Node" parent="." unique_id=865892212]
-script = ExtResource("2_mmyj5")
-metadata/_custom_type_script = "uid://b4ofd058miqfc"
 
 [node name="GdfInputSystem" type="Node" parent="." unique_id=1585912903]
 script = ExtResource("2_nelfd")
