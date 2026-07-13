@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://8cgxqfxv5pps" path="res://scripts/TuxedoClicker/Effects.cs" id="2_3q7h5"]
 [ext_resource type="Script" uid="uid://crj48tyk0nmvf" path="res://addons/gdf-godot/GDF/Input/GdfInputSystem.cs" id="2_nelfd"]
 [ext_resource type="Script" uid="uid://b4vyis3udrf41" path="res://addons/gdf-godot/GDF/Audio/GlobalAudioPlayerPool.cs" id="2_opebo"]
-[ext_resource type="Script" uid="uid://6n3qkca1aw3h" path="res://addons/gdf-godot/GDF/Networking/GdfRpcSystem.cs" id="3_6rlim"]
 [ext_resource type="Script" uid="uid://dadjbppajq65x" path="res://scripts/TuxedoClicker/Upgrades.cs" id="3_dxqtg"]
 [ext_resource type="Script" uid="uid://5krjgh5qqo37" path="res://addons/gdf-godot/GDF/PropertyStacks/GlobalPropertyStack.cs" id="3_m3l3d"]
 [ext_resource type="Script" uid="uid://dchytqeoyxkj" path="res://addons/gdf-godot/GDF/UI/ScreenStack.cs" id="4_nelfd"]
@@ -80,10 +79,6 @@ script = ExtResource("3_dxqtg")
 [node name="GdfInputSystem" type="Node" parent="." unique_id=1585912903]
 script = ExtResource("2_nelfd")
 metadata/_custom_type_script = "uid://crj48tyk0nmvf"
-
-[node name="GdfRpcSystem" type="Node" parent="." unique_id=518300301]
-script = ExtResource("3_6rlim")
-metadata/_custom_type_script = "uid://6n3qkca1aw3h"
 
 [node name="GlobalPropertyStack" type="Node" parent="." unique_id=41227692]
 script = ExtResource("3_m3l3d")
