@@ -512,6 +512,9 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="UserInterfaceComponent" type="Node" parent="." unique_id=2134190632]
 script = ExtResource("1_fe2ks")
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2022449405]

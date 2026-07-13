@@ -184,8 +184,9 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="UserInterfaceComponent" type="Node" parent="." unique_id=162121593]
 script = ExtResource("4_wn4f4")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="." unique_id=958041176]

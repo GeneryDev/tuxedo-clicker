@@ -221,8 +221,9 @@ flat = true
 
 [node name="UserInterfaceComponent" type="Node" parent="MarginContainer/HBoxContainer/Left Side/MainPanel/Point Button" unique_id=1613411602]
 script = ExtResource("3_ngerl")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Top Info" type="CenterContainer" parent="MarginContainer/HBoxContainer/Left Side/MainPanel" unique_id=1244402739]

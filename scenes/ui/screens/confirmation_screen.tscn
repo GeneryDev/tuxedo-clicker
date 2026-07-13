@@ -198,8 +198,9 @@ color = Color(0.026188627, 0.06006629, 0.08555234, 0.44705883)
 
 [node name="UserInterfaceComponent" type="Node" parent="Background" unique_id=264586579]
 script = ExtResource("3_ab2iv")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Context" type="Node" parent="." unique_id=1791168652]
@@ -378,8 +379,9 @@ text = "Yes
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/FlowContainer/Button" unique_id=542877871]
 script = ExtResource("3_ab2iv")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/FlowContainer/Button" unique_id=1146144144]
@@ -411,8 +413,9 @@ text = "No"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/FlowContainer/Button2" unique_id=707216035]
 script = ExtResource("3_ab2iv")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/FlowContainer/Button2" unique_id=1800433448]

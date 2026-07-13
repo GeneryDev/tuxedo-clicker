@@ -25,8 +25,9 @@ text = "Stats"
 
 [node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Stats" unique_id=1325322089]
 script = ExtResource("4_bov4b")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="ScreenSpawner" type="Node" parent="VBoxContainer/Stats" unique_id=1242262047]
@@ -52,8 +53,9 @@ text = "Settings
 
 [node name="UserInterfaceComponent" type="Node" parent="VBoxContainer/Settings" unique_id=307983704]
 script = ExtResource("4_bov4b")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="ScreenSpawner" type="Node" parent="VBoxContainer/Settings" unique_id=1071434287]

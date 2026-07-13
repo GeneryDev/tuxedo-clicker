@@ -455,8 +455,9 @@ text = "Close"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button" unique_id=542877871]
 script = ExtResource("13_22q4v")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Description Container/CenterContainer/Button" unique_id=1146144144]

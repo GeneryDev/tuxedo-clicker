@@ -646,8 +646,9 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_u82cf")
 
 [node name="UserInterfaceComponent" type="Node" parent="Panel" unique_id=1900808946]
 script = ExtResource("1_njqcl")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Triggered" type="Node" parent="Panel" unique_id=1025008160]

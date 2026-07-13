@@ -277,8 +277,9 @@ metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="UserInterfaceComponent" type="Node" parent="." unique_id=2006407453]
 script = ExtResource("2_hf1tc")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Colored Outline" type="Panel" parent="." unique_id=1300219497]

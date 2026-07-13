@@ -225,8 +225,9 @@ color = Color(0.026188627, 0.06006629, 0.08555234, 0.44705883)
 
 [node name="UserInterfaceComponent" type="Node" parent="Background" unique_id=264586579]
 script = ExtResource("13_y4i55")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Settings Interface" type="Node" parent="." unique_id=1823926289]
@@ -394,8 +395,9 @@ text = "Credits"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=192947776]
 script = ExtResource("13_y4i55")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Game State Functions" type="Node" parent="Popup/MarginContainer/VBoxContainer/Middle Container/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/CenterContainer/Button" unique_id=1108905584]
@@ -439,8 +441,9 @@ text = "Close"
 
 [node name="UserInterfaceComponent" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=542877871]
 script = ExtResource("13_y4i55")
-NavigableTo = false
-ClickMode = 3
+Submittable = true
+Clickable = true
+Tappable = true
 metadata/_custom_type_script = "uid://bfppi36isqkgt"
 
 [node name="Click SFX" type="Node" parent="Popup/MarginContainer/VBoxContainer/Buttons Container/CenterContainer/Button" unique_id=1146144144]
