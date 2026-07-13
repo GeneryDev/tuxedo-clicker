@@ -6,11 +6,84 @@ namespace TuxedoClicker;
 [HasDebugCommands]
 public partial class GameStateManager
 {
-    [DebugCommand("ffw")]
-    public static void FastForward()
+    [DebugCommand("ffw", DebugCommandType.TriggerWithArguments)]
+    public static void FastForward(DebugCommandArgumentParser args)
     {
-        var minutes = 5;
-        Instance.State.UnixTimestampSec -= (double)minutes * 60;
+        int count = 0;
+        double unit = 0;
+        if (args.ReachedEnd())
+        {
+            count = 5;
+            unit = 60;
+        }
+        else if (args.ReadInt(out count))
+        {
+            // ok
+            if (!args.ReachedEnd())
+            {
+                if (args.ReadString(out var rawUnit))
+                {
+                    switch (rawUnit)
+                    {
+                        case "s":
+                        case "sec":
+                        case "secs":
+                        case "second":
+                        case "seconds":
+                            unit = 1;
+                            break;
+                        case "m":
+                        case "min":
+                        case "mins":
+                        case "minute":
+                        case "minutes":
+                            unit = 60;
+                            break;
+                        case "h":
+                        case "hr":
+                        case "hrs":
+                        case "hour":
+                        case "hours":
+                            unit = 60*60;
+                            break;
+                        case "d":
+                        case "day":
+                        case "days":
+                            unit = 60*60*24;
+                            break;
+                        case "mo":
+                        case "mos":
+                        case "month":
+                        case "months":
+                            unit = 60*60*24*30;
+                            break;
+                        case "y":
+                        case "yr":
+                        case "yrs":
+                        case "year":
+                        case "years":
+                            unit = 60*60*24*365;
+                            break;
+                        default:
+                        {
+                            args.PrintCustomError($"Unknown time unit '{rawUnit}'");
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    args.PrintError();
+                }
+            }
+        }
+        else
+        {
+            args.PrintError();
+            return;
+        }
+        MessageChannel.BroadcastMessage("effect_msg", $"Fast-forwarded {GameInterfaceManager.Instance.FormatTime(count * unit)}");
+        Instance.State.UnixTimestampSec -= count * unit;
     }
     [DebugCommand("serialize")]
     public static void Serialize()
