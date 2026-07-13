@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://fc4itk00v1k7"]
 
-[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_ox3jh"]
+[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/TuxedoClicker/PointGenerator.cs" id="1_ox3jh"]
 [ext_resource type="Texture2D" uid="uid://c0d1c3oxl7yic" path="res://assets/textures/ui/generators/catnip_garden.png" id="1_xppxu"]
 
 [resource]

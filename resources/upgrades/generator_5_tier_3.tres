@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://s71v3c1tqbkq"]
 
-[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_omokv"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/TuxedoClicker/Upgrade.cs" id="1_omokv"]
 [ext_resource type="Texture2D" uid="uid://bk2sb3adm71sq" path="res://assets/textures/ui/upgrades/cat_shrine.png" id="1_qveq4"]
 
 [resource]

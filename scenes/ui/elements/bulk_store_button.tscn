@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckxkjnnn77uqi"]
 
-[ext_resource type="Script" uid="uid://dj76ooxml8qi0" path="res://scripts/CatClicker/BulkStoreButton.cs" id="1_oei0o"]
+[ext_resource type="Script" uid="uid://dj76ooxml8qi0" path="res://scripts/TuxedoClicker/BulkStoreButton.cs" id="1_oei0o"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="2_vnslk"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_r2l0p"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="6_yg65m"]

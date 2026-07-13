@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="14_e23u0"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="15_7pb3m"]
 [ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="15_tsnew"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="16_ygn1g"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="16_ygn1g"]
 [ext_resource type="AudioStream" uid="uid://cy0npcq6bo2lc" path="res://assets/audio/sfx/box_empty.ogg" id="17_e23u0"]
 
 [sub_resource type="Resource" id="Resource_afk3w"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="1_o18j8"]
 [ext_resource type="Texture2D" uid="uid://81ce7v3oj7bh" path="res://assets/textures/ui/rough_highlight_1.png" id="1_x6skj"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="2_q7nfd"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/TuxedoClicker/GameStateFunctions.cs" id="2_q7nfd"]
 [ext_resource type="Script" uid="uid://b52iivqa651xf" path="res://addons/gdf-godot/GDF/UI/StyleBoxNPatch.cs" id="2_wn4f4"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="3_x6skj"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_wn4f4"]

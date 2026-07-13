@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="15_hhbji"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="16_1elyw"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="16_a407k"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="17_sromg"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="17_sromg"]
 
 [sub_resource type="Resource" id="Resource_afk3w"]
 script = ExtResource("10_83y1f")

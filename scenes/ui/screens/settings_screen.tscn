@@ -19,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://2ankyqj8kl62" path="res://scenes/ui/elements/setting_fields/checkbox_field.tscn" id="15_aemmg"]
 [ext_resource type="PackedScene" uid="uid://c662ejphyl1jt" path="res://scenes/ui/elements/setting_fields/header_field.tscn" id="15_mqx0v"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="15_wi7im"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="16_rfon1"]
-[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/CatClicker/GameStateFunctions.cs" id="18_y4i55"]
-[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="21_xo1ui"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="16_rfon1"]
+[ext_resource type="Script" uid="uid://gd16jevptggh" path="res://scripts/TuxedoClicker/GameStateFunctions.cs" id="18_y4i55"]
+[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/TuxedoClicker/ScreenSpawner.cs" id="21_xo1ui"]
 [ext_resource type="PackedScene" uid="uid://1qpkbxvwxbie" path="res://scenes/ui/screens/credits_screen.tscn" id="22_cvkjy"]
 
 [sub_resource type="Resource" id="Resource_cvkjy"]

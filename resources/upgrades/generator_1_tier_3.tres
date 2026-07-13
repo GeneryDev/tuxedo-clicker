@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://rj270lry5u1u"]
 
-[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_3eg8a"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/TuxedoClicker/Upgrade.cs" id="1_3eg8a"]
 [ext_resource type="Texture2D" uid="uid://n547fbmafovn" path="res://assets/textures/ui/upgrades/hand.png" id="1_3xcbw"]
 
 [resource]

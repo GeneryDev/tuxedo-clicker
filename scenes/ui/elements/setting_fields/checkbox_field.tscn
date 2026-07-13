@@ -4,7 +4,7 @@
 [ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="2_avv55"]
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_a1tdh"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="5_ctxd3"]
-[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/CatClicker/SettingsFunctions.cs" id="6_pqtav"]
+[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/TuxedoClicker/SettingsFunctions.cs" id="6_pqtav"]
 [ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="7_oqxsc"]
 [ext_resource type="Script" uid="uid://c0yjanqaifkam" path="res://addons/gdf-godot/GDF/Logical/Signals/InboundSignalArgument.cs" id="8_n0yo5"]
 [ext_resource type="Script" uid="uid://0mjmm7eo3o6v" path="res://addons/gdf-godot/GDF/Data/DataQuery.cs" id="8_otok7"]

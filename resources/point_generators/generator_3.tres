@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://c8i1we3msfadg"]
 
-[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_7sm4i"]
+[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/TuxedoClicker/PointGenerator.cs" id="1_7sm4i"]
 [ext_resource type="Texture2D" uid="uid://b10ly1e2k18f4" path="res://assets/textures/ui/generators/animal_shelter.png" id="1_j24kp"]
 
 [resource]

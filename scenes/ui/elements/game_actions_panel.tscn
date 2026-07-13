@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtb32g4wow0l6"]
 
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="4_bov4b"]
-[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/CatClicker/ScreenSpawner.cs" id="5_cky10"]
+[ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/TuxedoClicker/ScreenSpawner.cs" id="5_cky10"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="5_lnt30"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="6_pfmvp"]
 [ext_resource type="PackedScene" uid="uid://or2pydo3ae62" path="res://scenes/ui/screens/settings_screen.tscn" id="6_sjb6u"]

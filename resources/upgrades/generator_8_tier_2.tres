@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dnaoiurtps2cj"]
 
-[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_1jdsd"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/TuxedoClicker/Upgrade.cs" id="1_1jdsd"]
 [ext_resource type="Texture2D" uid="uid://c1bvsqmvw6ayd" path="res://assets/textures/ui/upgrades/vitality_amplifier.png" id="1_vfoh6"]
 
 [resource]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PointGenerator" format=3 uid="uid://bvfuqxdj88fga"]
 
 [ext_resource type="Texture2D" uid="uid://bfqo06bi2qfo6" path="res://assets/textures/ui/generators/basilisk.png" id="1_4dpkb"]
-[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/CatClicker/PointGenerator.cs" id="1_tgerf"]
+[ext_resource type="Script" uid="uid://c1fj71axqb3o1" path="res://scripts/TuxedoClicker/PointGenerator.cs" id="1_tgerf"]
 
 [resource]
 script = ExtResource("1_tgerf")

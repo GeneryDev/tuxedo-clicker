@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_4p62a"]
 [ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="2_wycl6"]
 [ext_resource type="Script" uid="uid://dxkaapm2dks2e" path="res://addons/gdf-godot/GDF/UI/FormattedLabel.cs" id="3_odapn"]
-[ext_resource type="Script" uid="uid://bbopipfu8glwi" path="res://scripts/CatClicker/HSliderExtension.cs" id="5_6tfhj"]
+[ext_resource type="Script" uid="uid://bbopipfu8glwi" path="res://scripts/TuxedoClicker/HSliderExtension.cs" id="5_6tfhj"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="5_ymfqu"]
-[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/CatClicker/SettingsFunctions.cs" id="6_wycl6"]
+[ext_resource type="Script" uid="uid://bxg18iv2btl3g" path="res://scripts/TuxedoClicker/SettingsFunctions.cs" id="6_wycl6"]
 [ext_resource type="Script" uid="uid://buqbj5n61xjbu" path="res://addons/gdf-godot/GDF/Logical/MethodCaller.cs" id="7_1rwqd"]
 [ext_resource type="Script" uid="uid://0mjmm7eo3o6v" path="res://addons/gdf-godot/GDF/Data/DataQuery.cs" id="8_ymfqu"]
 

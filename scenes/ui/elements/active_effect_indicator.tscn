@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://camv01o2qyfxu"]
 
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="1_8gme0"]
-[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="2_u0aan"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/TuxedoClicker/LiveDataContext.cs" id="2_u0aan"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="4_16vrx"]
 [ext_resource type="Script" uid="uid://ol1wwcdce7t2" path="res://addons/gdf-godot/GDF/Logical/Values/ConstantValue.cs" id="7_nke4t"]
 [ext_resource type="Texture2D" uid="uid://dnprh421rkh6d" path="res://assets/textures/ui/unknown.png" id="8_jtryo"]

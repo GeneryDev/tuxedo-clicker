@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://delj1uypchimg"]
 
 [ext_resource type="Texture2D" uid="uid://dp05suevx58x1" path="res://assets/textures/ui/upgrades/pet.png" id="1_mv2fw"]
-[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="2_nk2rv"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/TuxedoClicker/Upgrade.cs" id="2_nk2rv"]
 
 [resource]
 script = ExtResource("2_nk2rv")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_vn61q"]
 [ext_resource type="Script" uid="uid://c671jqyj6hfvr" path="res://addons/gdf-godot/GDF/UI/UserInterface.cs" id="2_0h15t"]
 [ext_resource type="Script" uid="uid://bfppi36isqkgt" path="res://addons/gdf-godot/GDF/UI/UserInterfaceComponent.cs" id="3_np4ph"]
-[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/CatClicker/LiveDataContext.cs" id="4_diy1k"]
+[ext_resource type="Script" uid="uid://cjvvcxxh525te" path="res://scripts/TuxedoClicker/LiveDataContext.cs" id="4_diy1k"]
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="5_002kh"]
 [ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="6_soi47"]
 [ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="7_fr1ki"]
@@ -14,7 +14,7 @@
 [ext_resource type="FontVariation" uid="uid://b7kjqri8ge75r" path="res://assets/fonts/ComicNeue-Bolder.tres" id="12_5hjdn"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="16_j0nko"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="17_g3h0l"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/CatClicker/AnimationTrigger.cs" id="25_0iw8v"]
+[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="25_0iw8v"]
 
 [sub_resource type="Resource" id="Resource_afk3w"]
 script = ExtResource("10_l3whk")
@@ -334,7 +334,7 @@ bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("9_xjg2y")
-TextFormat = "[font=res://assets/fonts/Mali-Bold.ttf][font_size=21]Cat Clicker[/font_size][/font] [img height=28 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
+TextFormat = "[font=res://assets/fonts/Mali-Bold.ttf][font_size=21]Tuxedo Clicker[/font_size][/font] [img height=28 color=574a38]res://assets/textures/ui/upgrades/pet.png[/img]
 
 a silly game made in 5 days
 as a self-imposed challenge

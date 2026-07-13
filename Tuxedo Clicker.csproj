@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.6.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>Tuxedo Clicker</AssemblyName>
+    <PackageId>Tuxedo Clicker</PackageId>
+    <Authors>Genery</Authors>
+    <Company>Genery</Company>
+    <Product>Tuxedo Clicker</Product>
+  </PropertyGroup>
+</Project>

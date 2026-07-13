@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dhv47u58irt0"]
 
-[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/CatClicker/Upgrade.cs" id="1_f0v3t"]
+[ext_resource type="Script" uid="uid://1w0hwfr5cybt" path="res://scripts/TuxedoClicker/Upgrade.cs" id="1_f0v3t"]
 [ext_resource type="Texture2D" uid="uid://dnsxxujtj454n" path="res://assets/textures/ui/upgrades/time_machine.png" id="1_wwh8n"]
 
 [resource]
