@@ -1,6 +1,7 @@
 ﻿using GDF.Data;
 using GDF.Util;
 using Godot;
+using Godot.Collections;
 
 namespace TuxedoClicker;
 
@@ -9,7 +10,8 @@ public partial class LiveDataContext : Node, IDataContext
     [Signal]
     public delegate void UpdatedEventHandler();
 
-    public StringName UpdatedSignalName => TuxedoClicker.LiveDataContext.SignalName.Updated;
+    [Signal]
+    public delegate void ContextSignalReceivedEventHandler(StringName signalName, Array args);
 
     [Export] public Node ParentDataContext;
 
@@ -35,15 +37,25 @@ public partial class LiveDataContext : Node, IDataContext
         EmitSignalUpdated();
     }
 
+    public void ReceiveContextSignal(StringName signalName, Array args)
+    {
+        EmitSignalContextSignalReceived(signalName, args);
+    }
+    
+    public StringName UpdatedSignalName => SignalName.Updated;
+    public StringName ContextSignalReceivedSignalName => SignalName.ContextSignalReceived;
+
     public override void _EnterTree()
     {
         base._EnterTree();
-        ParentContext?.ConnectUpdateSignal(new Callable(this, TuxedoClicker.LiveDataContext.MethodName.Refresh));
+        ParentContext?.ConnectUpdateSignal(new Callable(this, MethodName.Refresh));
+        ParentContext?.ConnectContextSignal(new Callable(this, MethodName.ReceiveContextSignal));
     }
 
     public override void _ExitTree()
     {
         base._ExitTree();
-        ParentContext?.DisconnectUpdateSignal(new Callable(this, TuxedoClicker.LiveDataContext.MethodName.Refresh));
+        ParentContext?.DisconnectUpdateSignal(new Callable(this, MethodName.Refresh));
+        ParentContext?.DisconnectContextSignal(new Callable(this, MethodName.ReceiveContextSignal));
     }
 }
