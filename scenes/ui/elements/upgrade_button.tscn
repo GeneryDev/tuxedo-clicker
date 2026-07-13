@@ -262,6 +262,7 @@ Query = "{id}"
 TargetNode = NodePath("..")
 TargetPropertyName = "params/upgrade_id"
 ThrottleUpdate = false
+FireOnlyOnValueChange = true
 metadata/_custom_type_script = "uid://wbquqef0rnl5"
 
 [node name="Upgrade Functions" type="Node" parent="." unique_id=715121525]
