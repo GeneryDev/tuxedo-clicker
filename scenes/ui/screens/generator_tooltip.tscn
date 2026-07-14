@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bko61fppga1kx" path="res://addons/gdf-godot/GDF/UI/Screen.cs" id="1_loan6"]
 [ext_resource type="Script" uid="uid://k8suh3w0dagg" path="res://addons/gdf-godot/GDF/Data/InjectedDataContext.cs" id="2_224nf"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="2_341ir"]
+[ext_resource type="Script" uid="uid://dukfxpmahaflv" path="res://addons/gdf-godot/GDF/Animations/AnimationTrigger.cs" id="2_341ir"]
 [ext_resource type="StyleBox" uid="uid://dyj356lknjoum" path="res://resources/styleboxes/beige_box_2.tres" id="2_ondbh"]
 [ext_resource type="StyleBox" uid="uid://2dsdfd3ar52" path="res://resources/styleboxes/beige_box_3.tres" id="3_ewr7c"]
 [ext_resource type="Script" uid="uid://dsd7tvanlvfu0" path="res://addons/gdf-godot/GDF/Data/Static/StaticDataContextNode.cs" id="3_m7obl"]
@@ -596,13 +596,13 @@ autoplay = &"fade_in"
 script = ExtResource("2_341ir")
 AnimationName = &"fade_in"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
 script = ExtResource("2_341ir")
 AnimationName = &"fade_out"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="ControlConstraint" type="Control" parent="." unique_id=947616453 node_paths=PackedStringArray("Target")]
 layout_mode = 1

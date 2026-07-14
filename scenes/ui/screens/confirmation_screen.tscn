@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="15_hhbji"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="16_1elyw"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="16_a407k"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="17_sromg"]
+[ext_resource type="Script" uid="uid://dukfxpmahaflv" path="res://addons/gdf-godot/GDF/Animations/AnimationTrigger.cs" id="17_sromg"]
 
 [sub_resource type="Resource" id="Resource_afk3w"]
 script = ExtResource("10_83y1f")
@@ -445,13 +445,13 @@ autoplay = &"fade_in"
 script = ExtResource("17_sromg")
 AnimationName = &"fade_in"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
 script = ExtResource("17_sromg")
 AnimationName = &"fade_out"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
 [connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]

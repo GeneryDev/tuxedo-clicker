@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkw32ts3rtayt" path="res://assets/textures/main_panel/cat_default_0001.png" id="2_srnk6"]
 [ext_resource type="Texture2D" uid="uid://bv2bd3hql8h8o" path="res://assets/textures/main_panel/cat_petting_0000.png" id="4_aeept"]
 [ext_resource type="Texture2D" uid="uid://b7fc56v6bax1n" path="res://assets/textures/main_panel/cat_petting_0001.png" id="5_kg3vg"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="8_jxa73"]
+[ext_resource type="Script" uid="uid://dukfxpmahaflv" path="res://addons/gdf-godot/GDF/Animations/AnimationTrigger.cs" id="8_jxa73"]
 [ext_resource type="Texture2D" uid="uid://t4wmix2tmfvc" path="res://assets/textures/main_panel/cat_in_box_0000.png" id="9_jtm6s"]
 [ext_resource type="Texture2D" uid="uid://dupti533d6c12" path="res://assets/textures/main_panel/cat_in_box_0001.png" id="10_n2uvb"]
 [ext_resource type="Texture2D" uid="uid://blqd7w1ex0coe" path="res://assets/textures/main_panel/cat_in_box_petting_0000.png" id="11_8380y"]
@@ -320,14 +320,14 @@ next/petting = &"default"
 script = ExtResource("8_jxa73")
 AnimationName = &"default"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Play petting" type="Node" parent="State" unique_id=989702312]
 script = ExtResource("8_jxa73")
 AnimationName = &"petting"
 Restart = true
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1132386080]
 libraries/ = SubResource("AnimationLibrary_jtm6s")
@@ -338,7 +338,7 @@ AnimationName = &"click"
 Restart = true
 Deferred = true
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Effect" type="AnimationPlayer" parent="." unique_id=965234608]
 libraries/ = SubResource("AnimationLibrary_cje1e")

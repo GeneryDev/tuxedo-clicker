@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bvjtc8svxbccx" path="res://scenes/ui/screens/confirmation_screen.tscn" id="19_0eh7b"]
 [ext_resource type="Script" uid="uid://k88c5byfcni6" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalStation.cs" id="19_kiey2"]
 [ext_resource type="AudioStream" uid="uid://dxdre0d663p8i" path="res://assets/audio/sfx/click_generic.ogg" id="19_o557f"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="20_0eonu"]
+[ext_resource type="Script" uid="uid://dukfxpmahaflv" path="res://addons/gdf-godot/GDF/Animations/AnimationTrigger.cs" id="20_0eonu"]
 [ext_resource type="Script" uid="uid://c3hkl8pcy8l32" path="res://addons/gdf-godot/GDF/Logical/Signals/SignalPortInbound.cs" id="20_fo5sv"]
 [ext_resource type="Script" uid="uid://b2pa2urnvprft" path="res://addons/gdf-godot/GDF/Logical/Values/ObjectCallable.cs" id="22_xcf61"]
 [ext_resource type="Script" uid="uid://mx32dultovew" path="res://addons/gdf-godot/GDF/Logical/Values/ValueFromNodePath.cs" id="23_0eh7b"]
@@ -523,13 +523,13 @@ autoplay = &"fade_in"
 script = ExtResource("20_0eonu")
 AnimationName = &"fade_in"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Play fade_out" type="Node" parent="AnimationPlayer" unique_id=191739468]
 script = ExtResource("20_0eonu")
 AnimationName = &"fade_out"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [connection signal="ScreenFadingOut" from="." to="AnimationPlayer/Play fade_out" method="Trigger"]
 [connection signal="ScreenShown" from="." to="AnimationPlayer/Play fade_in" method="Trigger"]

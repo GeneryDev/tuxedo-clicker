@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dpuiariuc6caf" path="res://assets/textures/ui/bonus_box_open.png" id="6_ll165"]
 [ext_resource type="Script" uid="uid://csxjam05y7w8k" path="res://addons/gdf-godot/GDF/UI/ControlStateContext.cs" id="6_u82cf"]
 [ext_resource type="Script" uid="uid://wbquqef0rnl5" path="res://addons/gdf-godot/GDF/Data/DataBinding.cs" id="7_11smm"]
-[ext_resource type="Script" uid="uid://jcogtucl1u3r" path="res://scripts/TuxedoClicker/AnimationTrigger.cs" id="11_6jsnr"]
+[ext_resource type="Script" uid="uid://dukfxpmahaflv" path="res://addons/gdf-godot/GDF/Animations/AnimationTrigger.cs" id="11_6jsnr"]
 [ext_resource type="Script" uid="uid://wrcbyscb3t11" path="res://addons/gdf-godot/GDF/Audio/GdfAudioPlayer.cs" id="11_whe46"]
 [ext_resource type="Script" uid="uid://gdx3hxj5wewd" path="res://scripts/TuxedoClicker/BonusItemInstance.cs" id="11_xhp4x"]
 [ext_resource type="AudioStream" uid="uid://bwxbxg5wahomo" path="res://assets/audio/sfx/box_click.ogg" id="12_xhp4x"]
@@ -762,7 +762,7 @@ next/stay = &"fade_out"
 script = ExtResource("11_6jsnr")
 AnimationName = &"collect"
 FromAnimationList = []
-metadata/_custom_type_script = "uid://jcogtucl1u3r"
+metadata/_custom_type_script = "uid://dukfxpmahaflv"
 
 [node name="Outcome Animation" type="AnimationPlayer" parent="." unique_id=2144958419]
 libraries/ = SubResource("AnimationLibrary_whe46")
