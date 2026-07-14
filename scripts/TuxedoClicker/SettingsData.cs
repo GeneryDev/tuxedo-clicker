@@ -1,4 +1,5 @@
 ﻿using GDF.Serialization;
+using GDF.UI;
 using Godot;
 
 namespace TuxedoClicker;
@@ -9,24 +10,21 @@ public class SettingsData : IJsonSerializable
     public float SfxVolume = 1.0f;
     public float MusicVolume = 1.0f;
     public bool AutosaveEnabled = true;
-    
-    public DisplayServer.WindowMode FullscreenMode;
-    public DisplayServer.WindowMode LastUsedFullscreenMode;
-    public DisplayServer.WindowMode LastUsedWindowedMode;
-    public Vector2I Resolution = default;
+
+    public GdfViewportUserSettings ViewportSettings = new();
 
     public void Deserialize(Variant v)
     {
-        var json = JsonSerializer.Default;
+        var json = JsonSerializer.Default with
+        {
+            PropertyOmissionHandlingMode = JsonSerializer.PropertyOmissionHandlingModeEnum.KeepDefault
+        };
         var dict = v.AsGodotDictionary();
         json.Deserialize(dict, nameof(MasterVolume), ref MasterVolume);
         json.Deserialize(dict, nameof(SfxVolume), ref SfxVolume);
         json.Deserialize(dict, nameof(MusicVolume), ref MusicVolume);
         json.Deserialize(dict, nameof(AutosaveEnabled), ref AutosaveEnabled);
-        json.DeserializeEnum(dict, nameof(FullscreenMode), ref FullscreenMode);
-        json.DeserializeEnum(dict, nameof(LastUsedFullscreenMode), ref LastUsedFullscreenMode);
-        json.DeserializeEnum(dict, nameof(LastUsedWindowedMode), ref LastUsedWindowedMode);
-        json.Deserialize(dict, nameof(Resolution), ref Resolution);
+        json.Deserialize(dict, nameof(ViewportSettings), ref ViewportSettings);
     }
 
     public Variant Serialize()
@@ -37,10 +35,7 @@ public class SettingsData : IJsonSerializable
         json.Serialize(dict, nameof(SfxVolume), ref SfxVolume);
         json.Serialize(dict, nameof(MusicVolume), ref MusicVolume);
         json.Serialize(dict, nameof(AutosaveEnabled), ref AutosaveEnabled);
-        json.SerializeEnum(dict, nameof(FullscreenMode), ref FullscreenMode);
-        json.SerializeEnum(dict, nameof(LastUsedFullscreenMode), ref LastUsedFullscreenMode);
-        json.SerializeEnum(dict, nameof(LastUsedWindowedMode), ref LastUsedWindowedMode);
-        json.Serialize(dict, nameof(Resolution), ref Resolution);
+        json.Serialize(dict, nameof(ViewportSettings), ref ViewportSettings);
         return dict;
     }
 }

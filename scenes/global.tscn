@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://b2o084tr0gib5" path="res://scripts/TuxedoClicker/AutoGC.cs" id="17_b18l6"]
 [ext_resource type="Script" uid="uid://dm0xm88qpyf7l" path="res://scripts/TuxedoClicker/ScreenSpawner.cs" id="18_wafyw"]
 [ext_resource type="PackedScene" uid="uid://dp80bxijsm11k" path="res://scenes/ui/screens/ending_screen.tscn" id="19_apua7"]
-[ext_resource type="Script" uid="uid://t51dx7plgwct" path="res://scripts/TuxedoClicker/WindowScaling.cs" id="22_ntttm"]
+[ext_resource type="Script" uid="uid://dumwi1hftoo2" path="res://addons/gdf-godot/GDF/UI/GdfViewportResizer.cs" id="20_wafyw"]
 
 [sub_resource type="Resource" id="Resource_wokaa"]
 resource_name = "mouse_mode [MouseModeProperty]"
@@ -122,10 +122,11 @@ mouse_filter = 2
 script = ExtResource("4_nelfd")
 metadata/_custom_type_script = "uid://dchytqeoyxkj"
 
-[node name="Window Scaling" type="Node" parent="." unique_id=1827009692]
-script = ExtResource("22_ntttm")
+[node name="GdfViewportResizer" type="Node" parent="." unique_id=1041965601]
+script = ExtResource("20_wafyw")
 ScalingStepSize = 0.5
 MinScale = 0.75
+metadata/_custom_type_script = "uid://dumwi1hftoo2"
 
 [node name="AutoGC" type="Node" parent="." unique_id=5144805]
 script = ExtResource("17_b18l6")

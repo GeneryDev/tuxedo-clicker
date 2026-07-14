@@ -1,7 +1,9 @@
+using GDF.Debug;
 using Godot;
 
 namespace TuxedoClicker;
 
+[HasDebugCommands]
 public partial class SettingsManager
 {
     public static readonly string SettingsFilePath = "user://settings.json";
@@ -40,5 +42,11 @@ public partial class SettingsManager
         }
 
         return false;
+    }
+
+    [DebugCommand("settings")]
+    public static void DebugSettings()
+    {
+        GD.Print(Json.Stringify(Instance.Settings.Serialize(), "\t", false, fullPrecision: true));
     }
 }

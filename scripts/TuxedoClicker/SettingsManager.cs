@@ -1,4 +1,5 @@
-﻿using GDF.Util;
+﻿using GDF.UI;
+using GDF.Util;
 using Godot;
 
 namespace TuxedoClicker;
@@ -26,7 +27,19 @@ public partial class SettingsManager : SingletonNode<SettingsManager>
         base._Ready();
         this.Updated += OnUpdated;
         Load();
+        ApplyViewportSettings();
+        GdfViewportResizer.Instance.UserSettingsChanged += OnViewportUserSettingsChanged;
         OnUpdated();
+    }
+
+    private void ApplyViewportSettings()
+    {
+        GdfViewportResizer.Instance.UserSettings = Settings.ViewportSettings;
+    }
+
+    private void OnViewportUserSettingsChanged()
+    {
+        EmitChanged(nameof(SettingsData.ViewportSettings), Settings.ViewportSettings);
     }
 
     private void OnUpdated()
