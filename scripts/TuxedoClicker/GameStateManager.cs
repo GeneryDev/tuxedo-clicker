@@ -4,6 +4,7 @@ using GDF.Data;
 using GDF.Util;
 using Godot;
 using System.Numerics;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace TuxedoClicker;
 
@@ -102,7 +103,6 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
         State.BonusItemClicks++;
         FinishStateChange();
     }
-
     private void FinishStateChange()
     {
         State.ProgressionData.UpdateFromGameState(State);
@@ -121,5 +121,15 @@ public partial class GameStateManager : SingletonNode<GameStateManager>, IDataCo
     {
         Instance.LoadState(NewBlankState());
         FinishStateChange();
+    }
+
+
+    [JSImport("test_import")]
+    public static partial void TestJsImport();
+
+    [JSExport()]
+    public static void TestJsExport()
+    {
+        GD.Print("hi");
     }
 }

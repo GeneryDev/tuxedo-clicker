@@ -365,7 +365,10 @@ Made with
 [img height=100]res://assets/textures/branding/godot_logo.svg[/img]
 
 [b]Using Genery's GDF-Godot framework[/b]
-https://github.com/GeneryDev/gdf-godot"
+https://github.com/GeneryDev/gdf-godot
+
+[b]Special Thanks to NoctemCat and GabCoolDude[/b]
+for authoring the pull request that made this web build possible"
 DataContext = NodePath("../../../../../../../../../Game State")
 metadata/_custom_type_script = "uid://dxkaapm2dks2e"
 

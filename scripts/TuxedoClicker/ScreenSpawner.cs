@@ -13,7 +13,7 @@ public partial class ScreenSpawner : Node
     [Export] public PackedScene Template;
 
     [Export] public Node Context;
-    [Export] public Godot.Collections.Dictionary<StringName, NodePath> DataContextsBySlot = new();
+    [Export] public Godot.Collections.Dictionary DataContextsBySlot = new();
     [Export] public SignalStation ConnectSignalStation;
 
     private readonly List<Screen> _created = new();
@@ -30,7 +30,7 @@ public partial class ScreenSpawner : Node
         {
             foreach (var (slotId, contextNode) in DataContextsBySlot)
             {
-                screen.InjectContext(slotId, this.GetNodeOrNull(contextNode) as IDataContext);
+                screen.InjectContext(slotId.AsStringName(), this.GetNodeOrNull(contextNode.AsNodePath()) as IDataContext);
             }
         }
 
@@ -59,5 +59,16 @@ public partial class ScreenSpawner : Node
             if(IsInstanceValid(screen)) screen.ForceFadeOutScreen();
         }
         _created.Clear();
+    }
+
+    public void TestPrimitives()
+    {
+        GD.Print(new StringName());
+        GD.Print(new NodePath());
+    }
+
+    public void TestDictionary()
+    {
+        GD.Print(new Godot.Collections.Dictionary<StringName, NodePath>());
     }
 }

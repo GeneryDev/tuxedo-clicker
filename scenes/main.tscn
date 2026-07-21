@@ -35,4 +35,4 @@ Bus = &"Music"
 metadata/_custom_type_script = "uid://wrcbyscb3t11"
 
 [connection signal="ready" from="." to="ScreenSpawner/On Ready" method="Trigger"]
-[connection signal="Triggered" from="ScreenSpawner/On Ready" to="ScreenSpawner" method="Trigger"]
+[connection signal="Triggered" from="ScreenSpawner/On Ready" to="ScreenSpawner" method="Trigger" flags=3]

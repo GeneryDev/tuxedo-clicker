@@ -116,7 +116,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
                 }
                 else
                 {
-                    sb.Append(((double)(n * Ten / BigInteger.Pow(10, entry.Magnitude)) / 10).ToString("N1"));
+                    sb.Append(((double)(n * Ten / BigInteger.Pow(10, entry.Magnitude)) / 10).ToString("N3"));
                     sb.Append(' ');
                     sb.Append(entry.Suffix);
                 }

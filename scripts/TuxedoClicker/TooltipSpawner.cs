@@ -21,7 +21,7 @@ public partial class TooltipSpawner : Node
 
     [Export] public Node TooltipContext;
     [Export] public string SubContextQuery;
-    [Export] public Godot.Collections.Dictionary<StringName, NodePath> DataContextsBySlot = new();
+    [Export] public Godot.Collections.Dictionary<StringName, NodePath> DataContextsBySlot;
 
     [Export] public UserInterfaceComponent UIComponent;
     [Export] public Control TooltipOrigin;
