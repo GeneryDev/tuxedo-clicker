@@ -47,7 +47,12 @@ public struct GameStateContext : IDataContext, ICacheableDataContext<GameStateCo
         {
             case "points":
             {
-                replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points)}";
+                int bigDecimalPlaces = 1;
+                if (!string.IsNullOrEmpty(input))
+                {
+                    int.TryParse(input, out bigDecimalPlaces);
+                }
+                replacement = $"{GameInterfaceManager.Instance.FormatNumber(GetCurrentState().Points, bigDecimalPlaces)}";
                 return true;
             }
             case "points_per_second":

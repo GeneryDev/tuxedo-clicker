@@ -29,7 +29,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
 
     private StringBuilder _sb = new();
 
-    public string FormatNumber(BigInteger n)
+    public string FormatNumber(BigInteger n, int bigDecimalPlaces = 1)
     {
         _sb.Clear();
         if (n < 0)
@@ -38,7 +38,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
             n = BigInteger.Abs(n);
         }
 
-        FormatIntegerLog10(n, _sb, ShortScaleNumberSuffixes);
+        FormatIntegerLog10(n, _sb, ShortScaleNumberSuffixes, bigDecimalPlaces);
         return _sb.ToString();
     }
     public string FormatTime(double sec)
@@ -96,7 +96,7 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
     };
 
     private static readonly BigInteger Ten = new BigInteger(10);
-    private static void FormatIntegerLog10(BigInteger n, StringBuilder sb, (int Magnitude, string Suffix)[] suffixes)
+    private static void FormatIntegerLog10(BigInteger n, StringBuilder sb, (int Magnitude, string Suffix)[] suffixes, int bigDecimalPlaces = 1)
     {
         if (n.IsZero)
         {
@@ -116,7 +116,8 @@ public partial class GameInterfaceManager : SingletonNode<GameInterfaceManager>
                 }
                 else
                 {
-                    sb.Append(((double)(n * Ten / BigInteger.Pow(10, entry.Magnitude)) / 10).ToString("N3"));
+                    var precisionMagnitude = (int)Mathf.Pow(10, bigDecimalPlaces);
+                    sb.Append(((double)(n * precisionMagnitude / BigInteger.Pow(10, entry.Magnitude)) / precisionMagnitude).ToString($"N{bigDecimalPlaces}"));
                     sb.Append(' ');
                     sb.Append(entry.Suffix);
                 }
